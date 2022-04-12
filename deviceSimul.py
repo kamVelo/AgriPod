@@ -33,5 +33,24 @@ def sendPostData():
     resp = rq.post(url="http://127.0.0.1:5000/inputData/",data=obj)
     assert resp.text == dataStr
 
+def sendFakeData():
+    """
+    this function verifies the sql storage of the data
+    :return: None
+    """
+    obj = {
+        "uuid" : 1,
+        "n_name" : "fakeNetwork",
+        "n_password" : "I was agent orange that was me",
+        "network_id": 1,
+        "device_id":  1,
+        "moisture" : 12,
+        "humidity" : 0.87,
+        "temperature" : 22.3,
+        "pH" : 8.2
+    }
+    resp = rq.post(url="http://127.0.0.1:5000/inputData/", data=obj)
+    print(resp)
+
 if __name__ == '__main__':
-    sendPostData()
+    sendFakeData()
