@@ -1,0 +1,179 @@
+#include <Ticker.h>
+#include "DHTesp.h"
+#include <WiFi.h>
+#include <WebServer.h>
+#include "DataDisplay.h"
+#include <HTTPClient.h>
+
+DHTesp dht;
+int dhtPin = 17;
+int moistPin = 34;
+bool setup_complete = false;
+TaskHandle_t getDatahandle = NULL;
+void getData(void *pvParameters);
+void triggergetData();
+void sendData();
+void sendWebsite();
+
+//Wireless connection definitions
+#define USE_INTRANET
+//#define USE_WIRELESS
+
+#define LOCAL_SSID ""
+#define LOCAL_PASS ""
+
+IPAddress Actual_IP;
+IPAddress ip;
+
+WebServer server(80);
+
+char XML[2048];
+char buf[32];
+
+
+Ticker collectData;
+
+//--DATA COLLECTION FUNCTIONS--
+
+bool initSensors() {
+  Serial.println("Initializing...");
+  // initialises sensor 
+  dht.setup(dhtPin, DHTesp::DHT11);
+  
+  // this 'task' is attached to CPU core 1
+  // parameters are as follows: function,name,stack size,parameter,prority,handle,cpu core
+  xTaskCreatePinnedToCore(getData,"getData",4000,NULL,5,&getDatahandle,1);
+
+  if (getDatahandle == NULL) { 
+    Serial.println("Task creation failed");
+    return false;
+  } else {
+    Serial.println("Initialization complete");
+    collectData.attach(2,triggergetData);
+  }
+  return true;
+}
+
+void triggergetData() {
+  if (getDatahandle != NULL) {
+    xTaskResumeFromISR(getDatahandle);
+  }
+}
+
+int dry = 2030;
+int wet = 1270;
+
+int moist;
+float temp;
+
+void getData(void *pvParameters) {
+  while (1) {
+    if (setup_complete == true) {
+      temp = dht.getTemperature();
+      moist = analogRead(moistPin);
+      Serial.println(String("Temperature: ") + temp + String(" Moisture: ") + moist);
+    }
+    vTaskSuspend(NULL);
+  }
+}
+
+//--SERVER FUNCTIONS--
+
+//We build an XML in the format:
+// <?xml version = '1.0'?>
+// <Data>
+// <M0>moist</M0>
+// <T0>temp</T0>
+// </Data>\
+
+void sendData() {
+  Serial.println("sending xml...");
+  strcpy(XML, "<?xml version = '1.0'?>\n<Data>\n");
+  
+  sprintf(buf, "<M0>%d</M0>\n", moist);
+  strcat(XML, buf);
+
+  sprintf(buf, "<T0>%d</T0>\n", temp);
+  strcat(XML, buf);
+
+  strcat(XML, "</Data>\n");
+  
+  Serial.println(XML);
+  server.send(200, "text/xml", XML);
+}
+
+// For sending to the server via POST request
+// Send JSON object with the request 
+// Format:
+// 
+void sendPost() {
+  
+}
+
+void sendWebsite() {
+  Serial.println("Sending web page...");
+  server.send(200, "text/html", PAGE_MAIN);
+}
+
+void printWifiStatus() {
+
+  // print the SSID of the network you're attached to:
+  Serial.print("SSID: ");
+  Serial.println(WiFi.SSID());
+
+  // print your WiFi shield's IP address:
+  ip = WiFi.localIP();
+  Serial.print("IP Address: ");
+  Serial.println(ip);
+
+  // print the received signal strength:
+  long rssi = WiFi.RSSI();
+  Serial.print("signal strength (RSSI):");
+  Serial.print(rssi);
+  Serial.println(" dBm");
+  // print where to go in a browser:
+  Serial.print("Open http://");
+  Serial.println(ip);
+}
+
+void setup() {
+  Serial.begin(115200);
+
+  // We disable the watchdog timer to stop the ESP32 from timing out
+  #ifdef USE_WIRELESS
+    diableCore1WDT();
+    Serial.println("Starting Server...")
+    
+    #ifdef USE_INTRANET
+      WiFi.begin(LOCAL_SSID, LOCAL_PASS);
+      while (WiFi.status() != WL_CONNECTED) {
+        delay(500);
+        Serial.print(".");
+      }
+      Serial.print("IP address: "); Serial.println(WiFi.localIP());
+      Actual_IP = WiFi.localIP();
+    #endif
+
+    printWifiStatus();
+    server.on("/", SendWebsite);
+  
+    server.begin();
+  #endif
+  
+  initSensors();
+  setup_complete = true;
+
+}
+
+void loop() {
+  if (!setup_complete) {
+    delay(2000);
+    setup_complete = true;
+     if (getDatahandle != NULL) {
+      xTaskResumeFromISR(getDatahandle);
+    }
+  }
+  #ifdef USE_WIRELESS
+    server.handleClient();
+  #endif
+}
