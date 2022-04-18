@@ -99,17 +99,15 @@ class data(db.Model):
     moisture = db.Column("moisture", db.Integer)
     humidity = db.Column("humidity", db.Float)
     temperature = db.Column("temperature", db.Float)
-    pH = db.Column("pH", db.Float)
 
     # constructor
-    def __init__(self, owner_id:int, network_id:int, device_id:int, moisture:int, humidity:int, temperature:int, pH:int):
+    def __init__(self, owner_id:int, network_id:int, device_id:int, moisture:int, humidity:int, temperature:int):
         self.uuid = owner_id
         self.network_id = network_id
         self.device_id = device_id
         self.moisture = moisture
         self.humidity = humidity
         self.temperature = temperature
-        self.pH = pH
 
 db.create_all()
 
@@ -153,7 +151,6 @@ def inputData():
     data:
     - humidity
     - temperature
-    - pH
     - soil moisture
     :return: output of processing
     """
@@ -173,11 +170,11 @@ def inputData():
         if acq_uuid != int(uuid):  # i.e verification failed
             abort(403)  # forbidden error
         else:
-            successful = saveData(uuid, n_id, device_id,request.form["moisture"], request.form["humidity"], request.form["temperature"], request.form["pH"])
+            successful = saveData(uuid, n_id, device_id,request.form["moisture"], request.form["humidity"], request.form["temperature"])
             if not successful:
                 abort(500)  # internal server error problem with saving data
         return "data accepted"
-def saveData(uuid:str, network_id:str, device_id:str, moisture:str, humidity:str, temperature:str,pH:str) -> bool:
+def saveData(uuid:str, network_id:str, device_id:str, moisture:str, humidity:str, temperature:str) -> bool:
     """
     this function saves the data provided above into the sql data table
     :return: True/False for successful or not
@@ -189,11 +186,10 @@ def saveData(uuid:str, network_id:str, device_id:str, moisture:str, humidity:str
     moisture = int(moisture)
     humidity = float(humidity)
     temperature = float(temperature)
-    pH = float(pH)
 
-    if humidity > 1 or humidity < 0 or pH > 14 or pH < 0:
+    if humidity > 1 or humidity < 0:
         return False
-    datum = data(uuid, network_id, device_id, moisture, humidity,temperature, pH)
+    datum = data(uuid, network_id, device_id, moisture, humidity,temperature)
     db.session.add(datum)
     db.session.commit()
     datas = data.query.all()
@@ -209,5 +205,11 @@ def processData():
 
     # do something
     return "poo" # placeholder value
+@app.route("/getLast/", methods=["POST"])
+def getLatestRecord():
+    uuid = request.form["uuid"]
+    datum = data.query.filter(data.uuid == uuid).all()[-1] # gets latest record
+    print(datum)
+    return str(datum)
 if __name__ == '__main__':
     app.run(port=5000,debug=True)
