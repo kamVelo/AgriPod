@@ -212,7 +212,8 @@ def getLatestRecord():
     resp = {
         "record id" : datum.id,
         "humidity" : datum.humidity,
-        "moisture" : datum.moisture
+        "moisture" : datum.moisture,
+        "temperature" : datum.temperature
     }
     return resp
 if __name__ == '__main__':
