@@ -51,6 +51,13 @@ def sendFakeData():
     }
     resp = rq.post(url="http://127.0.0.1:5000/inputData/", data=obj)
     print(resp)
+def testGetData():
+    obj = {
+        "uuid" : 1
+    }
+    resp = rq.post(url="http://127.0.0.1:5000/getLast/", data=obj)
+    print(resp.content)
 
 if __name__ == '__main__':
     sendFakeData()
+    testGetData()
