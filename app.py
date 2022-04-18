@@ -209,7 +209,11 @@ def processData():
 def getLatestRecord():
     uuid = request.form["uuid"]
     datum = data.query.filter(data.uuid == uuid).all()[-1] # gets latest record
-    print(datum)
-    return str(datum)
+    resp = {
+        "record id" : datum.id,
+        "humidity" : datum.humidity,
+        "moisture" : datum.moisture
+    }
+    return resp
 if __name__ == '__main__':
     app.run(port=5000,debug=True)
