@@ -6,6 +6,7 @@ import json
 import requests as rq
 from string import ascii_letters
 import random
+
 def randomString(l=6):
     """
     this function creates a random string
@@ -51,7 +52,7 @@ def sendFakeData():
     }
     obj = json.dumps(obj)
     print(type(obj))
-    resp = rq.post(url="http://127.0.0.1:5000/inputData/", data=obj)
+    resp = rq.post(url="https://www.agripod.co.uk/inputData/", data=obj)
     print(resp)
 def testGetData():
     obj = {
@@ -60,7 +61,17 @@ def testGetData():
     obj = json.dumps(obj)
     resp = rq.post(url="http://127.0.0.1:5000/getLast/", data=obj)
     print(resp.content)
+def testGetAllData():
+    obj = {
+        "uuid" : 1,
+        "network name" : "fakeNetwork",
+        "network password" : "I was agent orange that was me"
+    }
+    resp = rq.post(url="http://127.0.0.1:5000/getAllData/",data=obj)
+    resp = json.loads(resp.content.decode("utf-8"))
 
+    print(resp)
 if __name__ == '__main__':
-    sendFakeData()
-    testGetData()
+    #sendFakeData()
+    #testGetData()
+    testGetAllData()
