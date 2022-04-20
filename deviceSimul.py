@@ -2,7 +2,7 @@
 Authour: Ali Kamel
 This script simulates an AgriPod base-station communicating with the server.py and tests responses
 """
-
+import json
 import requests as rq
 from string import ascii_letters
 import random
@@ -49,12 +49,15 @@ def sendFakeData():
         "temperature" : 22.3,
         "pH" : 8.2
     }
+    obj = json.dumps(obj)
+    print(type(obj))
     resp = rq.post(url="http://127.0.0.1:5000/inputData/", data=obj)
     print(resp)
 def testGetData():
     obj = {
         "uuid" : 1
     }
+    obj = json.dumps(obj)
     resp = rq.post(url="http://127.0.0.1:5000/getLast/", data=obj)
     print(resp.content)
 
