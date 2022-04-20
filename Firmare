@@ -4,6 +4,7 @@
 #include <WebServer.h>
 #include "DataDisplay.h"
 #include <HTTPClient.h>
+#include <ArduinoJson.h>
 
 DHTesp dht;
 int dhtPin = 17;
@@ -15,20 +16,19 @@ void triggergetData();
 void sendData();
 void sendWebsite();
 
+DynamicJsonDocument doc(2048);
+
+String json1;
+String json2;
+
 //Wireless connection definitions
 #define USE_INTRANET
-//#define USE_WIRELESS
+#define USE_WIRELESS
 
-#define LOCAL_SSID ""
-#define LOCAL_PASS ""
+#define LOCAL_SSID "VM2248161"
+#define LOCAL_PASS "Home4Panda"
 
-IPAddress Actual_IP;
-IPAddress ip;
-
-WebServer server(80);
-
-char XML[2048];
-char buf[32];
+const String serverName = "http://www.Agripod.co.uk";
 
 
 Ticker collectData;
@@ -36,20 +36,20 @@ Ticker collectData;
 //--DATA COLLECTION FUNCTIONS--
 
 bool initSensors() {
-  Serial.println("Initializing...");
-  // initialises sensor 
+  Serial.println("Initializing Sensor collecting task...");
+  // initialises sensor
   dht.setup(dhtPin, DHTesp::DHT11);
-  
+
   // this 'task' is attached to CPU core 1
   // parameters are as follows: function,name,stack size,parameter,prority,handle,cpu core
-  xTaskCreatePinnedToCore(getData,"getData",4000,NULL,5,&getDatahandle,1);
+  xTaskCreatePinnedToCore(getData, "getData", 4000, NULL, 5, &getDatahandle, 1);
 
-  if (getDatahandle == NULL) { 
+  if (getDatahandle == NULL) {
     Serial.println("Task creation failed");
     return false;
   } else {
     Serial.println("Initialization complete");
-    collectData.attach(2,triggergetData);
+    collectData.attach(10, triggergetData);
   }
   return true;
 }
@@ -72,6 +72,13 @@ void getData(void *pvParameters) {
       temp = dht.getTemperature();
       moist = analogRead(moistPin);
       Serial.println(String("Temperature: ") + temp + String(" Moisture: ") + moist);
+      doc["uuid"] = 1;
+      doc["moisture"] = moist;
+      doc["temperature"] = temp;
+      sendPostManual();
+      //delay(2000);
+      //Serial.println(requestData());
+
     }
     vTaskSuspend(NULL);
   }
@@ -79,87 +86,118 @@ void getData(void *pvParameters) {
 
 //--SERVER FUNCTIONS--
 
-//We build an XML in the format:
-// <?xml version = '1.0'?>
-// <Data>
-// <M0>moist</M0>
-// <T0>temp</T0>
-// </Data>\
-
-void sendData() {
-  Serial.println("sending xml...");
-  strcpy(XML, "<?xml version = '1.0'?>\n<Data>\n");
-  
-  sprintf(buf, "<M0>%d</M0>\n", moist);
-  strcat(XML, buf);
-
-  sprintf(buf, "<T0>%d</T0>\n", temp);
-  strcat(XML, buf);
-
-  strcat(XML, "</Data>\n");
-  
-  Serial.println(XML);
-  server.send(200, "text/xml", XML);
-}
-
 // For sending to the server via POST request
-// Send JSON object with the request 
-// Format:
-// 
+// Send JSON object with the request
 void sendPost() {
+  if (WiFi.status() == WL_CONNECTED) {
+    WiFiClient client;
+    HTTPClient http;
+
+    String serverPath = serverName + "/inputData/";
+    Serial.println("Sending to: " + serverPath);
+
+    http.begin(client, serverName);
+    //http.addHeader("Content-Type", "application/json");
+    serializeJson(doc, Serial);
+    serializeJson(doc, json1);
+    int httpResponseCode = http.POST("{}");
+
+    Serial.print("HTTP Response code: ");
+    Serial.println(httpResponseCode);
+
+    http.end();
+  } else {
+    Serial.println("Wifi disconnected, will attempt again");
+    WifiConnect();
+  }
+}
+
+void sendPostManual() {
   
+  HTTPClient http;
+  String serverPath = "http://www.Agripod.co.uk/inputData/";
+  serializeJson(doc, json1);
+  serializeJson(doc, Serial);
+
+  http.begin(serverPath); 
+  //http.addHeader("Content-Type", "Content-Type: application/json"); 
+
+  int httpResponseCode = http.POST(json1); //Send the actual POST request
+
+  if(httpResponseCode>0){
+    String response = http.getString();  //Get the response to the request
+    Serial.println(httpResponseCode);   //Print return code
+    Serial.println(response);           //Print request answer
+  } else {
+    Serial.print("Error on sending POST: ");
+    Serial.println(httpResponseCode);
+
+    http.end();
+
+ }
 }
 
-void sendWebsite() {
-  Serial.println("Sending web page...");
-  server.send(200, "text/html", PAGE_MAIN);
+String requestData() {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    WiFiClient client;
+    String payload = {};
+
+    String serverPath = serverName + "/getLast/";
+    Serial.println("Sending to: " + serverPath);
+    http.begin(client, serverName);
+    //http.addHeader("Content-Type", "application/json");
+
+    StaticJsonDocument<200> req;
+    req["uuid"] = 1;
+    serializeJson(req, json2);
+
+    int httpResponseCode = http.POST(json2);
+    
+    if (httpResponseCode > 0) {
+      Serial.print("HTTP Response code: ");
+      Serial.println(httpResponseCode);
+      payload = http.getString();
+    }
+    else {
+      Serial.print("Error code: ");
+      Serial.println(httpResponseCode);
+    }
+
+    http.end();
+    return payload;
+  }
 }
 
-void printWifiStatus() {
-
-  // print the SSID of the network you're attached to:
-  Serial.print("SSID: ");
-  Serial.println(WiFi.SSID());
-
-  // print your WiFi shield's IP address:
-  ip = WiFi.localIP();
-  Serial.print("IP Address: ");
-  Serial.println(ip);
-
-  // print the received signal strength:
-  long rssi = WiFi.RSSI();
-  Serial.print("signal strength (RSSI):");
-  Serial.print(rssi);
-  Serial.println(" dBm");
-  // print where to go in a browser:
-  Serial.print("Open http://");
-  Serial.println(ip);
+void WifiConnect() {
+  WiFi.begin(LOCAL_SSID, LOCAL_PASS);
+  Serial.println("Connecting to WiFi");
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("IP: ");
+  Serial.print(WiFi.localIP());
 }
+
 
 void setup() {
   Serial.begin(115200);
 
-  // We disable the watchdog timer to stop the ESP32 from timing out
-  #ifdef USE_WIRELESS
-    diableCore1WDT();
-    Serial.println("Starting Server...")
-    
-    #ifdef USE_INTRANET
-      WiFi.begin(LOCAL_SSID, LOCAL_PASS);
-      while (WiFi.status() != WL_CONNECTED) {
-        delay(500);
-        Serial.print(".");
-      }
-      Serial.print("IP address: "); Serial.println(WiFi.localIP());
-      Actual_IP = WiFi.localIP();
-    #endif
+  //JSON template
+  doc["uuid"] = 1;
+  doc["n_name"] = "fakeNetwork";
+  doc["n_password"] = "bussysaka";
+  doc["network_id"] = 1;
+  doc["device_id"] = 1;
+  doc["humidity"] = 0;
+  doc["pH"] = 0;
 
-    printWifiStatus();
-    server.on("/", SendWebsite);
-  
-    server.begin();
-  #endif
-  
+  // We disable the watchdog timer to stop the ESP32 from timing out
+#ifdef USE_WIRELESS
+  WifiConnect();
+#endif
+
   initSensors();
   setup_complete = true;
 
@@ -167,13 +205,11 @@ void setup() {
 
 void loop() {
   if (!setup_complete) {
-    delay(2000);
+    delay(2000); //giving the esp32 some time to settle down
     setup_complete = true;
-     if (getDatahandle != NULL) {
+    if (getDatahandle != NULL) {
       xTaskResumeFromISR(getDatahandle);
     }
   }
-  #ifdef USE_WIRELESS
-    server.handleClient();
-  #endif
+
 }
