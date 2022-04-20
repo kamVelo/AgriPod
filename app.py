@@ -1,6 +1,6 @@
 from flask import Flask, render_template,redirect,request, session, url_for, abort
 from flask_sqlalchemy import SQLAlchemy
-
+import ast
 app = Flask(__name__)
 app.debug = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
@@ -154,14 +154,18 @@ def inputData():
     - soil moisture
     :return: output of processing
     """
-    if "test" in request.form.keys() and request.form["test"] == "True": # for testing
-        return request.form["data"]
+    if len(request.form) > 0:
+        json_obj = request.form
     else:
-        uuid = request.form["uuid"]
-        name = request.form["n_name"]
-        password = request.form["n_password"]
-        device_id = request.form["device_id"]
-        n_id = request.form["network_id"]
+        json_obj = ast.literal_eval(request.data.decode("utf-8"))
+    if "test" in json_obj.keys() and json_obj["test"] == "True": # for testing
+        return json_obj["data"]
+    else:
+        uuid = json_obj["uuid"]
+        name = json_obj["n_name"]
+        password = json_obj["n_password"]
+        device_id = json_obj["device_id"]
+        n_id = json_obj["network_id"]
         # verification of input:
         acq_uuid = networks.query.with_entities(networks.owner_id).filter(networks.network_name == name, networks.network_password == password, networks.id == n_id).all()
         if acq_uuid == None:  # this implies no record was find so the network information provided is false
@@ -170,7 +174,7 @@ def inputData():
         if acq_uuid != int(uuid):  # i.e verification failed
             abort(403)  # forbidden error
         else:
-            successful = saveData(uuid, n_id, device_id,request.form["moisture"], request.form["humidity"], request.form["temperature"])
+            successful = saveData(uuid, n_id, device_id,json_obj["moisture"], json_obj["humidity"], json_obj["temperature"])
             if not successful:
                 abort(500)  # internal server error problem with saving data
         return "data accepted"
@@ -192,10 +196,6 @@ def saveData(uuid:str, network_id:str, device_id:str, moisture:str, humidity:str
     datum = data(uuid, network_id, device_id, moisture, humidity,temperature)
     db.session.add(datum)
     db.session.commit()
-    datas = data.query.all()
-    for datum in datas:
-        print(datum.id)
-        print(datum.humidity)
     return True
 def processData():
     """
@@ -207,7 +207,11 @@ def processData():
     return "poo" # placeholder value
 @app.route("/getLast/", methods=["POST"])
 def getLatestRecord():
-    uuid = request.form["uuid"]
+    if len(request.form) > 0:
+        json_obj = request.form
+    else:
+        json_obj = ast.literal_eval(request.data.decode("utf-8"))
+    uuid = json_obj["uuid"]
     datum = data.query.filter(data.uuid == uuid).all()[-1] # gets latest record
     resp = {
         "record id" : datum.id,
