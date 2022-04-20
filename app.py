@@ -1,12 +1,17 @@
-from flask import Flask, render_template,redirect,request, session, url_for, abort
+from flask import Flask, render_template,redirect,request, session, url_for, abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import ast
+from dataclasses import dataclass
+
+
 app = Flask(__name__)
 app.debug = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SECRET_KEY'] = "asdjfosjdofjoijfo"
 
 db = SQLAlchemy(app)
+
+@dataclass
 class users(db.Model):
     """
     user data table
@@ -36,6 +41,7 @@ class users(db.Model):
         self.network_name = network_name
         self.num_devices = num_devices
 
+@dataclass
 class networks(db.Model):
     """
     networks table
@@ -62,6 +68,7 @@ class networks(db.Model):
         self.network_password = network_password
         self.num_devices = num_devices
 
+@dataclass
 class devices(db.Model):
     """
     devices table
@@ -83,11 +90,19 @@ class devices(db.Model):
     def __init__(self, owner_id:int, network_id:int):
         self.owner_id = owner_id
         self.network_id = network_id
+
+@dataclass
 class data(db.Model):
     """
     data table
     """
-
+    id: int
+    uuid: int
+    network_id: int
+    device_id: int
+    moisture: int
+    humidity: float
+    temperature: float
     # table name
     __tablename__ = "data"
 
@@ -220,5 +235,31 @@ def getLatestRecord():
         "temperature" : datum.temperature
     }
     return resp
+
+@app.route("/getAllData/", methods=["POST"])
+def getAllData():
+    if len(request.form) > 0:
+        json_obj = request.form
+    else:
+        json_obj = ast.literal_eval(request.data.decode("utf-8"))
+    uuid = json_obj["uuid"]
+    acq_network_name = users.query.with_entities(users.network_name).filter(users.id == uuid).first()[0]
+    network_name = json_obj["network name"]
+    network_password = json_obj["network password"]
+    if acq_network_name is not None:
+        if network_name == acq_network_name:
+            acq_network_password = networks.query.with_entities(networks.network_password).filter(network_name == network_name).first()[0]
+            if acq_network_password == network_password:
+
+                downloadable = data.query.filter(data.uuid == uuid).all()
+                return jsonify(downloadable)
+            else:
+                abort(403)
+        else:
+            abort(403)
+
+
+
+
 if __name__ == '__main__':
     app.run(port=5000,debug=True)
