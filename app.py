@@ -138,11 +138,11 @@ def index():
     """
     return "wassup dargie"
 @app.errorhandler(403)
-def forbidden():
+def forbidden(e):
     return "Wrong Network Name/Password/ID", 403
 
 @app.errorhandler(500)
-def badData():
+def badData(e):
     return "data was invalid", 500
 @app.route("/inputData/", methods=["POST"])
 def inputData():
