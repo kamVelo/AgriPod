@@ -259,7 +259,7 @@ def getAllData():
         else:
             abort(403)
 
-@app.route("/smsIn/")
+@app.route("/smsIn/", methods=["GET", "POST"])
 def receiveSMS():
     resp = MessagingResponse()
     resp.message("Wu tang clan aint nuttin to fuck wit")
