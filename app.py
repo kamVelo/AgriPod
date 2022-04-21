@@ -1,5 +1,6 @@
 from flask import Flask, render_template,redirect,request, session, url_for, abort, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from twilio.twiml.messaging_response import MessagingResponse
 import ast
 from dataclasses import dataclass
 
@@ -258,6 +259,12 @@ def getAllData():
         else:
             abort(403)
 
+@app.route("/smsIn/")
+def receiveSMS():
+    resp = MessagingResponse()
+    resp.message("Wu tang clan aint nuttin to fuck wit")
+
+    return str(resp)
 
 
 
