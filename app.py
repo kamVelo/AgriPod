@@ -101,7 +101,7 @@ class data(db.Model):
     uuid: int
     network_id: int
     device_id: int
-    moisture: int
+    moisture: float
     humidity: float
     temperature: float
     # table name
@@ -112,12 +112,12 @@ class data(db.Model):
     uuid = db.Column(db.Integer,db.ForeignKey("users.user_id"))
     network_id = db.Column(db.Integer,db.ForeignKey("networks.network_id"))
     device_id = db.Column(db.Integer,db.ForeignKey("devices.device_id"))
-    moisture = db.Column("moisture", db.Integer)
+    moisture = db.Column("moisture", db.Float)
     humidity = db.Column("humidity", db.Float)
     temperature = db.Column("temperature", db.Float)
 
     # constructor
-    def __init__(self, owner_id:int, network_id:int, device_id:int, moisture:int, humidity:int, temperature:int):
+    def __init__(self, owner_id:int, network_id:int, device_id:int, moisture:float, humidity:int, temperature:int):
         self.uuid = owner_id
         self.network_id = network_id
         self.device_id = device_id
@@ -203,11 +203,11 @@ def saveData(uuid:str, network_id:str, device_id:str, moisture:str, humidity:str
     uuid = int(uuid)
     network_id = int(network_id)
     device_id = int(device_id)
-    moisture = int(moisture)
+    moisture = float(moisture)
     humidity = float(humidity)
     temperature = float(temperature)
 
-    if humidity > 1 or humidity < 0:
+    if humidity > 100 or humidity < 0:
         return False
     datum = data(uuid, network_id, device_id, moisture, humidity,temperature)
     db.session.add(datum)
