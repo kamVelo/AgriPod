@@ -41,4 +41,7 @@ def plotData(df:pd.DataFrame,column:str,scatter=False) -> None:
     plt.show()
 if __name__ == '__main__':
     df = testGetAllData()
-    plotData(df, "moisture", True)
+
+    # all data up till id 9985 has humidity between 0 and 1 (i.e needs to be multiplied by 100)
+    print(df)
+    plotData(df, "temperature", True)
