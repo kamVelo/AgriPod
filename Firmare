@@ -18,8 +18,9 @@ void sendWebsite();
 
 DynamicJsonDocument doc(2048);
 
-String json1;
+
 String json2;
+String json1;
 
 //Wireless connection definitions
 #define USE_INTRANET
@@ -42,14 +43,14 @@ bool initSensors() {
 
   // this 'task' is attached to CPU core 1
   // parameters are as follows: function,name,stack size,parameter,prority,handle,cpu core
-  xTaskCreatePinnedToCore(getData, "getData", 4000, NULL, 5, &getDatahandle, 1);
+  xTaskCreatePinnedToCore(getData, "getData", 8000, NULL, 5, &getDatahandle, 1);
 
   if (getDatahandle == NULL) {
     Serial.println("Task creation failed");
     return false;
   } else {
     Serial.println("Initialization complete");
-    collectData.attach(10, triggergetData);
+    collectData.attach(60, triggergetData);
   }
   return true;
 }
@@ -63,19 +64,88 @@ void triggergetData() {
 int dry = 2030;
 int wet = 1270;
 
-int moist;
+float moist;
 float temp;
+float humidity;
+
+// takes in an array, returns a trimmed average where all values more 
+// than one standard deviation +- the mean are ignored
+
+float filteravg(float dataset[]) {
+  Serial.println("cleaning data");
+  
+  // sizeof() returns a value in bytes so divide by the amount of bytes
+  // in a float
+  //int n = sizeof(dataset);
+  int n = 10;
+  Serial.println(n);
+
+  // have to change to double since c++ is a little wussy baby and
+  // the totals for moisture exceed 32767
+  double x = 0;
+  double x2 = 0;
+  for (int i=0; i < n; i++) {
+    Serial.println(dataset[i]);
+    x += (double)dataset[i];
+    x2 += (double)pow(dataset[i],2);
+  }
+
+  // calculate standard deviation
+  double stdeviation = sqrt(x2/n - pow(x/n,2));
+  Serial.println(String("Standard deviation: ")+ stdeviation);
+  Serial.println(String("Average: ")+(double)x/(double)n);
+  
+  double low = (double)x/(double)n - stdeviation;
+  double high = (double)x/(double)n + stdeviation;
+
+  // remove outliers
+  x = 0;
+  double len = n;
+  for (int i=0; i < len; i++) {
+    if (dataset[i] < low || dataset[i] > high) {
+      n -= 1;
+      Serial.println(String("Removing: ")+dataset[i]);
+      Serial.println(n + String(" Items left"));
+    } else { 
+      x += dataset[i];
+    }
+  }
+
+  Serial.println((String)"Total" + (double)x + (String)"Number" + (double)n);
+  double avg = (double)x/(double)n;
+  Serial.println(String("Trimmed Avg: ") + avg);
+  return (float)avg;
+}
+
 
 void getData(void *pvParameters) {
   while (1) {
     if (setup_complete == true) {
-      temp = dht.getTemperature();
-      moist = analogRead(moistPin);
-      Serial.println(String("Temperature: ") + temp + String(" Moisture: ") + moist);
+
+      // get sensors to read values 10 times over 50 seconds and take an average
+      float localtemp[10] = {};
+      float localmoist[10] = {};
+      float localhumidity[10] = {};
+      for (int i=0; i < 10; i++) {
+        localtemp[i] = dht.getTemperature();
+        localmoist[i] = analogRead(moistPin);
+        localhumidity[i] = dht.getHumidity();
+        Serial.println(String("Collecting data: [") + i + String("/10]"));
+        delay(5000);
+      }
+      
+      temp = filteravg(localtemp);
+      moist = filteravg(localmoist);
+      humidity = filteravg(localhumidity);
+      
+      Serial.println(String("Temperature: ") + temp + String(" Moisture: ") + moist + String(" Humidity: ") + humidity);
+      
       doc["uuid"] = 1;
       doc["moisture"] = moist;
       doc["temperature"] = temp;
-      sendPostManual();
+      doc["humidity"] = humidity;
+      
+      sendPost();
       //delay(2000);
       //Serial.println(requestData());
 
@@ -89,43 +159,23 @@ void getData(void *pvParameters) {
 // For sending to the server via POST request
 // Send JSON object with the request
 void sendPost() {
-  if (WiFi.status() == WL_CONNECTED) {
-    WiFiClient client;
-    HTTPClient http;
+  //String json1 = "{\"uuid\":1,\"n_name\":\"fakeNetwork\",\"n_password\":\"I was agent orange that was me\",\"network_id\":1,\"device_id\":1,\"humidity\"0.9,\"moisture\":420,\"temperature\":23.9}";
 
-    String serverPath = serverName + "/inputData/";
-    Serial.println("Sending to: " + serverPath);
-
-    http.begin(client, serverName);
-    //http.addHeader("Content-Type", "application/json");
-    serializeJson(doc, Serial);
-    serializeJson(doc, json1);
-    int httpResponseCode = http.POST("{}");
-
-    Serial.print("HTTP Response code: ");
-    Serial.println(httpResponseCode);
-
-    http.end();
-  } else {
-    Serial.println("Wifi disconnected, will attempt again");
-    WifiConnect();
-  }
-}
-
-void sendPostManual() {
-  
   HTTPClient http;
-  String serverPath = "http://www.Agripod.co.uk/inputData/";
+  String serverPath = serverName + "/inputData/";
+  Serial.println("Sending to: " + serverPath);
   serializeJson(doc, json1);
-  serializeJson(doc, Serial);
+  Serial.println(json1);
 
   http.begin(serverPath); 
-  //http.addHeader("Content-Type", "Content-Type: application/json"); 
+  http.addHeader("Content-Type", "Content-Type: application/json"); 
 
   int httpResponseCode = http.POST(json1); //Send the actual POST request
-
+  json1 = "";
+  
   if(httpResponseCode>0){
     String response = http.getString();  //Get the response to the request
+    Serial.println("Response code: ");
     Serial.println(httpResponseCode);   //Print return code
     Serial.println(response);           //Print request answer
   } else {
@@ -136,6 +186,8 @@ void sendPostManual() {
 
  }
 }
+
+// redundant function (for now)
 
 String requestData() {
   if (WiFi.status() == WL_CONNECTED) {
@@ -169,6 +221,8 @@ String requestData() {
   }
 }
 
+// Function connects to WiFi
+
 void WifiConnect() {
   WiFi.begin(LOCAL_SSID, LOCAL_PASS);
   Serial.println("Connecting to WiFi");
@@ -176,8 +230,9 @@ void WifiConnect() {
     delay(500);
     Serial.print(".");
   }
-  Serial.println("IP: ");
-  Serial.print(WiFi.localIP());
+  Serial.println();
+  Serial.print("IP: ");
+  Serial.println(WiFi.localIP());
 }
 
 
@@ -187,13 +242,10 @@ void setup() {
   //JSON template
   doc["uuid"] = 1;
   doc["n_name"] = "fakeNetwork";
-  doc["n_password"] = "bussysaka";
+  doc["n_password"] = "I was agent orange that was me";
   doc["network_id"] = 1;
   doc["device_id"] = 1;
-  doc["humidity"] = 0;
-  doc["pH"] = 0;
 
-  // We disable the watchdog timer to stop the ESP32 from timing out
 #ifdef USE_WIRELESS
   WifiConnect();
 #endif
