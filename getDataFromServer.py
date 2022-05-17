@@ -20,7 +20,7 @@ def testGetAllData():
     resp = rq.post(url="https://www.agripod.co.uk/getAllData/", data=obj)
     resp = json.loads(resp.content.decode("utf-8"))
     resp = pd.DataFrame.from_records(resp)
-    print
+
     del resp["device_id"], resp["network_id"], resp["uuid"]
     df = resp.reindex(columns=["id", "humidity", "moisture", "temperature"])
     return df
@@ -44,4 +44,9 @@ if __name__ == '__main__':
 
     # all data up till id 9985 has humidity between 0 and 1 (i.e needs to be multiplied by 100)
     print(df)
+    humidity = list(df["humidity"].values)
+    factor = lambda x: x*100 if x < 1 else x
+    humidity =[factor(h) for h in humidity]
+    df["humidity"] = humidity
+    df.to_csv("data.csv")
     plotData(df, "temperature", True)

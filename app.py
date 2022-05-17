@@ -12,6 +12,7 @@ app.config['SECRET_KEY'] = "asdjfosjdofjoijfo"
 
 db = SQLAlchemy(app)
 
+#TODO: time-index data
 @dataclass
 class users(db.Model):
     """
@@ -152,7 +153,8 @@ def index():
     db.session.add(device)
     db.session.commit()
     """
-    return "wassup dargie"
+
+    return render_template("index.html")
 @app.errorhandler(403)
 def forbidden(e):
     return "Wrong Network Name/Password/ID", 403
