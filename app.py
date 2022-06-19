@@ -222,7 +222,7 @@ def saveData(uuid:str, network_id:str, device_id:str, moisture:str, humidity:str
 
     if humidity > 100 or humidity < 0:
         return False
-    datum = data(uuid, network_id, device_id, moisture, humidity,temperature)
+    datum = data(uuid, network_id, device_id, moisture, humidity,temperature, datetime.now())
     db.session.add(datum)
     db.session.commit()
     return True
