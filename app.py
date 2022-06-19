@@ -289,7 +289,8 @@ def receiveSMS():
     }
     units = {
         "humidity" : "%",
-        "temperature" : " Degrees Celsius"
+        "temperature" : " Degrees Celsius",
+        "moisture" : " Arbitrary Units"
     }
     try:
         var = str(round(content[varReq])) + units[varReq]
