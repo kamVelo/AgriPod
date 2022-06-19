@@ -21,9 +21,10 @@ def testGetAllData():
     resp = json.loads(resp.content.decode("utf-8"))
     resp = pd.DataFrame.from_records(resp)
 
-    del resp["device_id"], resp["network_id"], resp["uuid"]
-    df = resp.reindex(columns=["id", "humidity", "moisture", "temperature"])
-    return df
+    #del resp["device_id"], resp["network_id"], resp["uuid"]
+    #df = resp.reindex(columns=["id", "humidity", "moisture", "temperature"])
+    return resp
+
 
 def plotData(df:pd.DataFrame,column:str,scatter=False) -> None:
     """

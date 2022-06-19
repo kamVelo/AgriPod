@@ -282,7 +282,7 @@ def receiveSMS():
         "temperature": datum.temperature
     }
     humidity = content["humidity"]
-    resp.message(humidity)
+    resp.message(str(humidity))
 
     return str(resp)
 

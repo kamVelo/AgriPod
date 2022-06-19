@@ -16,14 +16,14 @@ value = 0
 
 guessmap = []
 
-for row in heightmap:
-    rowi = heightmap.index(row)
+for r in range(len(heightmap)):
+    row = heightmap[r]
     print (row)
     guesscol = []
-    for col in row:
-        coli = row.index(col)
+    for c in range(len(row)):
+        col = row[c]
         for j in sensor_locations:
-            distance = pow((rowi-j[0])**2+(coli-j[1])**2,1/2)
+            distance = pow((r-j[0])**2+(c-j[1])**2,1/2)
             if distance < 10:
                 total =+ col
                 minnumber = min(distance,minnumber)
@@ -33,14 +33,14 @@ value = 0
 number = 0
 guessmap = []
 
-for row in heightmap:
-    rowi = heightmap.index(row)
+for r in range(len(heightmap)):
+    row = heightmap[r]
     print (row)
     guesscol = []
-    for col in row:
-        coli = row.index(col)
+    for c in range(len(row)):
+        col = row[c]
         for j in sensor_locations:
-            distance = pow((rowi-j[0])**2+(coli-j[1])**2,1/2)
+            distance = pow((r-j[0])**2+(c-j[1])**2,1/2)
             if distance < 10:
                 total =+ col
                 number =+ distance - minnumber
