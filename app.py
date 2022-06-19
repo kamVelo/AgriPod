@@ -274,6 +274,8 @@ def getAllData():
 @app.route("/smsIn/", methods=["GET", "POST"])
 def receiveSMS():
     resp = MessagingResponse()
+    body = request.values.get("Body", None)
+    body = body.lower()
     datum = data.query.filter(data.uuid == 1).all()[-1]  # gets latest record
     content = {
         "record id": datum.id,
@@ -281,8 +283,8 @@ def receiveSMS():
         "moisture": datum.moisture,
         "temperature": datum.temperature
     }
-    humidity = content["humidity"]
-    resp.message(str(humidity))
+    var = str(content[body])
+    resp.message(var)
 
     return str(resp)
 
