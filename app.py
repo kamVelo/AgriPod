@@ -287,7 +287,7 @@ def receiveSMS():
         "moisture": datum.moisture,
         "temperature": datum.temperature
     }
-    var = str(content[varReq])
+    var = str(content[round(varReq,1)])
     resp.message(var)
 
     return str(resp)
