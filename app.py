@@ -276,7 +276,7 @@ def receiveSMS():
     resp = MessagingResponse()
     body = request.values.get("Body", None)
     body = body.lower()
-    varReq = body.split(" ")[0]
+    varReq = body.split(" ")[-1]
     if "?" in varReq:
         varReq = varReq[:-1]
 
