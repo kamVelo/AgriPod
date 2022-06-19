@@ -284,7 +284,7 @@ def receiveSMS():
     content = {
         "record id": datum.id,
         "humidity": datum.humidity,
-        "moisture": datum.moisture/4096,
+        "moisture": (1 - datum.moisture/4096) * 100,
         "temperature": datum.temperature
     }
     units = {
