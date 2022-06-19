@@ -293,7 +293,7 @@ def receiveSMS():
         "moisture" : "%"
     }
     try:
-        var = str(round(content[varReq])) + units[varReq]
+        var = str(round(content[varReq],1)) + units[varReq]
     except KeyError:
         var = "Sorry, I couldn't understand your request, please ask in the format: \"What is the <variable>?\", ensuring the variable name is spelt correctly."
     resp.message(var)

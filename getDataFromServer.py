@@ -21,9 +21,15 @@ def testGetAllData():
     resp = json.loads(resp.content.decode("utf-8"))
     resp = pd.DataFrame.from_records(resp)
 
-    #del resp["device_id"], resp["network_id"], resp["uuid"]
-    #df = resp.reindex(columns=["id", "humidity", "moisture", "temperature"])
-    return resp
+    del resp["device_id"], resp["network_id"], resp["uuid"], resp["time"]
+    df = resp.reindex(columns=["id", "humidity", "moisture", "temperature"])
+    moisture = df["moisture"]
+    newMoisture = []
+    for m in moisture:
+        newMoisture.append(round((1-(m/4096)) * 100))
+
+    df["moisture"] = newMoisture
+    return df
 
 
 def plotData(df:pd.DataFrame,column:str,scatter=False) -> None:
@@ -50,4 +56,4 @@ if __name__ == '__main__':
     humidity =[factor(h) for h in humidity]
     df["humidity"] = humidity
     df.to_csv("data.csv")
-    plotData(df, "temperature", True)
+    plotData(df, "humidity", True)
