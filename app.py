@@ -274,7 +274,8 @@ def getAllData():
 @app.route("/smsIn/", methods=["GET", "POST"])
 def receiveSMS():
     resp = MessagingResponse()
-    resp.message("Wu tang clan aint nuttin to fuck wit")
+    humidity = getLatestRecord()["humidity"]
+    resp.message(humidity)
 
     return str(resp)
 
