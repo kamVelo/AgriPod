@@ -275,13 +275,13 @@ def getAllData():
 def receiveSMS():
     resp = MessagingResponse()
     datum = data.query.filter(data.uuid == 1).all()[-1]  # gets latest record
-    resp = {
+    content = {
         "record id": datum.id,
         "humidity": datum.humidity,
         "moisture": datum.moisture,
         "temperature": datum.temperature
     }
-    humidity = resp["humidity"]
+    humidity = content["humidity"]
     resp.message(humidity)
 
     return str(resp)
