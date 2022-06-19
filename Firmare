@@ -15,6 +15,7 @@ void getData(void *pvParameters);
 void triggergetData();
 void sendData();
 void sendWebsite();
+int samplesize = 5;
 
 DynamicJsonDocument doc(2048);
 
@@ -26,8 +27,8 @@ String json1;
 #define USE_INTRANET
 #define USE_WIRELESS
 
-#define LOCAL_SSID "VM2248161"
-#define LOCAL_PASS "Home4Panda"
+#define LOCAL_SSID "iPhone 13"
+#define LOCAL_PASS "sussybaka"
 
 const String serverName = "http://www.Agripod.co.uk";
 
@@ -77,14 +78,14 @@ float filteravg(float dataset[]) {
   // sizeof() returns a value in bytes so divide by the amount of bytes
   // in a float
   //int n = sizeof(dataset);
-  int n = 10;
-  Serial.println(n);
+  int n = samplesize;
+  Serial.println(samplesize);
 
   // have to change to double since c++ is a little wussy baby and
   // the totals for moisture exceed 32767
   double x = 0;
   double x2 = 0;
-  for (int i=0; i < n; i++) {
+  for (int i=0; i < samplesize; i++) {
     Serial.println(dataset[i]);
     x += (double)dataset[i];
     x2 += (double)pow(dataset[i],2);
@@ -100,19 +101,19 @@ float filteravg(float dataset[]) {
 
   // remove outliers
   x = 0;
-  double len = n;
+  double len = samplesize;
   for (int i=0; i < len; i++) {
     if (dataset[i] < low || dataset[i] > high) {
-      n -= 1;
+      samplesize -= 1;
       Serial.println(String("Removing: ")+dataset[i]);
-      Serial.println(n + String(" Items left"));
+      Serial.println(samplesize + String(" Items left"));
     } else { 
       x += dataset[i];
     }
   }
 
-  Serial.println((String)"Total" + (double)x + (String)"Number" + (double)n);
-  double avg = (double)x/(double)n;
+  Serial.println((String)"Total" + (double)x + (String)"Number" + (double)samplesize);
+  double avg = (double)x/(double)samplesize;
   Serial.println(String("Trimmed Avg: ") + avg);
   return (float)avg;
 }
@@ -123,15 +124,15 @@ void getData(void *pvParameters) {
     if (setup_complete == true) {
 
       // get sensors to read values 10 times over 50 seconds and take an average
-      float localtemp[10] = {};
-      float localmoist[10] = {};
-      float localhumidity[10] = {};
-      for (int i=0; i < 10; i++) {
+      float localtemp[samplesize] = {};
+      float localmoist[samplesize] = {};
+      float localhumidity[samplesize] = {};
+      for (int i=0; i < samplesize; i++) {
         localtemp[i] = dht.getTemperature();
         localmoist[i] = analogRead(moistPin);
         localhumidity[i] = dht.getHumidity();
-        Serial.println(String("Collecting data: [") + i + String("/10]"));
-        delay(5000);
+        Serial.println(String("Collecting data: [") + i + String("/5]"));
+        delay(3000);
       }
       
       temp = filteravg(localtemp);
