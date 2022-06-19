@@ -276,6 +276,7 @@ def receiveSMS():
     resp = MessagingResponse()
     body = request.values.get("Body", None)
     body = body.lower()
+    varReq = body.split(" ")[:-1]
     datum = data.query.filter(data.uuid == 1).all()[-1]  # gets latest record
     content = {
         "record id": datum.id,
