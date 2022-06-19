@@ -3,8 +3,10 @@ from flask_sqlalchemy import SQLAlchemy
 from twilio.twiml.messaging_response import MessagingResponse
 import ast
 from dataclasses import dataclass
-
-
+import os
+import json
+import html
+from datetime import datetime
 app = Flask(__name__)
 app.debug = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
@@ -105,6 +107,7 @@ class data(db.Model):
     moisture: float
     humidity: float
     temperature: float
+    time: datetime
     # table name
     __tablename__ = "data"
 
@@ -116,15 +119,16 @@ class data(db.Model):
     moisture = db.Column("moisture", db.Float)
     humidity = db.Column("humidity", db.Float)
     temperature = db.Column("temperature", db.Float)
-
+    time = db.Column("time", db.DateTime, datetime.now())
     # constructor
-    def __init__(self, owner_id:int, network_id:int, device_id:int, moisture:float, humidity:int, temperature:int):
+    def __init__(self, owner_id:int, network_id:int, device_id:int, moisture:float, humidity:int, temperature:int, time=datetime):
         self.uuid = owner_id
         self.network_id = network_id
         self.device_id = device_id
         self.moisture = moisture
         self.humidity = humidity
         self.temperature = temperature
+        self.time = time
 
 db.create_all()
 
@@ -152,9 +156,16 @@ def index():
     device = devices(1, 1)
     db.session.add(device)
     db.session.commit()
-    """
 
-    return render_template("index.html")
+
+    # database has com
+
+    """
+    imgs = ["/static/img/explodeReverseFrames/0 (%s).jpg" % n for n in range(1,49)]
+    imgs = [html.unescape(img) for img in imgs]
+
+    imgs = json.dumps(imgs)
+    return render_template("index.html", imgs=imgs)
 @app.errorhandler(403)
 def forbidden(e):
     return "Wrong Network Name/Password/ID", 403
@@ -253,7 +264,6 @@ def getAllData():
         if network_name == acq_network_name:
             acq_network_password = networks.query.with_entities(networks.network_password).filter(network_name == network_name).first()[0]
             if acq_network_password == network_password:
-
                 downloadable = data.query.filter(data.uuid == uuid).all()
                 return jsonify(downloadable)
             else:
