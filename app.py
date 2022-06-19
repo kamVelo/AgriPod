@@ -119,7 +119,7 @@ class data(db.Model):
     moisture = db.Column("moisture", db.Float)
     humidity = db.Column("humidity", db.Float)
     temperature = db.Column("temperature", db.Float)
-    time = db.Column("time", db.DateTime, datetime.now())
+    time = db.Column("time", db.DateTime, str(datetime.now()))
     # constructor
     def __init__(self, owner_id:int, network_id:int, device_id:int, moisture:float, humidity:int, temperature:int, time=datetime):
         self.uuid = owner_id
