@@ -274,7 +274,14 @@ def getAllData():
 @app.route("/smsIn/", methods=["GET", "POST"])
 def receiveSMS():
     resp = MessagingResponse()
-    humidity = getLatestRecord()["humidity"]
+    datum = data.query.filter(data.uuid == 1).all()[-1]  # gets latest record
+    resp = {
+        "record id": datum.id,
+        "humidity": datum.humidity,
+        "moisture": datum.moisture,
+        "temperature": datum.temperature
+    }
+    humidity = resp["humidity"]
     resp.message(humidity)
 
     return str(resp)
