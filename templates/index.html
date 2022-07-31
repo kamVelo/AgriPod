@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<!-- TODO: fix header colour change height issue -->
+<!-- TODO: fix omkar picture problem -->
+<!-- TODO: find better colour -->
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>AgriPod</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+  </head>
+  <body>
+    <header class="header">
+      <img class="headerImg" src="{{url_for('static', filename='img/agripodLogoWhite.png')}}" alt="" >
+      <div class="contactBtn floatRight">
+        <p>Contact Us</p>
+      </div>
+    </header>
+    <div class="start panel">
+      <video  autoplay muted loop id="frontvid">
+        <source src="{{url_for('static', filename='vid/frontpage.mp4')}}" type="video/mp4">
+      </video>
+      <h1>Tackling Fertiliser<br>Misapplication</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <div class="awardsProblem panel">
+      <img src="{{url_for('static', filename='img/leftArrow.png')}}" alt="" class="arrow floatLeft" onclick="awardsArrowPress(0)">
+      <img src="{{url_for('static', filename='img/rightArrow.png')}}" alt="" class="arrow floatRight" onclick="awardsArrowPress(1)">
+      <div class="awardsContainer halfPanel">
+        <div class="award">
+          <div class="text floatLeft awardHalf">
+            <div class="innerContainer">
+              <h1 class="title">Runners Up</h1>
+              <p class="desc">Big Bang Senior Engineering Category</p>
+            </div>
+          </div>
+          <div class="logo floatRight awardHalf">
+            <div class="imgContainer">
+              <img src="{{url_for('static', filename='img/bigbang.jpg')}}" alt="">
+            </div>
+          </div>
+        </div>
+
+        <div class="award visible">
+          <div class="text floatLeft awardHalf">
+            <div class="innerContainer">
+              <h1 class="title">First Place</h1>
+              <p class="desc">Siemen's Digital Decarbonisation Award</p>
+            </div>
+          </div>
+          <div class="logo floatRight awardHalf">
+            <div class="imgContainer">
+              <img src="{{url_for('static', filename='img/siemens.jpg')}}" alt="">
+            </div>
+          </div>
+        </div>
+        <div id="teentech" class="award">
+          <div class="text floatLeft awardHalf">
+            <div class="innerContainer">
+              <h1 class="title">Winners</h1>
+              <p class="desc">TeenTech Overall Best Innovation</p>
+            </div>
+          </div>
+          <div class="logo floatRight awardHalf">
+            <div class="imgContainer">
+              <img src="{{url_for('static', filename='img/teentech.webp')}}" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="awardCircleContainer">
+            <div class="awardCircle">
+
+            </div>
+            <div class="awardCircle selectedCircle">
+
+            </div>
+            <div class="awardCircle">
+
+            </div>
+        </div>
+      </div>
+
+
+      <hr style='height:0.5px;width:85%;margin-left:7.5%;background-color:gray;'>
+      <div class="problemContainer halfPanel">
+        <h1 class='title'>The Problem</h1>
+        <p class="desc">Farmers know roughly when to apply fertiliser, but lack the equipment necessary to ascertain the exact conditions in their soil.</p>
+        <div class="figureContainer">
+          <div class="figure">
+            <h1 class="number">150M</h1>
+            <p class="name">Tonnes of Fertiliser<br>Produced Globally</p>
+          </div>
+          <div class="figure">
+            <h1 class="number">75M</h1>
+            <p class="name">Children blown up<br>Thanks to AgriPod</p>
+          </div>
+          <div class="figure">
+            <h1 class="number">$60B</h1>
+            <p class="name">Children blown up<br>Thanks to AgriPod</p>
+          </div>
+          <div class="figure">
+            <h1 class="number">1,205</h1>
+            <p class="name">Children blown up<br>Thanks to AgriPod</p>
+          </div>
+          <div class="figure">
+            <h1 class="number">30%</h1>
+            <p class="name">Children blown up<br>Thanks to AgriPod</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="design panel">
+      <div class="viewport">
+      </div>
+      <div class="text">
+        <h1>Design</h1>
+        <div class="collapsible" onclick="collapse(0);">
+          <h3><span class="letter">A.</span> <span class="title">Enclosure</span></h3>
+          <div class="plusMinus" style="background:url('../static/img/plus.png');background-size:cover;background-position: center;">
+
+          </div>
+        </div>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+        <div class="collapsible" onclick="collapse(1);">
+          <h3><span class="letter">B.</span> <span class="title">Electronics</span></h3>
+          <div class="plusMinus" style="background:url('../static/img/plus.png');background-size:cover;background-position: center;">
+
+          </div>
+        </div>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+        <div class="collapsible" onclick="collapse(2);">
+          <h3><span class="letter">C.</span> <span class="title">Network</span></h3>
+          <div class="plusMinus" style="background:url('../static/img/plus.png');background-size:cover;background-position: center;">
+
+          </div>
+        </div>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+        <div class="collapsible" onclick="collapse(3);">
+          <h3><span class="letter">D.</span> <span class="title">Algorithm</span></h3>
+          <div class="plusMinus" style="background:url('../static/img/plus.png');background-size:cover;background-position: center;">
+
+          </div>
+        </div>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="finance panel">
+      <div class="imgTitle">
+        <h1>Finance</h1>
+        <img src="{{url_for('static', filename='img/indianLady.png')}}" alt="">
+      </div>
+      <div class="figures floatRight">
+        <div class="headline">
+          <h1>£72 | ₹68</h1>
+          <p>Cost per AgriPod / Month</p>
+
+        </div>
+      </div>
+    </div>
+
+
+    </div>
+    </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script type="text/javascript">
+    AOS.init();
+
+    imgHeap = {{imgs|safe}}
+
+    function preloadImages(images) {
+      for (i = 0; i < images.length; i++) {
+        let l = document.createElement('link')
+        l.rel = 'preload'
+        l.as = 'image'
+        l.href = images[i]
+        document.head.appendChild(l)
+      }
+    }
+    window.onload = preloadImages(imgHeap);
+
+
+
+    const header = document.getElementsByTagName('header')[0]
+    const headerImg = document.querySelector('.headerImg')
+    const anim = document.getElementsByClassName("viewport")[0]
+    var currAnimNum = 1;
+    var doc = document.documentElement;
+    var w = window;
+
+    var prevScroll = w.scrollY || doc.scrollTop;
+    var curScroll;
+    var direction = 0;
+    var prevDirection = 0;
+
+    function vh(v) {
+      var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+      return (v * h) / 100;
+    }
+    function vw(v){
+      var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      return (v * w) / 100;
+    }
+
+
+    function animateExplosionByScroll(){
+      scrollFraction = (((window.scrollY - vh(100))-vh(50))/(vh(50)+8))
+      currAnimNum = Math.round(scrollFraction * 48)
+      if(currAnimNum <= 0) currAnimNum = 1;
+      if (currAnimNum > 48) currAnimNum = 48;
+      name = "../static/img/explodeReverseFrames/0 (" + currAnimNum+ ").jpg"
+      anim.setAttribute('style', 'background-image: url("' + name +'");')
+    }
+
+    function getSinFromDegrees(d){
+      rad = d * Math.PI / 180;
+      return Math.sin(rad);
+    }
+    function animateExplosionByTime(){
+      // this should only start after user has scrolled half way down the screen;
+      currAnimNum = 0;
+      const startTime = new Date();
+      prevTimeFraction = 0;
+      var interval = setInterval(function () {
+        var currTime = new Date();
+        timeDiff = currTime - startTime;
+        timeDiff /= 1000;
+        timeFraction = timeDiff / 5;
+        console.log(timeFraction);
+        if(timeFraction > 1) clearInterval(interval);
+        else if(timeFraction < prevTimeFraction) return; // this prevents jumping back and forth
+        else tanFraction = getSinFromDegrees(timeFraction * 90);
+        currAnimNum = Math.round(tanFraction * 48);
+        name = "../static/img/explodeReverseFrames/0 (" + currAnimNum+ ").jpg"
+        anim.setAttribute('style', 'background-image: url("' + name +'");')
+        prevTimeFraction = timeFraction;
+      }, 200);
+    }
+    function halfWay(panelNum){
+      /*
+        This function returns whether user has scrolled abt half way through the current panel or not.
+      */
+      panelBeginning = vh((panelNum - 2) * 100)
+      return (window.scrollY - panelBeginning) / vh(100) > 0.5;
+    }
+
+    var checkScroll = function() {
+      /*
+      if(halfWay(3)){
+        //console.log("halfway");
+        animateExplosionByExplosion();
+      }
+      */
+      animateExplosionByScroll();
+
+      /*
+      ** Find the direction of scroll
+      ** 0 - initial, 1 - up, 2 - down
+      */
+      curScroll = w.scrollY || doc.scrollTop;
+      if (curScroll > prevScroll) {
+        //scrolled up
+        direction = 2;
+
+      }
+      else if (curScroll < prevScroll) {
+        //scrolled down
+
+        direction = 1;
+      }
+
+      if (direction !== prevDirection) {
+        toggleHeader(direction, curScroll);
+      }
+
+
+      prevScroll = curScroll;
+
+
+      // for the header to change color based on background of current panel:
+      //vh(0) - vh(200) white header
+      // vh(200) - vh(300) black header
+      // vh(300) - vh(400) white header
+      //header is white by default
+
+      if(bgColour() == "white"){
+        blackHeader();
+      }else{
+        whiteHeader();
+      }
+    };
+    function bgColour(){
+      if((window.scrollY > vh(95) && window.scrollY < vh(195)) || (window.scrollY > vh(295) && window.scrollY < vh(395))) {
+        return 'white';
+      }else return 'black';
+
+    }
+    function whiteHeader(){
+      logo = document.getElementsByClassName("headerImg")[0];
+      contactBtn = document.getElementsByClassName("contactBtn")[0];
+
+      logo.src = "{{url_for('static', filename='img/AgriPodLogoWhite.png')}}";
+      contactBtn.style.border = "2px solid #D9D9D9";
+      contactBtn.style.color = "#D9D9D9"
+
+    }
+
+    function blackHeader(){
+      logo = document.getElementsByClassName("headerImg")[0];
+      contactBtn = document.getElementsByClassName("contactBtn")[0];
+
+      logo.src = "{{url_for('static', filename='img/AgriPodLogoBlack.png')}}";
+      contactBtn.style.border = "2px solid black";
+      contactBtn.style.color = "black";
+    }
+
+    var toggleHeader = function(direction, curScroll) {
+      if (direction === 2 && curScroll > vh(10)) {
+
+
+
+        header.classList.add('hide');
+        prevDirection = direction;
+      }
+      else if (direction === 1) {
+        header.classList.remove('hide');
+        prevDirection = direction;
+      }
+    };
+    window.addEventListener("scroll", checkScroll);
+
+
+
+
+    awardCounter = 1; // this keeps record of which slide of the awards is being shown, it cannot be higher than 2 or lower than 0
+    function awardsArrowPress(side){
+      // side is an int where 0 is left and 1 is right
+
+      circles = document.getElementsByClassName("awardCircle");
+      awards = document.getElementsByClassName("award");
+
+
+
+      circles[awardCounter].classList.remove("selectedCircle");
+      awards[awardCounter].classList.remove("visible");
+
+      incrementCounter(side);
+
+      awards[awardCounter].classList.add("visible");
+      circles[awardCounter].classList.add("selectedCircle");
+    }
+    function incrementCounter(side){
+      // side is an int where 0 is left and 1 is right
+      if(side == 0) awardCounter--;
+      else awardCounter++;
+      if(awardCounter < 0) awardCounter = 2;
+      else if(awardCounter > 2) awardCounter = 0;
+    }
+
+    function collapse(count){
+      const btns = document.getElementsByClassName("collapsible");
+      const icons = document.getElementsByClassName("plusMinus");
+      const contents = document.getElementsByClassName("content");
+
+      // closing any previously opened collapsibles (there should only be one of these but just in case we use for loop, if there is onyl one theres little loading time increase)
+      for(i = 0; i < btns.length; i++){
+        if(i != count){
+          btn = btns[i];
+          if(btn.classList.contains("active")){ // you can only use .contains() with DOMTokenLists not normal arrays in JS
+            setIcon(false, icons[i]);
+            setContent(false, contents[i]);
+            btn.classList.remove("active")
+          }
+        }
+      }
+
+      // opening/closing the correct collapsible
+      const icon = icons[count];
+      const content = contents[count];
+      btn = btns[count]
+      active = btn.classList.contains("active");
+      if(!active) btn.classList.add("active");
+      else btn.classList.remove("active");
+
+
+      // put !active because if active == True, then we want setIcon/setContent to do the opposite.
+      setIcon(!active, icon);
+      setContent(!active, content);
+    }
+
+
+    function setIcon(onOff, icon){
+      if(!onOff) icon.style.background = "url({{url_for('static', filename='img/plus.png')}})"; // if active currently
+      else icon.style.background = "url({{url_for('static', filename='img/minus.png')}})"; // if passive
+      icon.style.backgroundPosition = "center";
+      icon.style.backgroundSize = "cover";
+    }
+
+    function setContent(onOff, content){
+      if(onOff) content.style.maxHeight = "25vh";
+      else content.style.maxHeight = null;
+    }
+    </script>
+  </body>
+</html>

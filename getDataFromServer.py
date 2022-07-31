@@ -56,4 +56,4 @@ if __name__ == '__main__':
     humidity =[factor(h) for h in humidity]
     df["humidity"] = humidity
     df.to_csv("data.csv")
-    plotData(df, "humidity", True)
+    plotData(df, "temperature", True)

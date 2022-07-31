@@ -161,7 +161,7 @@ def index():
     # database has com
 
     """
-    imgs = ["/static/img/explodeReverseFrames/0 (%s).jpg" % n for n in range(1,49)]
+    imgs = ["/static/img/explodeReverseFrames/0 (%s).jpg" % n for n in range(1,49)] + ["/static/img/minus.png"]
     imgs = [html.unescape(img) for img in imgs]
 
     imgs = json.dumps(imgs)

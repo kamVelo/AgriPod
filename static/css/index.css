@@ -1,0 +1,374 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;500;600&display=swap');
+
+
+/* GENERAL */
+html,body{
+  margin:0;
+  padding:0;
+}
+*{
+  padding:0;
+  margin:0;
+}
+.floatLeft{
+  float:left;
+}
+.floatRight{
+  float:right;
+}
+.noStyleLink{
+  text-decoration:none;
+  color:inherit;
+}
+.boldSpan{
+  font-weight:bold;
+}
+
+.imgContainer{
+  overflow:hidden;
+}
+.panel{
+  height:100vh;
+  width:100%;
+  box-sizing: border-box;
+}
+
+/* HEADER */
+header{
+  top:0px;
+  position:fixed;
+  width:100%;
+  text-align: center;
+  /*background-color:lightgreen;*/
+  background-color:rgba(0,0,0,0.0);
+  height:10vh;
+  z-index:10;
+  transition:all .3s ease;
+}
+header.hide{
+  top:calc(-1 * 10vh - 1px);
+}
+header .headerImg{
+  height:12vh;
+}
+header div{
+  width:15vh;
+  height:4.29vh;
+  border-radius:5vh;
+  border:2px solid #D9D9D9;
+  margin-top:2.86vh;
+  margin-right:2vw;
+  color:#D9D9D9;
+  text-align:center;
+  font-weight:500;
+}
+header div p{
+  font-size:16px;
+  margin-top:calc( (4.29vh - 16px) / 2);
+}
+
+
+/* TOP PANEL  */
+.start{
+  position:relative;
+  overflow:hidden;
+}
+.start #frontvid{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100vw;
+  object-fit:cover;
+}
+.start h1{
+  color:white;
+  font-family:'Crimson Pro';
+  padding-top:5%;
+  padding-left:3%;
+  font-weight:bold;
+  font-size:60px;
+  position:absolute;
+}
+.start p{
+  font-family:'Crimson Pro';
+  color:white;
+  width:40vw;
+  padding-top:5%;
+  padding-left: 3%;
+  font-size: calc(28px - 0.7vw);
+  position:absolute;
+  margin-top:30vh;
+}
+
+
+/* PROBLEM and AWARDS PANEL*/
+
+
+.awardsProblem .halfPanel{
+  box-sizing:border-box;
+}
+.awardsProblem .awardsContainer{
+  height:40vh;
+}
+.awardsProblem .problemContainer{
+  height:60vh;
+}
+.awardsContainer{
+  overflow:hidden;
+  text-align:center;
+}
+.award{
+  box-sizing:border-box;
+  width:90vw;
+  height:35vh;
+  margin-left:5vw;
+  font-family:'Crimson Pro';
+  padding-left:5vw;
+  display:none;
+
+  /*animation fade*/
+  animation-name:fade;
+  animation-duration:0.6s;
+}
+@keyframes fade {
+  from{opacity:0.4}
+  to{opacity:1}
+}
+#teentech{
+  padding-right:5vw;
+  padding-left:0;
+}
+.visible{
+  display:block;
+}
+.award .awardHalf{
+  width:50%;
+  height:100%;
+  box-sizing:border-box;
+
+}
+.award .text .innerContainer{
+  float:right;
+  display:block;
+  box-sizing:border-box;
+  margin-top:5vh;
+}
+.award h1{
+  font-size:80px;
+  font-weight:400;
+  margin-left:1vw;
+}
+.award p{
+  font-size:24px;
+  font-weight:700;
+}
+.award .imgContainer{
+  float:left;
+}
+.award img{
+  margin-top:3.25vh;
+  margin-left:2vw;
+  height:27vh;
+}
+.awardsContainer .awardCircleContainer{
+  margin-top:-4vh;
+  margin-bottom:4vh;
+}
+.awardsContainer .awardCircle{
+  height:2vh;
+  width:2vh;
+  border-radius:1vh;
+  background-color:#D9D9D9;
+  display:inline-block;
+  margin-right:2vw;
+  transition:background-color 0.4s ease;
+}
+.awardsProblem .arrow{
+  height:5vh;
+  display:inline-block;
+  margin-top: 22.5vh;
+}
+.arrow.floatRight{
+  margin-right:2vw;
+}
+.arrow.floatLeft{
+  margin-left:2vw;
+}
+.awardsProblem .arrow:hover{
+  cursor:pointer;
+}
+.awardsContainer .selectedCircle{
+  background-color:black;
+}
+
+.problemContainer{
+  padding-left:7.5vw;
+}
+
+.problemContainer .title{
+  font-size:60px;
+  font-family: 'Crimson Pro';
+  font-weight:bold;
+}
+.problemContainer .desc{
+  font-size:16px;
+  font-family:'Crimson Pro';
+  color:#656565;
+  margin-top:1vh;
+}
+.figureContainer{
+  margin-top:7vh;
+}
+.figure{
+  padding:0vh 5vh;
+  width:17vw;
+  box-sizing:border-box;
+  /*border:1px solid black;*/
+  text-align:center;
+
+  display:inline-block;
+}
+.figure .number{
+  font-family:'Noto Serif Display';
+  font-size: 54px;
+  font-weight:500;
+}
+.figure .name{
+  margin-top:2vh;
+  font-size:18px;
+  font-family: 'Crimson Pro';
+  color:#656565;
+}
+
+
+/* DESIGN PANEL */
+
+.design{
+  height:100vh;
+  width:100%;
+  background-color:black;
+  box-sizing:border-box;
+}
+.design .viewport{
+  height:87vh;
+  width:48.9375vh;
+  background-image: url("../img/explodeReverseFrames/0 (1).jpg");
+  background-size:contain;
+  background-repeat:no-repeat;
+  display:inline-block;
+  margin-top:9vh;
+  margin-left:20vw;
+}
+.design .text{
+  color:white;
+  display:inline-block;
+  float:right;
+  width:calc(78vw - 48.9375vh);
+  height:100vh;
+  padding-left:4.5vw;
+  box-sizing:border-box;
+}
+.design .text h1{
+
+  margin-top:7vh;
+  font-family:'Crimson Pro';
+  font-weight:bold;
+  font-size:60px;
+  margin-bottom:4vh;
+}
+.design .text .collapsible{
+  width: 40vw;
+  height:6vh;
+  padding-bottom:0.5vh;
+  padding-top:1.5vh;
+  border-bottom:1px solid #656565;
+
+}
+.design .text .collapsible:hover{
+  cursor:pointer;
+}
+.design .text .content{
+  padding-top:2vh;
+  width:38vw;
+  padding-left:1vw;
+  max-height:0;
+  transition:max-height 0.4s ease-in;
+  overflow:hidden;
+}
+
+
+.design .text .collapsible h3{
+  font-family:'Crimson Pro';
+  font-weight:300;
+  font-size:28px;
+  width:calc(100% - 35px);
+  display:inline-block;
+}
+.design .text .collapsible h3 .letter{
+  font-weight:700;
+  margin-left:1vw;
+}
+.design .text .collapsible h3 .title{
+  text-decoration: underline;
+}
+.design .text .collapsible .plusMinus{
+  height:25px;
+  width:25px;
+  margin-top:4px;
+  margin-right:10px;
+
+  display:inline-block;
+  float:right;
+  transition:background 0.3s ease;
+}
+
+
+/* FINANCE*/
+
+.finance{
+  width:100%;
+  height:100vh;
+  box-sizing:border-box;
+  border:0px solid black;
+}
+.finance .imgTitle{
+  width:40vw;
+  height:80vh;
+  padding-left:10vw;
+  box-sizing:border-box;
+  display:inline-block;
+}
+.finance .imgTitle img{
+  width:26vw;
+  margin-left:5vw;
+  padding-top:3.2vh;
+}
+.finance .imgTitle h1{
+  margin-left:5vw;
+  padding-top:3.2vh;
+  font-family:'Crimson Pro';
+  font-weight:bold;
+  font-size:84px;
+}
+
+.finance .figures{
+  padding-top:10vh;
+  text-align:center;
+  width:55vw;
+  display:inline-block;
+}
+.finance .figures .headline h1{
+  font-size:72px;
+  font-family:'Noto Serif Display';
+  font-weight:400;
+}
+.finance .figures .headline p{
+  font-weight:28px;
+  font-family:'Crimson Pro';
+  font-weight:600;
+}
