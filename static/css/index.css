@@ -143,9 +143,7 @@ header div p{
   padding-right:5vw;
   padding-left:0;
 }
-.visible{
-  display:block;
-}
+
 .award .awardHalf{
   width:50%;
   height:100%;
@@ -177,7 +175,7 @@ header div p{
 }
 .awardsContainer .awardCircleContainer{
   margin-top:-4vh;
-  margin-bottom:4vh;
+  margin-teamBottom:4vh;
 }
 .awardsContainer .awardCircle{
   height:2vh;
@@ -272,21 +270,22 @@ header div p{
   height:100vh;
   padding-left:4.5vw;
   box-sizing:border-box;
+  overflow:hidden;
 }
 .design .text h1{
 
-  margin-top:7vh;
+  margin-top:4vh;
   font-family:'Crimson Pro';
   font-weight:bold;
   font-size:60px;
-  margin-bottom:4vh;
+  margin-teamBottom:2vh;
 }
 .design .text .collapsible{
   width: 40vw;
   height:6vh;
-  padding-bottom:0.5vh;
+  padding-teamBottom:0.5vh;
   padding-top:1.5vh;
-  border-bottom:1px solid #656565;
+  border-teamBottom:1px solid #656565;
 
 }
 .design .text .collapsible:hover{
@@ -299,6 +298,17 @@ header div p{
   max-height:0;
   transition:max-height 0.4s ease-in;
   overflow:hidden;
+}
+.design .text .content h3{
+  font-size:32px;
+  font-weight:bold;
+  font-family:'Crimson Pro';
+  margin-teamBottom:1vh;
+}
+.design .text .content p{
+  font-size:18px;
+  font-weight:200;
+  font-family:'Crimson Pro';
 }
 
 
@@ -335,35 +345,36 @@ header div p{
   height:100vh;
   box-sizing:border-box;
   border:0px solid black;
+  padding-right:2vw;
 }
 .finance .imgTitle{
   width:40vw;
   height:80vh;
-  padding-left:10vw;
+  padding-left:1.5vw;
   box-sizing:border-box;
   display:inline-block;
 }
 .finance .imgTitle img{
-  width:26vw;
+  width:28vw;
   margin-left:5vw;
-  padding-top:3.2vh;
+  padding-top:2vh;
 }
 .finance .imgTitle h1{
   margin-left:5vw;
-  padding-top:3.2vh;
+  padding-top:1vh;
   font-family:'Crimson Pro';
   font-weight:bold;
-  font-size:84px;
+  font-size:72px;
 }
 
 .finance .figures{
-  padding-top:10vh;
+  padding-top:4.5vh;
   text-align:center;
   width:55vw;
   display:inline-block;
 }
 .finance .figures .headline h1{
-  font-size:72px;
+  font-size:66px;
   font-family:'Noto Serif Display';
   font-weight:400;
 }
@@ -371,4 +382,141 @@ header div p{
   font-weight:28px;
   font-family:'Crimson Pro';
   font-weight:600;
+}
+.finance .figures .grid{
+
+}
+.finance .figures .grid td{
+  padding:3vmax;
+
+}
+.finance .figures .grid .tableFig{
+  font-size:45px;
+  font-family:'Noto Serif Display';
+  font-weight:400;
+}
+.finance .figures .grid .tableLabel{
+  font-size:24px;
+  font-family:'Crimson Pro';
+  font-weight:400;
+}
+
+.finance .disclaimer{
+  float:right;
+
+  margin-right:3vw;
+  font-size:16px;
+  font-family:'Crimson Pro';
+  font-weight:400;
+}
+.finance .disclaimer span{
+  float:right;
+}
+
+.teamBottom{
+  text-align:center;
+  padding-top:5vh;
+  height:95vh;
+}
+
+.teamBottom h1{
+  font-family:'Crimson Pro';
+  font-size:50px;
+  font-weight:bold;
+  margin-teamBottom:2vh;
+}
+.teamBottom .member{
+  display:inline-block;
+  margin:4vmin;
+}
+.teamBottom .member img{
+  width: 20vw;
+}
+.teamBottom .member h3{
+  font-size:26px;
+  font-family:'Crimson Pro';
+  font-weight:700;
+  margin-top:2vh;
+}
+.teamBottom .member .title{
+  font-family:'Crimson Pro';
+  font-size:18px;
+  margin-top:2vh;
+  color:#656565;
+}
+.teamBottom .member .lin{
+  width:24px;
+  height:24px;
+  margin-top:1.5vh;
+}
+
+.quotesFooter{
+  height:70vh;
+  box-sizing:border-box;
+}
+.quotesContainer{
+  height:50%;
+  padding-top:7vh;
+  box-sizing:border-box;
+}
+.quoteContainer{
+  height:100%;
+  width:40vw;
+  margin-left:30vw;
+  box-sizing:border-box;
+  display:none;
+  text-align:center;
+  font-family:'Crimson Pro';
+  animation-name:fade;
+  animation-duration:0.4s;
+}
+.quoteContainer .quote{
+  font-size:28px;
+}
+.quoteContainer .author{
+  font-size:22px;
+  font-weight:bold;
+}
+.visible{
+  display:block;
+}
+.quotesContainer .quoteCircleContainer{
+  width:20vw;
+  margin-left:40vw;
+  text-align:center;
+  height:4vh;
+}
+.quotesContainer .quoteCircleContainer{
+  margin-top:-4vh;
+  /*margin-Bottom:4vh;*/
+}
+.quotesContainer .quoteCircle{
+  height:2vh;
+  width:2vh;
+  border-radius:1vh;
+  background-color:#D9D9D9;
+  display:inline-block;
+  margin-right:2vw;
+  transition:background-color 0.4s ease;
+}
+.quotesFooter .arrow{
+  height:5vh;
+  display:inline-block;
+  margin-top: 12.5vh;
+}
+.arrow.floatRight{
+  margin-right:2vw;
+}
+.arrow.floatLeft{
+  margin-left:2vw;
+}
+.quotesFooter .arrow:hover{
+  cursor:pointer;
+}
+.quotesContainer .selectedCircle{
+  background-color:black;
+}
+.footer{
+  height:50%;
+  background-color:#161616;
 }

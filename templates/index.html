@@ -19,7 +19,7 @@
       </div>
     </header>
     <div class="start panel">
-      <video  autoplay muted loop id="frontvid">
+      <video  autoplay muted  id="frontvid">
         <source src="{{url_for('static', filename='vid/frontpage.mp4')}}" type="video/mp4">
       </video>
       <h1>Tackling Fertiliser<br>Misapplication</h1>
@@ -124,7 +124,13 @@
           </div>
         </div>
         <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          <h3>Waterproof, Weatherproof and Repairable</h3>
+          <p>
+            Made out of sustainable PLA, the plastic enclosure uses a double-screw mechanism to allow easy repair and maintainance.
+            <br>
+            <br>
+            Designed to withstand the range of conditions and temperatures the AgriPod will encounter, the enclosure uses two shells to ensure easy repairability in case of any damage
+          </p>
         </div>
         <div class="collapsible" onclick="collapse(1);">
           <h3><span class="letter">B.</span> <span class="title">Electronics</span></h3>
@@ -133,7 +139,13 @@
           </div>
         </div>
         <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          <h3>Accurate and Reliable</h3>
+          <p>
+            AgriPod uses custom PCBs, designed in house and manufactured by one of the world’s leading PCB manufacturers.
+            <br>
+            <br>
+            The Agripod measures soil humidity, temperature, air humidity which we combine with weather data in our algorithmn.
+          </p>
         </div>
         <div class="collapsible" onclick="collapse(2);">
           <h3><span class="letter">C.</span> <span class="title">Network</span></h3>
@@ -165,14 +177,98 @@
         <div class="headline">
           <h1>£72 | ₹68</h1>
           <p>Cost per AgriPod / Month</p>
-
+        </div>
+        <table class="grid">
+          <tr>
+            <td>
+              <h3 class="tableFig">₹<span class="tableFigNum">0</span>*</h3>
+              <p class="tableLabel">Farmer's profit increase / harvest</p>
+            </td>
+            <td>
+              <h3 class="tableFig"><span class="tableFigNum">0</span> pods</h3>
+              <p class="tableLabel">To cover a medium sized farm in India</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h3 class="tableFig"><span class="tableFigNum">0</span>Kg</h3>
+              <p class="tableLabel">Carbon footprint for 50 pods</p>
+            </td>
+            <td>
+              <h3 class="tableFig"><span class="tableFigNum">0</span>%</h3>
+              <p class="tableLabel">Increase in Farmer's profit</p>
+            </td>
+          </tr>
+        </table>
+        <p class="disclaimer">*Calculated at minimum government<br><span>fallback wheat prices.</span></p>
+      </div>
+    </div>
+    <hr style="background-color:#656565;width:85%;height:1px;margin-left:7.5%;">
+    <div class="teamBottom panel">
+      <div class="team">
+        <h1>Our Team</h1>
+        <div class="membersContainer">
+          <div class="member">
+            <img src="{{url_for('static', filename='img/lucas.jpg')}}" alt="">
+            <h3>Lucas Hoffmann</h3>
+            <p class="title">CEO, Co-Founder</p>
+            <a href="#"> <img src="{{url_for('static', filename='img/linkedin.webp')}}" alt="" class="lin"></a>
+          </div>
+          <div class="member">
+            <img src="{{url_for('static', filename='img/ali.png')}}" alt="">
+            <h3>Ali Kamel</h3>
+            <p class="title">CEO, Co-Founder</p>
+            <a href="#"> <img src="{{url_for('static', filename='img/linkedin.webp')}}" alt="" class="lin"></a>
+          </div>
+          <div class="member">
+            <img src="{{url_for('static', filename='img/lucas.jpg')}}" alt="">
+            <h3>Lucas Hoffmann</h3>
+            <p class="title">CFO, Co-Founder</p>
+            <a href="#"> <img src="{{url_for('static', filename='img/linkedin.webp')}}" alt="" class="lin"></a>
+          </div>
         </div>
       </div>
     </div>
+    <hr style="background-color:#656565;width:85%;height:1px;margin-left:7.5%;">
 
+    <div class="quotesFooter">
+      <img src="{{url_for('static', filename='img/leftArrow.png')}}" alt="" class="arrow floatLeft" onclick="quotesArrowPress(0)">
+      <img src="{{url_for('static', filename='img/rightArrow.png')}}" alt="" class="arrow floatRight" onclick="quotesArrowPress(1)">
+      <div class="quotesContainer">
+        <div class="quoteContainer">
+          <p class="quote">“AgriPod will save me and others a lot of money, and I look forward to seeing it on my farm.”</p>
+          <p class="author">Omkar Singh, Farmer from Uttar Pradesh</p>
+        </div>
 
+        <div class="quoteContainer visible">
+          <p class="quote">“AgriPod will save me and others a lot of money, and I look forward to seeing it on my farm.”</p>
+          <p class="author">Omkar Singh, Farmer from Uttar Pradesh</p>
+        </div>
+
+        <div class="quoteContainer">
+          <p class="quote">“high potential to create a very useful product with excellent value to agriculture”</p>
+          <p class="author">Judge, TeenTech Competition</p>
+        </div>
+
+        <div class="quoteCircleContainer">
+            <div class="quoteCircle">
+
+            </div>
+            <div class="quoteCircle selectedCircle">
+
+            </div>
+            <div class="quoteCircle">
+
+            </div>
+        </div>
+      </div>
+      <div class="footer">
+        <img src="{{url_for('static', filename='img/agripodLogoWhite.png')}}" alt="">
+      </div>
     </div>
     </div>
+
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script type="text/javascript">
     AOS.init();
@@ -254,7 +350,56 @@
       panelBeginning = vh((panelNum - 2) * 100)
       return (window.scrollY - panelBeginning) / vh(100) > 0.5;
     }
+    function sleep(ms){
+      var start = Date.now();
+      let curr = null;
+      do{
+        curr = Date.now();
+      }while(curr - start < ms)
+    }
+    var intervalFinished = false;
+    function tickNums(){
+      var nums = [31047, 12, 39, 12];
+      var el = document.getElementsByClassName("tableFigNum")[0];
+      tickUpElement(31047, el, 1000, 100);
+      while(!intervalFinished){
 
+      }
+      var el1 = document.getElementsByClassName("tableFigNum")[1];
+      tickUpElement(12, el1, 1000, 1);
+    }
+    function tickUpElement(target, element, duration,increment){
+      current = 0;
+      range = target;
+      console.log(target);
+      stepTime = Math.round(duration / range);
+      var innerText = "";
+      var intervalFunction = setInterval(function() {
+        current += increment;
+        if(current.toString().length > 4) innerText = prettifyNum(current.toString());
+        else innerText = current;
+        if(current == target) clearInterval(intervalFunction);
+        if(increment != 1){
+          if(current > target - 100){
+            current = 31000;
+            last47 = setInterval(function(){
+              current++;
+              innerText = prettifyNum(current.toString());
+              element.innerText = innerText;
+              if(current == target) clearInterval(last47);
+            }, 20)
+            clearInterval(intervalFunction);
+          }
+        }
+        element.innerText = innerText;
+      }, stepTime);
+      intervalFinished = true;
+    }
+
+    function prettifyNum(text){
+      return text.substring(0,2) + "," + text.substring(2);
+    }
+    numsUnticked = true;
     var checkScroll = function() {
       /*
       if(halfWay(3)){
@@ -264,6 +409,13 @@
       */
       animateExplosionByScroll();
 
+      /*
+      if(halfWay(4) && numsUnticked){
+        console.log("hello")
+        tickNums();
+        numsUnticked = false;
+      }
+      */
       /*
       ** Find the direction of scroll
       ** 0 - initial, 1 - up, 2 - down
@@ -310,7 +462,7 @@
       logo = document.getElementsByClassName("headerImg")[0];
       contactBtn = document.getElementsByClassName("contactBtn")[0];
 
-      logo.src = "{{url_for('static', filename='img/AgriPodLogoWhite.png')}}";
+      logo.src = "{{url_for('static', filename='img/agripodLogoWhite.png')}}";
       contactBtn.style.border = "2px solid #D9D9D9";
       contactBtn.style.color = "#D9D9D9"
 
@@ -320,7 +472,7 @@
       logo = document.getElementsByClassName("headerImg")[0];
       contactBtn = document.getElementsByClassName("contactBtn")[0];
 
-      logo.src = "{{url_for('static', filename='img/AgriPodLogoBlack.png')}}";
+      logo.src = "{{url_for('static', filename='img/agripodLogoBlack.png')}}";
       contactBtn.style.border = "2px solid black";
       contactBtn.style.color = "black";
     }
@@ -355,18 +507,46 @@
       circles[awardCounter].classList.remove("selectedCircle");
       awards[awardCounter].classList.remove("visible");
 
-      incrementCounter(side);
+      incrementAwardCounter(side);
 
       awards[awardCounter].classList.add("visible");
       circles[awardCounter].classList.add("selectedCircle");
     }
-    function incrementCounter(side){
+    function incrementAwardCounter(side){
       // side is an int where 0 is left and 1 is right
       if(side == 0) awardCounter--;
       else awardCounter++;
       if(awardCounter < 0) awardCounter = 2;
       else if(awardCounter > 2) awardCounter = 0;
     }
+
+    quoteCounter = 1; // this keeps record of which slide of the awards is being shown, it cannot be higher than 2 or lower than 0
+    function quotesArrowPress(side){
+      // side is an int where 0 is left and 1 is right
+
+      circles = document.getElementsByClassName("quoteCircle");
+      quotes = document.getElementsByClassName("quoteContainer");
+
+
+
+      circles[quoteCounter].classList.remove("selectedCircle");
+      quotes[quoteCounter].classList.remove("visible");
+
+      incrementQuoteCounter(side);
+
+      quotes[quoteCounter].classList.add("visible");
+      circles[quoteCounter].classList.add("selectedCircle");
+    }
+    function incrementQuoteCounter(side){
+      // side is an int where 0 is left and 1 is right
+      if(side == 0) quoteCounter--;
+      else quoteCounter++;
+      if(quoteCounter < 0) quoteCounter = 2;
+      else if(quoteCounter > 2) quoteCounter = 0;
+    }
+
+
+
 
     function collapse(count){
       const btns = document.getElementsByClassName("collapsible");
@@ -408,7 +588,7 @@
     }
 
     function setContent(onOff, content){
-      if(onOff) content.style.maxHeight = "25vh";
+      if(onOff) content.style.maxHeight = "66vh";
       else content.style.maxHeight = null;
     }
     </script>
