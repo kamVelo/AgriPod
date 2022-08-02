@@ -68,8 +68,10 @@ header div{
   font-weight:500;
 }
 header div p{
-  font-size:16px;
-  margin-top:calc( (4.29vh - 16px) / 2);
+  font-size:3vh;
+  /*margin-top:calc( 1.2vh / 2);*/
+  margin-top:0.5vh;
+  font-family:'Crimson Pro';
 }
 
 
@@ -91,7 +93,7 @@ header div p{
   padding-top:5%;
   padding-left:3%;
   font-weight:bold;
-  font-size:60px;
+  font-size:10.8vh;
   position:absolute;
 }
 .start p{
@@ -100,7 +102,7 @@ header div p{
   width:40vw;
   padding-top:5%;
   padding-left: 3%;
-  font-size: calc(28px - 0.7vw);
+  font-size: 1.5vw;
   position:absolute;
   margin-top:30vh;
 }
@@ -157,12 +159,12 @@ header div p{
   margin-top:5vh;
 }
 .award h1{
-  font-size:80px;
+  font-size:15vmin;
   font-weight:400;
   margin-left:1vw;
 }
 .award p{
-  font-size:24px;
+  font-size:4.5vmin;
   font-weight:700;
 }
 .award .imgContainer{
@@ -171,11 +173,10 @@ header div p{
 .award img{
   margin-top:3.25vh;
   margin-left:2vw;
-  height:27vh;
+  height:27vmin;
 }
 .awardsContainer .awardCircleContainer{
   margin-top:-4vh;
-  margin-teamBottom:4vh;
 }
 .awardsContainer .awardCircle{
   height:2vh;
@@ -209,38 +210,47 @@ header div p{
 }
 
 .problemContainer .title{
-  font-size:60px;
+  font-size:11.5vh;
   font-family: 'Crimson Pro';
   font-weight:bold;
 }
 .problemContainer .desc{
-  font-size:16px;
+  font-size:3vh;
   font-family:'Crimson Pro';
   color:#656565;
   margin-top:1vh;
+  margin-bottom:5vh;
 }
 .figureContainer{
-  margin-top:7vh;
+  height:60%;
 }
-.figure{
-  padding:0vh 5vh;
-  width:17vw;
+.figureContainer .numbers{
+  width:85vw;
   box-sizing:border-box;
-  /*border:1px solid black;*/
+}
+.numbers h3{
   text-align:center;
-
   display:inline-block;
-}
-.figure .number{
+  width:14vw;
   font-family:'Noto Serif Display';
-  font-size: 54px;
-  font-weight:500;
+  font-size: 10vh;
+  padding:0vh 1vw;
 }
-.figure .name{
+
+.figureContainer .caption{
   margin-top:2vh;
-  font-size:18px;
-  font-family: 'Crimson Pro';
+  height:15vh;
+  width:16vw;
+  text-align:center;
+  display:inline-block;
+  vertical-align: top;
+}
+.figureContainer p{
+  width:16vw;
+  font-size:3.8vh;
+  font-weight:500;
   color:#656565;
+  font-family:'Crimson Pro';
 }
 
 
@@ -277,15 +287,15 @@ header div p{
   margin-top:4vh;
   font-family:'Crimson Pro';
   font-weight:bold;
-  font-size:60px;
-  margin-teamBottom:2vh;
+  font-size:11.5vh;
+  margin-bottom:2vh;
 }
 .design .text .collapsible{
   width: 40vw;
   height:6vh;
-  padding-teamBottom:0.5vh;
+  padding-bottom:0.5vh;
   padding-top:1.5vh;
-  border-teamBottom:1px solid #656565;
+  border-bottom:0.18vh solid #656565;
 
 }
 .design .text .collapsible:hover{
@@ -300,13 +310,13 @@ header div p{
   overflow:hidden;
 }
 .design .text .content h3{
-  font-size:32px;
+  font-size:6vh;
   font-weight:bold;
   font-family:'Crimson Pro';
-  margin-teamBottom:1vh;
+  margin-bottom:1vh;
 }
 .design .text .content p{
-  font-size:18px;
+  font-size:3.3vh;
   font-weight:200;
   font-family:'Crimson Pro';
 }
@@ -315,8 +325,8 @@ header div p{
 .design .text .collapsible h3{
   font-family:'Crimson Pro';
   font-weight:300;
-  font-size:28px;
-  width:calc(100% - 35px);
+  font-size:5vh;
+  width:calc(100% - 7vh);
   display:inline-block;
 }
 .design .text .collapsible h3 .letter{
@@ -327,10 +337,10 @@ header div p{
   text-decoration: underline;
 }
 .design .text .collapsible .plusMinus{
-  height:25px;
-  width:25px;
-  margin-top:4px;
-  margin-right:10px;
+  height:4.5vh;
+  width:4.5vh;
+  margin-top:0.75vh;
+  margin-right:1.7vh;
 
   display:inline-block;
   float:right;
@@ -364,7 +374,7 @@ header div p{
   padding-top:1vh;
   font-family:'Crimson Pro';
   font-weight:bold;
-  font-size:72px;
+  font-size:13vh;
 }
 
 .finance .figures{
@@ -374,12 +384,12 @@ header div p{
   display:inline-block;
 }
 .finance .figures .headline h1{
-  font-size:66px;
+  font-size:12vh;
   font-family:'Noto Serif Display';
   font-weight:400;
 }
 .finance .figures .headline p{
-  font-weight:28px;
+  font-weight:5vh;
   font-family:'Crimson Pro';
   font-weight:600;
 }
@@ -391,12 +401,12 @@ header div p{
 
 }
 .finance .figures .grid .tableFig{
-  font-size:45px;
+  font-size:8vh;
   font-family:'Noto Serif Display';
   font-weight:400;
 }
 .finance .figures .grid .tableLabel{
-  font-size:24px;
+  font-size:4.2vh;
   font-family:'Crimson Pro';
   font-weight:400;
 }
@@ -405,7 +415,7 @@ header div p{
   float:right;
 
   margin-right:3vw;
-  font-size:16px;
+  font-size:3vhpx;
   font-family:'Crimson Pro';
   font-weight:400;
 }
@@ -416,12 +426,12 @@ header div p{
 .teamBottom{
   text-align:center;
   padding-top:5vh;
-  height:95vh;
+  height:85vh;
 }
 
 .teamBottom h1{
   font-family:'Crimson Pro';
-  font-size:50px;
+  font-size:9vh;
   font-weight:bold;
   margin-teamBottom:2vh;
 }
@@ -433,20 +443,20 @@ header div p{
   width: 20vw;
 }
 .teamBottom .member h3{
-  font-size:26px;
+  font-size:4.7vh;
   font-family:'Crimson Pro';
   font-weight:700;
   margin-top:2vh;
 }
 .teamBottom .member .title{
   font-family:'Crimson Pro';
-  font-size:18px;
+  font-size:3vh;
   margin-top:2vh;
   color:#656565;
 }
 .teamBottom .member .lin{
-  width:24px;
-  height:24px;
+  width:4.2vh;
+  height:4.2vh;
   margin-top:1.5vh;
 }
 
@@ -471,10 +481,10 @@ header div p{
   animation-duration:0.4s;
 }
 .quoteContainer .quote{
-  font-size:28px;
+  font-size:5vh;
 }
 .quoteContainer .author{
-  font-size:22px;
+  font-size:4vh;
   font-weight:bold;
 }
 .visible{
@@ -519,4 +529,46 @@ header div p{
 .footer{
   height:50%;
   background-color:#161616;
+}
+.footer img{
+  margin-top:2.5vh;
+  margin-left:4vw;
+  width:28vw;
+}
+.footer .text{
+  float:right;
+  width:50%;
+  height:100%;
+}
+.footer .missionSocials{
+  height:50%;
+  padding-top:5vh;
+  padding-right:7vw;
+}
+.footer .mission{
+  float:left;
+  color:white;
+  font-family:'Crimson Pro';
+  font-size:3.8vh;
+  font-weight:200;
+}
+.footer .socialLinkImg{
+  width:4vh;
+  height:4vh;
+  float:right;
+  display:inline-block;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(241deg) brightness(103%) contrast(103%);
+  margin:0 2vmin;
+}
+.footer p{
+  margin-top:1vh;
+  font-family:'Crimson Pro';
+  font-size:2.8vh;
+  font-weight:200;
+  color:white;
+}
+.footer p a{
+  text-decoration:underline;
+  color:white;
+  margin:0 1vh;
 }

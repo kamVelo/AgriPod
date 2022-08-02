@@ -14,16 +14,29 @@
   <body>
     <header class="header">
       <img class="headerImg" src="{{url_for('static', filename='img/agripodLogoWhite.png')}}" alt="" >
-      <div class="contactBtn floatRight">
-        <p>Contact Us</p>
-      </div>
+      <a href="mailto:agripodinfo@gmail.com">
+        <div class="contactBtn floatRight">
+          <p>Contact Us</p>
+        </div>
+      </a>
+
     </header>
     <div class="start panel">
       <video  autoplay muted  id="frontvid">
         <source src="{{url_for('static', filename='vid/frontpage.mp4')}}" type="video/mp4">
       </video>
       <h1>Tackling Fertiliser<br>Misapplication</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p><span class="boldSpan">AgriPod advises farmers on the optimal times to apply fertiliser, based on real-time soil conditions.</span>
+        <br>
+        <br>
+        By reducing fertiliser runoff, AgriPod couples <span class="boldSpan">enviromental benefits</span> with substantial <span class="boldSpan">cost decreases</span> per harvest.
+        <br>
+        <br>
+        Using <span class="boldSpan">cellular networks</span> to communicate, AgriPod devices form a sensor network - connected to our servers. We process the data in our algorithm and send a recommendation straight to your phone, in the form of a simple <span class="boldSpan">SMS message</span>.
+        <br>
+        <br>
+        AgriPod is currently undergoing <span class="boldSpan">local testing</span> in the UK, and will be shipping out to farmers in Northern India for <span class="boldSpan">field trials</span> in 2023.
+    </p>
     </div>
 
     <div class="awardsProblem panel">
@@ -85,34 +98,36 @@
 
 
       <hr style='height:0.5px;width:85%;margin-left:7.5%;background-color:gray;'>
-      <div class="problemContainer halfPanel">
+      <div class="problemContainer halfPanel" id="problemContainer">
         <h1 class='title'>The Problem</h1>
         <p class="desc">Farmers know roughly when to apply fertiliser, but lack the equipment necessary to ascertain the exact conditions in their soil.</p>
         <div class="figureContainer">
-          <div class="figure">
-            <h1 class="number">150M</h1>
-            <p class="name">Tonnes of Fertiliser<br>Produced Globally</p>
+          <div class="numbers">
+            <h3>18%</h3>
+            <h3>150M</h3>
+            <h3>75M</h3>
+            <h3>65%</h3>
+            <h3>500M</h3>
           </div>
-          <div class="figure">
-            <h1 class="number">75M</h1>
-            <p class="name">Children blown up<br>Thanks to AgriPod</p>
+          <div class="caption">
+            <p>Of global fertiliser <span class="boldSpan">pollution</span> produced by India.</p>
           </div>
-          <div class="figure">
-            <h1 class="number">$60B</h1>
-            <p class="name">Children blown up<br>Thanks to AgriPod</p>
+          <div class="caption">
+            <p>Tonnes of fertiliser produced <span class="boldSpan">globally</span></p>
           </div>
-          <div class="figure">
-            <h1 class="number">1,205</h1>
-            <p class="name">Children blown up<br>Thanks to AgriPod</p>
+          <div class="caption">
+            <p>Tonnes wasted due to <span class="boldSpan">inefficient</span> farming practices</p>
           </div>
-          <div class="figure">
-            <h1 class="number">30%</h1>
-            <p class="name">Children blown up<br>Thanks to AgriPod</p>
+          <div class="caption">
+            <p>Of fertiliser is <span class="boldSpan">not absorbed</span> by soil</p>
+          </div>
+          <div class="caption">
+            <p>Tonnes of CO2 produced annually from Ammonia production</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="design panel">
+    <div class="design panel" id="design">
       <div class="viewport">
       </div>
       <div class="text">
@@ -154,7 +169,13 @@
           </div>
         </div>
         <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          <h3>Inter-device Communication</h3>
+          <p>
+            Each standard AgriPod is capable of Wi-Fi communication at a range of several 100 meters. The pods form a mesh network, forwarding data through each other. Ultimately, the data is funnelled to an AgriPod which has an LTE module and  is sent to our servers, hosted in the cloud.
+            <br>
+            <br>
+            Each AgriPod recieves information from the server and looks at the data it has gathered, to decide on how often to sample and transmit data.
+          </p>
         </div>
         <div class="collapsible" onclick="collapse(3);">
           <h3><span class="letter">D.</span> <span class="title">Algorithm</span></h3>
@@ -168,7 +189,7 @@
       </div>
     </div>
 
-    <div class="finance panel">
+    <div class="finance panel" id="finance">
       <div class="imgTitle">
         <h1>Finance</h1>
         <img src="{{url_for('static', filename='img/indianLady.png')}}" alt="">
@@ -181,21 +202,21 @@
         <table class="grid">
           <tr>
             <td>
-              <h3 class="tableFig">₹<span class="tableFigNum">0</span>*</h3>
+              <h3 class="tableFig">₹<span class="tableFigNum">31,047</span>*</h3>
               <p class="tableLabel">Farmer's profit increase / harvest</p>
             </td>
             <td>
-              <h3 class="tableFig"><span class="tableFigNum">0</span> pods</h3>
+              <h3 class="tableFig"><span class="tableFigNum">12</span> pods</h3>
               <p class="tableLabel">To cover a medium sized farm in India</p>
             </td>
           </tr>
           <tr>
             <td>
-              <h3 class="tableFig"><span class="tableFigNum">0</span>Kg</h3>
+              <h3 class="tableFig"><span class="tableFigNum">39.83</span>Kg</h3>
               <p class="tableLabel">Carbon footprint for 50 pods</p>
             </td>
             <td>
-              <h3 class="tableFig"><span class="tableFigNum">0</span>%</h3>
+              <h3 class="tableFig"><span class="tableFigNum">12</span>%</h3>
               <p class="tableLabel">Increase in Farmer's profit</p>
             </td>
           </tr>
@@ -204,27 +225,27 @@
       </div>
     </div>
     <hr style="background-color:#656565;width:85%;height:1px;margin-left:7.5%;">
-    <div class="teamBottom panel">
+    <div class="teamBottom panel" id="teamBottom">
       <div class="team">
         <h1>Our Team</h1>
         <div class="membersContainer">
           <div class="member">
-            <img src="{{url_for('static', filename='img/lucas.jpg')}}" alt="">
+            <img src="{{url_for('static', filename='img/lucas.JPG')}}" alt="">
             <h3>Lucas Hoffmann</h3>
             <p class="title">CEO, Co-Founder</p>
-            <a href="#"> <img src="{{url_for('static', filename='img/linkedin.webp')}}" alt="" class="lin"></a>
+            <a href="https://www.linkedin.com/in/lucas-hoffmann-861a6a208/"> <img src="{{url_for('static', filename='img/linkedin.webp')}}" alt="" class="lin"></a>
           </div>
           <div class="member">
             <img src="{{url_for('static', filename='img/ali.png')}}" alt="">
             <h3>Ali Kamel</h3>
             <p class="title">CEO, Co-Founder</p>
-            <a href="#"> <img src="{{url_for('static', filename='img/linkedin.webp')}}" alt="" class="lin"></a>
+            <a href="https://www.linkedin.com/in/ali-kamel-b39b79168/"> <img src="{{url_for('static', filename='img/linkedin.webp')}}" alt="" class="lin"></a>
           </div>
           <div class="member">
             <img src="{{url_for('static', filename='img/lucas.jpg')}}" alt="">
-            <h3>Lucas Hoffmann</h3>
+            <h3>Aditya Mathur</h3>
             <p class="title">CFO, Co-Founder</p>
-            <a href="#"> <img src="{{url_for('static', filename='img/linkedin.webp')}}" alt="" class="lin"></a>
+            <a href="https://www.linkedin.com/in/aditya-mathur-3a0345176/"> <img src="{{url_for('static', filename='img/linkedin.webp')}}" alt="" class="lin"></a>
           </div>
         </div>
       </div>
@@ -264,6 +285,20 @@
       </div>
       <div class="footer">
         <img src="{{url_for('static', filename='img/agripodLogoWhite.png')}}" alt="">
+        <div class="text">
+          <div class="missionSocials">
+            <p class="mission">Tackling fertiliser<br>misapplication across the<br>world.</p>
+            <a href="https://www.instagram.com/agripodofficial/"><img src="{{url_for('static', filename='img/ig.svg')}}" alt="" class="socialLinkImg"></a>
+            <a href="https://www.linkedin.com/company/agripod/"><img src="{{url_for('static', filename='img/linkedinBlack.svg')}}" alt="" class="socialLinkImg"></a>
+            <!--
+            <a href="https://www.youtube.com/watch?v=0-goC7WVRjM"><img src="{{url_for('static', filename='img/youtube.svg')}}" alt="" class="socialLinkImg"></a>
+            <a href="#"><img src="{{url_for('static', filename='img/twitter.svg')}}" alt="" class="socialLinkImg"></a>
+            <a href="#"><img src="{{url_for('static', filename='img/fb.svg')}}" alt="" class="socialLinkImg"></a>
+            !-->
+          </div>
+          <hr style="background-color:white;color:white;border:none;height:1px;width:90%;margin-right:5%;">
+          <p><a href="#problemContainer">The Problem</a> &mdash; <a href="#design">Design</a> &mdash; <a href="#finance">Finance</a> &mdash; <a href="#teamBottom">Our Team</a> &mdash; <a href="#">Contact</a> </p>
+        </div>
       </div>
     </div>
     </div>
@@ -315,8 +350,16 @@
       currAnimNum = Math.round(scrollFraction * 48)
       if(currAnimNum <= 0) currAnimNum = 1;
       if (currAnimNum > 48) currAnimNum = 48;
-      name = "../static/img/explodeReverseFrames/0 (" + currAnimNum+ ").jpg"
-      anim.setAttribute('style', 'background-image: url("' + name +'");')
+      name = "../static/img/explodeReverseFrames/0 (" + currAnimNum+ ").jpg";
+      anim.style.backgroundImage = 'url("' + name + '")'
+
+      inverseFraction = 1 - scrollFraction;
+      marginTop = vh(Math.round(inverseFraction * 9));
+      height = vh(87 + Math.round(scrollFraction * 9));
+      width = vh(49.8375 + Math.round(scrollFraction * 5.16))
+      anim.style.marginTop = marginTop;
+      anim.style.height = height;
+      anim.style.width = width;
     }
 
     function getSinFromDegrees(d){
