@@ -7,13 +7,16 @@
 
 
 /* GENERAL */
+*{
+  padding:0;
+  margin:0;
+}
 html,body{
   margin:0;
   padding:0;
 }
-*{
-  padding:0;
-  margin:0;
+body {
+    -webkit-text-size-adjust: 100%;
 }
 .floatLeft{
   float:left;
@@ -68,7 +71,7 @@ header div{
   font-weight:500;
 }
 header div p{
-  font-size:3vh;
+  font-size:3vmin;
   /*margin-top:calc( 1.2vh / 2);*/
   margin-top:0.5vh;
   font-family:'Crimson Pro';
@@ -93,7 +96,7 @@ header div p{
   padding-top:5%;
   padding-left:3%;
   font-weight:bold;
-  font-size:10.8vh;
+  font-size:10.8vmin;
   position:absolute;
 }
 .start p{
@@ -102,7 +105,7 @@ header div p{
   width:40vw;
   padding-top:5%;
   padding-left: 3%;
-  font-size: 1.5vw;
+  font-size: 1.5vmax;
   position:absolute;
   margin-top:30vh;
 }
@@ -570,5 +573,5 @@ header div p{
 .footer p a{
   text-decoration:underline;
   color:white;
-  margin:0 1vh;
+  margin:0 1vmin;
 }
