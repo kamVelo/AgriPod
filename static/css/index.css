@@ -483,9 +483,15 @@ header div p{
   animation-name:fade;
   animation-duration:0.4s;
 }
+#wideQuote{
+  width:60vw;
+  margin-left:20vw;
+}
 .quoteContainer .quote{
   font-size:5vh;
 }
+
+
 .quoteContainer .author{
   font-size:4vh;
   font-weight:bold;
