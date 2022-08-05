@@ -268,12 +268,11 @@
       <img src="{{url_for('static', filename='img/leftArrow.png')}}" alt="" class="arrow floatLeft" onclick="quotesArrowPress(0)">
       <img src="{{url_for('static', filename='img/rightArrow.png')}}" alt="" class="arrow floatRight" onclick="quotesArrowPress(1)">
       <div class="quotesContainer">
-        <!--
-        <div class="quoteContainer">
-          <p class="quote">“AgriPod will save me and others a lot of money, and I look forward to seeing it on my farm.”</p>
-          <p class="author">Omkar Singh, Farmer from Uttar Pradesh</p>
+        <div class="quoteContainer" id="wideQuote">
+          <p class="quote">“This is an inspired and innovative technology with clear benefits to farming communities in India, as
+well as the potential for agricultural applications elsewhere in the world.”</p>
+          <p class="author">Judge, Big Bang competition</p>
         </div>
-        !-->
         <div class="quoteContainer visible">
           <p class="quote">“AgriPod will save me and others a lot of money, and I look forward to seeing it on my farm.”</p>
           <p class="author">Omkar Singh, Farmer from Uttar Pradesh</p>
@@ -285,11 +284,9 @@
         </div>
 
         <div class="quoteCircleContainer">
-            <!--
             <div class="quoteCircle">
 
             </div>
-            !-->
             <div class="quoteCircle selectedCircle">
 
             </div>
@@ -599,8 +596,8 @@
       // side is an int where 0 is left and 1 is right
       if(side == 0) quoteCounter--;
       else quoteCounter++;
-      if(quoteCounter < 0) quoteCounter = 1;
-      else if(quoteCounter > 1) quoteCounter = 0;
+      if(quoteCounter < 0) quoteCounter = 2;
+      else if(quoteCounter > 2) quoteCounter = 0;
     }
 
 
