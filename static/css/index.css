@@ -392,7 +392,7 @@ header div p{
   font-weight:400;
 }
 .finance .figures .headline p{
-  font-weight:5vh;
+  font-size:4.2vh;
   font-family:'Crimson Pro';
   font-weight:600;
 }
@@ -409,7 +409,7 @@ header div p{
   font-weight:400;
 }
 .finance .figures .grid .tableLabel{
-  font-size:4.2vh;
+  font-size:2.8vh;
   font-family:'Crimson Pro';
   font-weight:400;
 }
