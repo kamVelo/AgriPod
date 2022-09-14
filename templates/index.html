@@ -15,19 +15,31 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='logo/favicon-32x32.png')}}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='logo/favicon-16x16.png')}}">
     <link rel="manifest" href="{{url_for('static',filename='logo/site.webmanifest')}}">
-
+    <meta name="viewport" content="width=device-width,initial-scale=1">
   </head>
   <body>
-    <header class="header">
+    <!-- page missing!-->
+    <header class="pageMissing">
+      <img class="" src="{{url_for('static', filename='img/agripodLogoBlack.png')}}" alt="" >
+    </header>
+    
+    <!-- desktop !-->
+    <header class="dheader desktop">
       <img class="headerImg" src="{{url_for('static', filename='img/agripodLogoWhite.png')}}" alt="" >
       <a href="mailto:agripodinfo@gmail.com">
         <div class="contactBtn floatRight">
           <p>Contact Us</p>
         </div>
       </a>
-
     </header>
-    <div class="start panel">
+
+    <!-- mobile
+    <header class="mheader">
+      <img class="floatLeft" src="{{url_for('static', filename='img/agripodLogoBlack.png')}}" alt="">
+    </header>
+    !-->
+
+    <div class="start panel desktop">
       <video  autoplay muted  id="frontvid">
         <source src="{{url_for('static', filename='vid/frontpage.mp4')}}" type="video/mp4">
       </video>
@@ -45,7 +57,16 @@
     </p>
     </div>
 
-    <div class="awardsProblem panel">
+    <!--
+    <div class="start mobile">
+      <h1>Tackling Fertiliser Misapplication</h1>
+      <h3>AgriPod advises farmers on the optimal times to apply fertiliser, based on real-time soil conditions.</h3>
+      <div class="regInt">
+        <p>Register Interest</p>
+      </div>
+    </div>
+    !-->
+    <div class="awardsProblem panel desktop">
       <img src="{{url_for('static', filename='img/leftArrow.png')}}" alt="" class="arrow floatLeft" onclick="awardsArrowPress(0)">
       <img src="{{url_for('static', filename='img/rightArrow.png')}}" alt="" class="arrow floatRight" onclick="awardsArrowPress(1)">
       <div class="awardsContainer halfPanel">
@@ -63,7 +84,7 @@
           </div>
         </div>
 
-        <div class="award visible">
+        <div class="award visible desktop">
           <div class="text floatLeft awardHalf">
             <div class="innerContainer">
               <h1 class="title">First Place</h1>
@@ -103,8 +124,8 @@
       </div>
 
 
-      <hr style='height:0.5px;width:85%;margin-left:7.5%;background-color:gray;'>
-      <div class="problemContainer halfPanel" id="problemContainer">
+      <hr style='height:0.5px;width:85%;margin-left:7.5%;background-color:gray;' class="desktop">
+      <div class="problemContainer halfPanel desktop" id="problemContainer">
         <h1 class='title'>The Problem</h1>
         <p class="desc">Farmers know roughly when to apply fertiliser, but lack the equipment necessary to ascertain the exact conditions in their soil.</p>
         <div class="figureContainer">
@@ -133,7 +154,7 @@
         </div>
       </div>
     </div>
-    <div class="design panel" id="design">
+    <div class="design panel desktop" id="design">
       <div class="viewport">
       </div>
       <div class="text">
@@ -190,7 +211,6 @@
           </div>
         </div>
         <div class="content">
-          <h3>Algorithm</h3>
           <p>
             The algorithm has been developed in contact with professors and researchers from Oxford University, Bangor University and Durham University.
             <br>
@@ -201,7 +221,7 @@
       </div>
     </div>
 
-    <div class="finance panel" id="finance">
+    <div class="finance panel desktop" id="finance">
       <div class="imgTitle">
         <h1>Finance</h1>
         <img src="{{url_for('static', filename='img/indianLady.png')}}" alt="">
@@ -236,8 +256,8 @@
         <p class="disclaimer">*Calculated at minimum government<br><span>fallback wheat prices.</span></p>
       </div>
     </div>
-    <hr style="background-color:#656565;width:85%;height:1px;margin-left:7.5%;">
-    <div class="teamBottom panel" id="teamBottom">
+    <hr style="background-color:#656565;width:85%;height:1px;margin-left:7.5%;" class="desktop">
+    <div class="teamBottom panel desktop" id="teamBottom">
       <div class="team">
         <h1>Our Team</h1>
         <div class="membersContainer">
@@ -262,9 +282,9 @@
         </div>
       </div>
     </div>
-    <hr style="background-color:#656565;width:85%;height:1px;margin-left:7.5%;">
+    <hr style="background-color:#656565;width:85%;height:1px;margin-left:7.5%;" class="desktop">
 
-    <div class="quotesFooter">
+    <div class="quotesFooter desktop">
       <img src="{{url_for('static', filename='img/leftArrow.png')}}" alt="" class="arrow floatLeft" onclick="quotesArrowPress(0)">
       <img src="{{url_for('static', filename='img/rightArrow.png')}}" alt="" class="arrow floatRight" onclick="quotesArrowPress(1)">
       <div class="quotesContainer">
@@ -295,7 +315,7 @@ well as the potential for agricultural applications elsewhere in the world.”</
             </div>
         </div>
       </div>
-      <div class="footer">
+      <div class="footer desktop">
         <img src="{{url_for('static', filename='img/agripodLogoWhite.png')}}" alt="">
         <div class="text">
           <div class="missionSocials">
@@ -308,7 +328,7 @@ well as the potential for agricultural applications elsewhere in the world.”</
             <a href="#"><img src="{{url_for('static', filename='img/fb.svg')}}" alt="" class="socialLinkImg"></a>
             !-->
           </div>
-          <hr style="background-color:white;color:white;border:none;height:1px;width:90%;margin-right:5%;">
+          <hr style="background-color:white;color:white;border:none;height:1px;width:90%;margin-right:5%;" class="desktop">
           <p><a href="#problemContainer">The Problem</a> &mdash; <a href="#design">Design</a> &mdash; <a href="#finance">Finance</a> &mdash; <a href="#teamBottom">Our Team</a> &mdash; <a href="mailto:agripodinfo@gmail.com">Contact</a> </p>
         </div>
       </div>
