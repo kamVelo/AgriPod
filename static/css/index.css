@@ -166,7 +166,7 @@ body {
 @media all and (max-width:480px){
   .desktop{display:none;}
   body{
-    background-image:url("../img/deviceTestImg.png");
+    background-image:url("../img/deviceTestImg-min.png");
     background-repeat:no-repeat;
     background-size:cover;
   }
