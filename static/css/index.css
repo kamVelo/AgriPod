@@ -183,6 +183,14 @@ header.pageMissing{
 header.pageMissing img{
   height:10vh;
 }
+p.pageMissing{
+  margin-top:13vh;
+  font-size:2vh;
+  width:80%;
+  margin-left:10%;
+  font-family:"Crimson Pro";
+  font-weight:bold;
+}
 
 @media all and (min-width:480px){
   .start.desktop{display:block;}
