@@ -6,6 +6,7 @@ import json
 import requests as rq
 from string import ascii_letters
 import random
+import keys
 
 def randomString(l=6):
     """
@@ -42,7 +43,7 @@ def sendFakeData():
     obj = {
         "uuid" : 1,
         "n_name" : "fakeNetwork",
-        "n_password" : "I was agent orange that was me",
+        "n_password" : keys.passwords["fakePassword"],
         "network_id": 1,
         "device_id":  1,
         "moisture" : 12,
@@ -65,7 +66,7 @@ def testGetAllData():
     obj = {
         "uuid" : 1,
         "network name" : "fakeNetwork",
-        "network password" : "I was agent orange that was me"
+        "network password" : keys.passwords["fakePassword"]
     }
     resp = rq.post(url="http://127.0.0.1:5000/getAllData/",data=obj)
     resp = json.loads(resp.content.decode("utf-8"))

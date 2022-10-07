@@ -117,10 +117,10 @@ body {
 .start.desktop h1{
   color:white;
   font-family:'Crimson Pro';
-  padding-top:5%;
+  padding-top:8%;
   padding-left:3%;
   font-weight:bold;
-  font-size:10.8vmin;
+  font-size:10vmin;
   position:absolute;
 }
 .start.desktop p{

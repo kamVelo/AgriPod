@@ -6,10 +6,10 @@ import requests as rq
 import json
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import keys
 uuid = 1
 network_name = "fakeNetwork"
-network_password = "I was agent orange that was me"
+network_password = keys.passwords["fakePassword"]
 
 def testGetAllData():
     obj = {
