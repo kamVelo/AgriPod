@@ -142,7 +142,7 @@ def index():
     username = Abi
     password = Shek
     network name = fakeNetwork
-    network password = I was agent orange that was me
+    network password =
     numDevices = 1
     owner id = 1
     network id = 1
@@ -150,7 +150,7 @@ def index():
     user =  users("Simul", "Test", "Abi", "Shek", "fakeNetwork", 1)
     db.session.add(user)
     db.session.commit()
-    network = networks(1, "fakeNetwork", "I was agent orange that was me", 1)
+    network = networks(1, "fakeNetwork", , 1)
     db.session.add(network)
     db.session.commit()
     device = devices(1, 1)
