@@ -39,7 +39,7 @@
     </header>
     !-->
 
-    <div class="start panel desktop">
+    <div class="start panel desktop" onload="fontResize('start desktop')">
       <video  autoplay muted  id="frontvid">
         <source src="{{url_for('static', filename='vid/frontpage.mp4')}}" type="video/mp4">
       </video>
@@ -105,7 +105,7 @@
             </div>
           </div>
           <div class="logo floatRight awardHalf">
-            <div class="imgContainer">
+            <div class="imgContainer" id="teenTechImg">
               <img src="{{url_for('static', filename='img/teentech.webp')}}" alt="">
             </div>
           </div>
@@ -149,7 +149,7 @@
             <p>Of fertiliser is <span class="boldSpan">not absorbed</span> by soil</p>
           </div>
           <div class="caption">
-            <p>Tonnes of CO2 produced annually from Ammonia production</p>
+            <p>Tonnes of CO2 due to Ammonia production</p>
           </div>
         </div>
       </div>
@@ -338,6 +338,8 @@ well as the potential for agricultural applications elsewhere in the world.”</
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script type="text/javascript">
+
+
     AOS.init();
 
     imgHeap = {{imgs|safe}}
@@ -352,7 +354,6 @@ well as the potential for agricultural applications elsewhere in the world.”</
       }
     }
     window.onload = preloadImages(imgHeap);
-
 
 
     const header = document.getElementsByTagName('header')[0]

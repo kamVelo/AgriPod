@@ -114,6 +114,8 @@ body {
   width:100vw;
   object-fit:cover;
 }
+
+
 .start.desktop h1{
   color:white;
   font-family:'Crimson Pro';
@@ -133,7 +135,19 @@ body {
   position:absolute;
   margin-top:30vh;
 }
-
+@media (max-aspect-ratio:1.77){
+  .start.desktop #frontvid{
+      height:100%;
+  }
+  .start.desktop p{
+    font-size:1.75vmax;
+  }
+}
+@media (max-aspect-ratio:1.5){
+  .start.desktop p{
+    font-size:2vmax;
+  }
+}
 .start.mobile{
   width:100vw;
   height:100vh;
@@ -257,6 +271,17 @@ p.pageMissing{
   font-size:4.5vmin;
   font-weight:700;
 }
+@media (max-aspect-ratio:1.7){
+  .award h1{
+    font-size: 11vmin;
+  }
+  .award p{
+    font-size:3vmin;
+  }
+  #teenTechImg img{
+    height:20vmin;
+  }
+}
 .award .imgContainer{
   float:left;
 }
@@ -343,7 +368,26 @@ p.pageMissing{
   font-family:'Crimson Pro';
 }
 
+@media (max-aspect-ratio:1.76){
+  .numbers h3{
+    font-size:6vw;
+  }
+  .figureContainer p{
+    font-size:2vw;
+  }
+}
 
+@media (max-aspect-ratio:1.62){
+  .numbers h3{
+    font-size:6vw;
+  }
+  .figureContainer p{
+    font-size:2vw;
+  }
+  .numbers{
+    width:100vw;
+  }
+}
 /* DESIGN PANEL */
 
 .design{
@@ -380,6 +424,8 @@ p.pageMissing{
   font-size:11.5vh;
   margin-bottom:2vh;
 }
+
+
 .design .text .collapsible{
   width: 40vw;
   height:6vh;
@@ -410,13 +456,11 @@ p.pageMissing{
   font-weight:200;
   font-family:'Crimson Pro';
 }
-
-
 .design .text .collapsible h3{
   font-family:'Crimson Pro';
   font-weight:300;
   font-size:5vh;
-  width:calc(100% - 7vh);
+  width:calc(100% - 4vw);
   display:inline-block;
 }
 .design .text .collapsible h3 .letter{
@@ -436,6 +480,41 @@ p.pageMissing{
   float:right;
   transition:background 0.3s ease;
 }
+@media (max-aspect-ratio:1.64){
+  .design .viewport{
+
+    float:left;
+  }
+  .design .text{
+    width:calc(60vw - 40vh);
+    float:left;
+    padding-left:0;
+  }
+  .design .text h1{
+    font-size:5vw;
+  }
+  .design .text .content p{
+    font-size:2vw;
+  }
+  .design .text .content h3{
+    font-size:3vw;
+  }
+  .design .text .collapsible{
+    width:calc(60vw - 40vh);
+
+  }
+  .design .text .collapsible h3{
+    font-size:3vw;
+
+  }
+  .design .text .collapsible .plusMinus{
+    width:3vw;
+    height:3vw;
+    margin:0;
+  }
+
+}
+
 
 
 /* FINANCE*/
@@ -505,7 +584,7 @@ p.pageMissing{
   float:right;
 
   margin-right:3vw;
-  font-size:3vhpx;
+  font-size:3vh;
   font-family:'Crimson Pro';
   font-weight:400;
 }
@@ -513,10 +592,39 @@ p.pageMissing{
   float:right;
 }
 
+
+@media (max-aspect-ratio:1.73){
+  .finance {
+    height:80vh;
+    padding-bottom:2vh;
+  }
+  .finance .imgTitle h1{
+    font-size:8.5vw;
+  }
+  .finance .figures .headline h1{
+    font-size: 8vw;
+  }
+  .finance .figures .headline p{
+    font-size:3vw;
+  }
+  .finance .figures .grid .tableFig{
+    font-size:5vw;
+  }
+  .finance .figures .grid .tableLabel{
+    font-size:2vw;
+  }
+}
+
 .teamBottom{
   text-align:center;
   padding-top:5vh;
   height:85vh;
+}
+@media (max-aspect-ratio:1.71){
+  .teamBottom{
+    height:70vh;
+  }
+
 }
 
 .teamBottom h1{
@@ -582,6 +690,22 @@ p.pageMissing{
 .quoteContainer .author{
   font-size:4vh;
   font-weight:bold;
+}
+
+@media (max-aspect-ratio:1.73){
+  .quoteContainer .quote{
+    font-size:3vw;
+  }
+  .quoteContainer .author{
+    font-size:2.5vw;
+  }
+  #wideQuote .quote{
+    font-size:2.5vw;
+
+  }
+  #wideQuote .author{
+    font-size:2vw;
+  }
 }
 .visible{
   display:block;
