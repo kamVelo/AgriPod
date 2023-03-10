@@ -5,59 +5,67 @@
 <!-- TODO: find better colour -->
 
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>AgriPod</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-    <link rel="stylesheet" href="https://yarnpkg.com/en/package/normalize.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='logo/apple-touch-icon.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='logo/favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='logo/favicon-16x16.png')}}">
-    <link rel="manifest" href="{{url_for('static',filename='logo/site.webmanifest')}}">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-  </head>
-  <body>
-    <!-- page missing!-->
-    <header class="pageMissing">
-      <img class="" src="{{url_for('static', filename='img/agripodLogoBlack.png')}}" alt="" >
-    </header>
-    <p class="pageMissing">Unfortunately our mobile site is still under development. Please use a desktop to learn more about AgriPod. <br><br> For urgent requests, send an email to agripodinfo@gmail.com. </p>
-    <!-- desktop !-->
-    <header class="dheader desktop">
-      <img class="headerImg" src="{{url_for('static', filename='img/agripodLogoWhite.png')}}" alt="" >
-      <a href="mailto:agripodinfo@gmail.com" style="width:5vw;">
-        <div class="contactBtn floatRight">
-          <p>Contact Us</p>
-        </div>
-      </a>
-    </header>
 
-    <!-- mobile
+<head>
+  <meta charset="utf-8">
+  <title>AgriPod</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+  <link rel="stylesheet" href="https://yarnpkg.com/en/package/normalize.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='logo/apple-touch-icon.png')}}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='logo/favicon-32x32.png')}}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='logo/favicon-16x16.png')}}">
+  <link rel="manifest" href="{{url_for('static',filename='logo/site.webmanifest')}}">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body>
+  <!-- page missing!-->
+  <header class="pageMissing">
+    <img class="" src="{{url_for('static', filename='img/agripodLogoBlack.png')}}" alt="">
+  </header>
+  <p class="pageMissing">Unfortunately our mobile site is still under development. Please use a desktop to learn more
+    about AgriPod. <br><br> For urgent requests, send an email to agripodinfo@gmail.com. </p>
+  <!-- desktop !-->
+  <header class="dheader desktop">
+    <img class="headerImg" src="{{url_for('static', filename='img/agripodLogoWhite.png')}}" alt="">
+    <a href="mailto:agripodinfo@gmail.com" style="width:5vw;">
+      <div class="contactBtn floatRight">
+        <p>Contact Us</p>
+      </div>
+    </a>
+  </header>
+
+  <!-- mobile
     <header class="mheader">
       <img class="floatLeft" src="{{url_for('static', filename='img/agripodLogoBlack.png')}}" alt="">
     </header>
     !-->
 
-    <div class="start panel desktop" onload="fontResize('start desktop')">
-      <video  autoplay muted  id="frontvid">
-        <source src="{{url_for('static', filename='vid/frontpage.mp4')}}" type="video/mp4">
-      </video>
-      <h1>Tackling Fertiliser<br>Misapplication</h1>
-      <p><span class="boldSpan">AgriPod advises farmers on the optimal times to apply fertiliser, based on real-time soil conditions.</span>
-        <br>
-        <br>
-        By reducing fertiliser runoff, AgriPod couples <span class="boldSpan">environmental benefits</span> with substantial <span class="boldSpan">cost decreases</span> per harvest.
-        <br>
-        <br>
-        Using <span class="boldSpan">cellular networks</span> to communicate, AgriPod devices form a sensor network - connected to our servers. We process the data with our algorithm and send a recommendation straight to your phone, in the form of a simple <span class="boldSpan">SMS message</span>.
-        <br>
-        <br>
-        AgriPod is currently undergoing <span class="boldSpan">local testing</span> in the UK, and will be shipping out to farmers in Northern India for <span class="boldSpan">field trials</span> in 2023.
+  <div class="start panel desktop" onload="fontResize('start desktop')">
+    <video autoplay muted id="frontvid">
+      <source src="{{url_for('static', filename='vid/frontpage.mp4')}}" type="video/mp4">
+    </video>
+    <h1>Tackling Fertiliser<br>Misapplication</h1>
+    <p><span class="boldSpan">AgriPod advises farmers on the optimal times to apply fertiliser, based on real-time soil
+        conditions.</span>
+      <br>
+      <br>
+      By reducing fertiliser runoff, AgriPod couples <span class="boldSpan">environmental benefits</span> with
+      substantial <span class="boldSpan">cost decreases</span> per harvest.
+      <br>
+      <br>
+      Using <span class="boldSpan">cellular networks</span> to communicate, AgriPod devices form a sensor network -
+      connected to our servers. We process the data with our algorithm and send a recommendation straight to your phone,
+      in the form of a simple <span class="boldSpan">SMS message</span>.
+      <br>
+      <br>
+      AgriPod is currently undergoing <span class="boldSpan">local testing</span> in the UK, and will be shipping out to
+      farmers in Northern India for <span class="boldSpan">field trials</span> in 2023.
     </p>
-    </div>
+  </div>
 
-    <!--
+  <!--
     <div class="start mobile">
       <h1>Tackling Fertiliser Misapplication</h1>
       <h3>AgriPod advises farmers on the optimal times to apply fertiliser, based on real-time soil conditions.</h3>
@@ -66,283 +74,307 @@
       </div>
     </div>
     !-->
-    <div class="awardsProblem panel desktop">
-      <img src="{{url_for('static', filename='img/leftArrow.png')}}" alt="" class="arrow floatLeft" onclick="awardsArrowPress(0)">
-      <img src="{{url_for('static', filename='img/rightArrow.png')}}" alt="" class="arrow floatRight" onclick="awardsArrowPress(1)">
-      <div class="awardsContainer halfPanel">
-        <div class="award">
-          <div class="text floatLeft awardHalf">
-            <div class="innerContainer">
-              <h1 class="title">Runners Up</h1>
-              <p class="desc">Big Bang Senior Engineering Category</p>
-            </div>
-          </div>
-          <div class="logo floatRight awardHalf">
-            <div class="imgContainer">
-              <img src="{{url_for('static', filename='img/bigbang.jpg')}}" alt="">
-            </div>
+  <div class="awardsProblem panel desktop">
+    <img src="{{url_for('static', filename='img/leftArrow.png')}}" alt="" class="arrow floatLeft"
+      onclick="awardsArrowPress(0)">
+    <img src="{{url_for('static', filename='img/rightArrow.png')}}" alt="" class="arrow floatRight"
+      onclick="awardsArrowPress(1)">
+    <div class="awardsContainer halfPanel">
+      <div class="award">
+        <div class="text floatLeft awardHalf">
+          <div class="innerContainer">
+            <h1 class="title">Runners Up</h1>
+            <p class="desc">Big Bang Senior Engineering Category</p>
           </div>
         </div>
-
-        <div class="award visible desktop">
-          <div class="text floatLeft awardHalf">
-            <div class="innerContainer">
-              <h1 class="title">First Place</h1>
-              <p class="desc">Siemen's Digital Decarbonisation Award</p>
-            </div>
+        <div class="logo floatRight awardHalf">
+          <div class="imgContainer">
+            <img src="{{url_for('static', filename='img/bigbang.jpg')}}" alt="">
           </div>
-          <div class="logo floatRight awardHalf">
-            <div class="imgContainer">
-              <img src="{{url_for('static', filename='img/siemens.jpg')}}" alt="">
-            </div>
-          </div>
-        </div>
-        <div id="teentech" class="award">
-          <div class="text floatLeft awardHalf">
-            <div class="innerContainer">
-              <h1 class="title">Winners</h1>
-              <p class="desc">TeenTech Overall Best Innovation</p>
-            </div>
-          </div>
-          <div class="logo floatRight awardHalf">
-            <div class="imgContainer" id="teenTechImg">
-              <img src="{{url_for('static', filename='img/teentech.webp')}}" alt="">
-            </div>
-          </div>
-        </div>
-        <div class="awardCircleContainer">
-            <div class="awardCircle">
-
-            </div>
-            <div class="awardCircle selectedCircle">
-
-            </div>
-            <div class="awardCircle">
-
-            </div>
         </div>
       </div>
 
+      <div class="award visible desktop">
+        <div class="text floatLeft awardHalf">
+          <div class="innerContainer">
+            <h1 class="title">First Place</h1>
+            <p class="desc">Siemen's Digital Decarbonisation Award</p>
+          </div>
+        </div>
+        <div class="logo floatRight awardHalf">
+          <div class="imgContainer">
+            <img src="{{url_for('static', filename='img/siemens.jpg')}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div id="teentech" class="award">
+        <div class="text floatLeft awardHalf">
+          <div class="innerContainer">
+            <h1 class="title">Winners</h1>
+            <p class="desc">TeenTech Overall Best Innovation</p>
+          </div>
+        </div>
+        <div class="logo floatRight awardHalf">
+          <div class="imgContainer" id="teenTechImg">
+            <img src="{{url_for('static', filename='img/teentech.webp')}}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="awardCircleContainer">
+        <div class="awardCircle">
 
-      <hr style='height:0.5px;width:85%;margin-left:7.5%;background-color:gray;' class="desktop">
-      <div class="problemContainer halfPanel desktop" id="problemContainer">
-        <h1 class='title'>The Problem</h1>
-        <p class="desc">Farmers know roughly when to apply fertiliser, but lack the equipment necessary to ascertain the exact conditions in their soil.</p>
-        <div class="figureContainer">
-          <div class="numbers">
-            <h3>18%</h3>
-            <h3>150M</h3>
-            <h3>75M</h3>
-            <h3>65%</h3>
-            <h3>500M</h3>
-          </div>
-          <div class="caption">
-            <p>Of global fertiliser <span class="boldSpan">pollution</span> produced by India.</p>
-          </div>
-          <div class="caption">
-            <p>Tonnes of fertiliser produced <span class="boldSpan">globally</span></p>
-          </div>
-          <div class="caption">
-            <p>Tonnes wasted due to <span class="boldSpan">inefficient</span> farming practices</p>
-          </div>
-          <div class="caption">
-            <p>Of fertiliser is <span class="boldSpan">not absorbed</span> by soil</p>
-          </div>
-          <div class="caption">
-            <p>Tonnes of CO2 due to Ammonia production</p>
-          </div>
+        </div>
+        <div class="awardCircle selectedCircle">
+
+        </div>
+        <div class="awardCircle">
+
         </div>
       </div>
     </div>
-    <div class="design panel desktop" id="design">
-      <div class="viewport">
+
+
+    <hr style='height:0.5px;width:85%;margin-left:7.5%;background-color:gray;' class="desktop">
+    <div class="problemContainer halfPanel desktop" id="problemContainer">
+      <h1 class='title'>The Problem</h1>
+      <p class="desc">Farmers know roughly when to apply fertiliser, but lack the equipment necessary to ascertain the
+        exact conditions in their soil.</p>
+      <div class="figureContainer">
+        <div class="numbers">
+          <h3>18%</h3>
+          <h3>150M</h3>
+          <h3>75M</h3>
+          <h3>65%</h3>
+          <h3>500M</h3>
+        </div>
+        <div class="caption">
+          <p>Of global fertiliser <span class="boldSpan">pollution</span> produced by India.</p>
+        </div>
+        <div class="caption">
+          <p>Tonnes of fertiliser produced <span class="boldSpan">globally</span></p>
+        </div>
+        <div class="caption">
+          <p>Tonnes wasted due to <span class="boldSpan">inefficient</span> farming practices</p>
+        </div>
+        <div class="caption">
+          <p>Of fertiliser is <span class="boldSpan">not absorbed</span> by soil</p>
+        </div>
+        <div class="caption">
+          <p>Tonnes of CO2 due to Ammonia production</p>
+        </div>
       </div>
+    </div>
+  </div>
+  <div class="design panel desktop" id="design">
+    <div class="viewport">
+    </div>
+    <div class="text">
+      <h1>Design</h1>
+      <div class="collapsible" onclick="collapse(0);">
+        <h3><span class="letter">A.</span> <span class="title">Enclosure</span></h3>
+        <div class="plusMinus">
+
+        </div>
+      </div>
+      <div class="content">
+        <h3>Waterproof, Weatherproof and Repairable</h3>
+        <p>
+          Made out of sustainable PLA, the plastic enclosure uses a double-screw mechanism to allow easy repair and
+          maintainance.
+          <br>
+          <br>
+          Designed to withstand the range of conditions and temperatures the AgriPod will encounter, the enclosure uses
+          two shells to ensure easy repairability in case of any damage
+        </p>
+      </div>
+      <div class="collapsible" onclick="collapse(1);">
+        <h3><span class="letter">B.</span> <span class="title">Electronics</span></h3>
+        <div class="plusMinus">
+
+        </div>
+      </div>
+      <div class="content">
+        <h3>Accurate and Reliable</h3>
+        <p>
+          AgriPod uses custom PCBs, designed in house and manufactured by one of the world’s leading PCB manufacturers.
+          <br>
+          <br>
+          The Agripod measures soil humidity, temperature, air humidity which we combine with weather data in our
+          algorithmn.
+        </p>
+      </div>
+      <div class="collapsible" onclick="collapse(2);">
+        <h3><span class="letter">C.</span> <span class="title">Network</span></h3>
+        <div class="plusMinus">
+
+        </div>
+      </div>
+      <div class="content">
+        <h3>Inter-device Communication</h3>
+        <p>
+          Each standard AgriPod is capable of Wi-Fi communication at a range of several 100 meters. The pods form a mesh
+          network, forwarding data through each other. Ultimately, the data is funnelled to an AgriPod which has an LTE
+          module and is sent to our servers, hosted in the cloud.
+          <br>
+          <br>
+          Each AgriPod recieves information from the server and looks at the data it has gathered, to decide on how
+          often to sample and transmit data.
+        </p>
+      </div>
+      <div class="collapsible" onclick="collapse(3);">
+        <h3><span class="letter">D.</span> <span class="title">Algorithm</span></h3>
+        <div class="plusMinus">
+
+        </div>
+      </div>
+      <div class="content">
+        <p>
+          The algorithm has been developed in contact with professors and researchers from Oxford University, Bangor
+          University and Durham University.
+          <br>
+          <br>
+          Currently, the algorithmn will map out and predict optimum fertiliser values, providing a recommended
+          fertilising window (typically a few days) based on crop type. After gathering a large dataset comparative
+          effects, we plan to train neural networks which can find patterns we have not yet considered.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="finance panel desktop" id="finance">
+    <div class="imgTitle">
+      <h1>Finance</h1>
+      <img src="{{url_for('static', filename='img/indianLady.png')}}" alt="">
+    </div>
+    <div class="figures floatRight">
+      <div class="headline">
+        <h1>£0.72 | ₹68</h1>
+        <p>Cost per AgriPod / Month</p>
+      </div>
+      <table class="grid">
+        <tr>
+          <td>
+            <h3 class="tableFig">₹<span class="tableFigNum">31,047</span>*</h3>
+            <p class="tableLabel">Farmer's profit increase / harvest</p>
+          </td>
+          <td>
+            <h3 class="tableFig"><span class="tableFigNum">12</span> pods</h3>
+            <p class="tableLabel">To cover a medium sized farm in India</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h3 class="tableFig"><span class="tableFigNum">39.83</span>Kg</h3>
+            <p class="tableLabel">Carbon footprint for 50 pods</p>
+          </td>
+          <td>
+            <h3 class="tableFig"><span class="tableFigNum">12</span>%</h3>
+            <p class="tableLabel">Increase in Farmer's profit</p>
+          </td>
+        </tr>
+      </table>
+      <p class="disclaimer">*Calculated at minimum government<br><span>fallback wheat prices.</span></p>
+    </div>
+  </div>
+  <hr style="background-color:#656565;width:85%;height:1px;margin-left:7.5%;" class="desktop">
+  <div class="teamBottom panel desktop" id="teamBottom">
+    <div class="team">
+      <h1>Our Team</h1>
+      <div class="membersContainer">
+        <div class="member">
+          <img src="{{url_for('static', filename='img/lucas.JPG')}}" alt="">
+          <h3>Lucas Hoffmann</h3>
+          <p class="title">CEO, Co-Founder</p>
+          <a href="https://www.linkedin.com/in/lucas-hoffmann-861a6a208/" target="_blank"> <img
+              src="{{url_for('static', filename='img/linkedin.webp')}}" alt="" class="lin"></a>
+        </div>
+        <div class="member">
+          <img src="{{url_for('static', filename='img/ali.png')}}" alt="">
+          <h3>Ali Kamel</h3>
+          <p class="title">CEO, Co-Founder</p>
+          <a href="https://www.linkedin.com/in/ali-kamel-b39b79168/" target="_blank"> <img
+              src="{{url_for('static', filename='img/linkedin.webp')}}" alt="" class="lin"></a>
+        </div>
+        <div class="member">
+          <img src="{{url_for('static', filename='img/adi.png')}}" alt="">
+          <h3>Aditya Mathur</h3>
+          <p class="title">CFO, Co-Founder</p>
+          <a href="https://www.linkedin.com/in/aditya-mathur-3a0345176/" target="_blank"> <img
+              src="{{url_for('static', filename='img/linkedin.webp')}}" alt="" class="lin"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr style="background-color:#656565;width:85%;height:1px;margin-left:7.5%;" class="desktop">
+
+  <div class="quotesFooter desktop">
+    <img src="{{url_for('static', filename='img/leftArrow.png')}}" alt="" class="arrow floatLeft"
+      onclick="quotesArrowPress(0)">
+    <img src="{{url_for('static', filename='img/rightArrow.png')}}" alt="" class="arrow floatRight"
+      onclick="quotesArrowPress(1)">
+    <div class="quotesContainer">
+      <div class="quoteContainer" id="wideQuote">
+        <p class="quote">“This is an inspired and innovative technology with clear benefits to farming communities in
+          India, as
+          well as the potential for agricultural applications elsewhere in the world.”</p>
+        <p class="author">Judge, Big Bang competition</p>
+      </div>
+      <div class="quoteContainer visible">
+        <p class="quote">“AgriPod will save me and others a lot of money, and I look forward to seeing it on my farm.”
+        </p>
+        <p class="author">Omkar Singh, Farmer from Uttar Pradesh</p>
+      </div>
+
+      <div class="quoteContainer">
+        <p class="quote">“high potential to create a very useful product with excellent value to agriculture”</p>
+        <p class="author">Judge, TeenTech Competition</p>
+      </div>
+
+      <div class="quoteCircleContainer">
+        <div class="quoteCircle">
+
+        </div>
+        <div class="quoteCircle selectedCircle">
+
+        </div>
+        <div class="quoteCircle">
+
+        </div>
+      </div>
+    </div>
+    <div class="footer desktop">
+      <img src="{{url_for('static', filename='img/agripodLogoWhite.png')}}" alt="">
       <div class="text">
-        <h1>Design</h1>
-        <div class="collapsible" onclick="collapse(0);">
-          <h3><span class="letter">A.</span> <span class="title">Enclosure</span></h3>
-          <div class="plusMinus" style="background:url('../static/img/plus.png');background-size:cover;background-position: center;">
-
-          </div>
-        </div>
-        <div class="content">
-          <h3>Waterproof, Weatherproof and Repairable</h3>
-          <p>
-            Made out of sustainable PLA, the plastic enclosure uses a double-screw mechanism to allow easy repair and maintainance.
-            <br>
-            <br>
-            Designed to withstand the range of conditions and temperatures the AgriPod will encounter, the enclosure uses two shells to ensure easy repairability in case of any damage
-          </p>
-        </div>
-        <div class="collapsible" onclick="collapse(1);">
-          <h3><span class="letter">B.</span> <span class="title">Electronics</span></h3>
-          <div class="plusMinus" style="background:url('../static/img/plus.png');background-size:cover;background-position: center;">
-
-          </div>
-        </div>
-        <div class="content">
-          <h3>Accurate and Reliable</h3>
-          <p>
-            AgriPod uses custom PCBs, designed in house and manufactured by one of the world’s leading PCB manufacturers.
-            <br>
-            <br>
-            The Agripod measures soil humidity, temperature, air humidity which we combine with weather data in our algorithmn.
-          </p>
-        </div>
-        <div class="collapsible" onclick="collapse(2);">
-          <h3><span class="letter">C.</span> <span class="title">Network</span></h3>
-          <div class="plusMinus" style="background:url('../static/img/plus.png');background-size:cover;background-position: center;">
-
-          </div>
-        </div>
-        <div class="content">
-          <h3>Inter-device Communication</h3>
-          <p>
-            Each standard AgriPod is capable of Wi-Fi communication at a range of several 100 meters. The pods form a mesh network, forwarding data through each other. Ultimately, the data is funnelled to an AgriPod which has an LTE module and  is sent to our servers, hosted in the cloud.
-            <br>
-            <br>
-            Each AgriPod recieves information from the server and looks at the data it has gathered, to decide on how often to sample and transmit data.
-          </p>
-        </div>
-        <div class="collapsible" onclick="collapse(3);">
-          <h3><span class="letter">D.</span> <span class="title">Algorithm</span></h3>
-          <div class="plusMinus" style="background:url('../static/img/plus.png');background-size:cover;background-position: center;">
-
-          </div>
-        </div>
-        <div class="content">
-          <p>
-            The algorithm has been developed in contact with professors and researchers from Oxford University, Bangor University and Durham University.
-            <br>
-            <br>
-            Currently, the algorithmn will map out and predict optimum fertiliser values, providing a recommended fertilising window (typically a few days) based on crop type. After gathering a large dataset comparative effects, we plan to train neural networks which can find patterns we have not yet considered.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="finance panel desktop" id="finance">
-      <div class="imgTitle">
-        <h1>Finance</h1>
-        <img src="{{url_for('static', filename='img/indianLady.png')}}" alt="">
-      </div>
-      <div class="figures floatRight">
-        <div class="headline">
-          <h1>£0.72 | ₹68</h1>
-          <p>Cost per AgriPod / Month</p>
-        </div>
-        <table class="grid">
-          <tr>
-            <td>
-              <h3 class="tableFig">₹<span class="tableFigNum">31,047</span>*</h3>
-              <p class="tableLabel">Farmer's profit increase / harvest</p>
-            </td>
-            <td>
-              <h3 class="tableFig"><span class="tableFigNum">12</span> pods</h3>
-              <p class="tableLabel">To cover a medium sized farm in India</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h3 class="tableFig"><span class="tableFigNum">39.83</span>Kg</h3>
-              <p class="tableLabel">Carbon footprint for 50 pods</p>
-            </td>
-            <td>
-              <h3 class="tableFig"><span class="tableFigNum">12</span>%</h3>
-              <p class="tableLabel">Increase in Farmer's profit</p>
-            </td>
-          </tr>
-        </table>
-        <p class="disclaimer">*Calculated at minimum government<br><span>fallback wheat prices.</span></p>
-      </div>
-    </div>
-    <hr style="background-color:#656565;width:85%;height:1px;margin-left:7.5%;" class="desktop">
-    <div class="teamBottom panel desktop" id="teamBottom">
-      <div class="team">
-        <h1>Our Team</h1>
-        <div class="membersContainer">
-          <div class="member">
-            <img src="{{url_for('static', filename='img/lucas.JPG')}}" alt="">
-            <h3>Lucas Hoffmann</h3>
-            <p class="title">CEO, Co-Founder</p>
-            <a href="https://www.linkedin.com/in/lucas-hoffmann-861a6a208/" target="_blank"> <img src="{{url_for('static', filename='img/linkedin.webp')}}" alt="" class="lin"></a>
-          </div>
-          <div class="member">
-            <img src="{{url_for('static', filename='img/ali.png')}}" alt="">
-            <h3>Ali Kamel</h3>
-            <p class="title">CEO, Co-Founder</p>
-            <a href="https://www.linkedin.com/in/ali-kamel-b39b79168/" target="_blank"> <img src="{{url_for('static', filename='img/linkedin.webp')}}" alt="" class="lin"></a>
-          </div>
-          <div class="member">
-            <img src="{{url_for('static', filename='img/adi.png')}}" alt="">
-            <h3>Aditya Mathur</h3>
-            <p class="title">CFO, Co-Founder</p>
-            <a href="https://www.linkedin.com/in/aditya-mathur-3a0345176/" target="_blank"> <img src="{{url_for('static', filename='img/linkedin.webp')}}" alt="" class="lin"></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr style="background-color:#656565;width:85%;height:1px;margin-left:7.5%;" class="desktop">
-
-    <div class="quotesFooter desktop">
-      <img src="{{url_for('static', filename='img/leftArrow.png')}}" alt="" class="arrow floatLeft" onclick="quotesArrowPress(0)">
-      <img src="{{url_for('static', filename='img/rightArrow.png')}}" alt="" class="arrow floatRight" onclick="quotesArrowPress(1)">
-      <div class="quotesContainer">
-        <div class="quoteContainer" id="wideQuote">
-          <p class="quote">“This is an inspired and innovative technology with clear benefits to farming communities in India, as
-well as the potential for agricultural applications elsewhere in the world.”</p>
-          <p class="author">Judge, Big Bang competition</p>
-        </div>
-        <div class="quoteContainer visible">
-          <p class="quote">“AgriPod will save me and others a lot of money, and I look forward to seeing it on my farm.”</p>
-          <p class="author">Omkar Singh, Farmer from Uttar Pradesh</p>
-        </div>
-
-        <div class="quoteContainer">
-          <p class="quote">“high potential to create a very useful product with excellent value to agriculture”</p>
-          <p class="author">Judge, TeenTech Competition</p>
-        </div>
-
-        <div class="quoteCircleContainer">
-            <div class="quoteCircle">
-
-            </div>
-            <div class="quoteCircle selectedCircle">
-
-            </div>
-            <div class="quoteCircle">
-
-            </div>
-        </div>
-      </div>
-      <div class="footer desktop">
-        <img src="{{url_for('static', filename='img/agripodLogoWhite.png')}}" alt="">
-        <div class="text">
-          <div class="missionSocials">
-            <p class="mission">Tackling fertiliser<br>misapplication across the<br>world.</p>
-            <a href="https://www.instagram.com/agripodofficial/" target="_blank"><img src="{{url_for('static', filename='img/ig.svg')}}" alt="" class="socialLinkImg"></a>
-            <a href="https://www.linkedin.com/company/agripod/" target="_blank"><img src="{{url_for('static', filename='img/linkedinBlack.svg')}}" alt="" class="socialLinkImg"></a>
-            <!--
+        <div class="missionSocials">
+          <p class="mission">Tackling fertiliser<br>misapplication across the<br>world.</p>
+          <a href="https://www.instagram.com/agripodofficial/" target="_blank"><img
+              src="{{url_for('static', filename='img/ig.svg')}}" alt="" class="socialLinkImg"></a>
+          <a href="https://www.linkedin.com/company/agripod/" target="_blank"><img
+              src="{{url_for('static', filename='img/linkedinBlack.svg')}}" alt="" class="socialLinkImg"></a>
+          <!--
             <a href="https://www.youtube.com/watch?v=0-goC7WVRjM"><img src="{{url_for('static', filename='img/youtube.svg')}}" alt="" class="socialLinkImg"></a>
             <a href="#"><img src="{{url_for('static', filename='img/twitter.svg')}}" alt="" class="socialLinkImg"></a>
             <a href="#"><img src="{{url_for('static', filename='img/fb.svg')}}" alt="" class="socialLinkImg"></a>
             !-->
-          </div>
-          <hr style="background-color:white;color:white;border:none;height:1px;width:90%;margin-right:5%;" class="desktop">
-          <p><a href="#problemContainer">The Problem</a> &mdash; <a href="#design">Design</a> &mdash; <a href="#finance">Finance</a> &mdash; <a href="#teamBottom">Our Team</a> &mdash; <a href="mailto:agripodinfo@gmail.com">Contact</a> </p>
         </div>
+        <hr style="background-color:white;color:white;border:none;height:1px;width:90%;margin-right:5%;"
+          class="desktop">
+        <p><a href="#problemContainer">The Problem</a> &mdash; <a href="#design">Design</a> &mdash; <a
+            href="#finance">Finance</a> &mdash; <a href="#teamBottom">Our Team</a> &mdash; <a
+            href="mailto:agripodinfo@gmail.com">Contact</a> </p>
       </div>
     </div>
-    </div>
+  </div>
+  </div>
 
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script type="text/javascript">
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script type="text/javascript">
 
 
     AOS.init();
 
-    imgHeap = {{imgs|safe}}
+    imgHeap = {{ imgs | safe }}
 
     function preloadImages(images) {
       for (i = 0; i < images.length; i++) {
@@ -372,18 +404,18 @@ well as the potential for agricultural applications elsewhere in the world.”</
       var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
       return (v * h) / 100;
     }
-    function vw(v){
+    function vw(v) {
       var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
       return (v * w) / 100;
     }
 
 
-    function animateExplosionByScroll(){
-      scrollFraction = (((window.scrollY - vh(100))-vh(50))/(vh(50)+8))
+    function animateExplosionByScroll() {
+      scrollFraction = (((window.scrollY - vh(100)) - vh(50)) / (vh(50) + 8))
       currAnimNum = Math.round(scrollFraction * 48)
-      if(currAnimNum <= 0) currAnimNum = 1;
+      if (currAnimNum <= 0) currAnimNum = 1;
       if (currAnimNum > 48) currAnimNum = 48;
-      name = "../static/img/explodeReverseFrames/0 (" + currAnimNum+ ").jpg";
+      name = "../static/img/explodeReverseFrames/0 (" + currAnimNum + ").jpg";
       anim.style.backgroundImage = 'url("' + name + '")'
 
       inverseFraction = 1 - scrollFraction;
@@ -395,11 +427,11 @@ well as the potential for agricultural applications elsewhere in the world.”</
       anim.style.width = width;
     }
 
-    function getSinFromDegrees(d){
+    function getSinFromDegrees(d) {
       rad = d * Math.PI / 180;
       return Math.sin(rad);
     }
-    function animateExplosionByTime(){
+    function animateExplosionByTime() {
       // this should only start after user has scrolled half way down the screen;
       currAnimNum = 0;
       const startTime = new Date();
@@ -410,59 +442,59 @@ well as the potential for agricultural applications elsewhere in the world.”</
         timeDiff /= 1000;
         timeFraction = timeDiff / 5;
         console.log(timeFraction);
-        if(timeFraction > 1) clearInterval(interval);
-        else if(timeFraction < prevTimeFraction) return; // this prevents jumping back and forth
+        if (timeFraction > 1) clearInterval(interval);
+        else if (timeFraction < prevTimeFraction) return; // this prevents jumping back and forth
         else tanFraction = getSinFromDegrees(timeFraction * 90);
         currAnimNum = Math.round(tanFraction * 48);
-        name = "../static/img/explodeReverseFrames/0 (" + currAnimNum+ ").jpg"
-        anim.setAttribute('style', 'background-image: url("' + name +'");')
+        name = "../static/img/explodeReverseFrames/0 (" + currAnimNum + ").jpg"
+        anim.setAttribute('style', 'background-image: url("' + name + '");')
         prevTimeFraction = timeFraction;
       }, 200);
     }
-    function halfWay(panelNum){
+    function halfWay(panelNum) {
       /*
         This function returns whether user has scrolled abt half way through the current panel or not.
       */
       panelBeginning = vh((panelNum - 2) * 100)
       return (window.scrollY - panelBeginning) / vh(100) > 0.5;
     }
-    function sleep(ms){
+    function sleep(ms) {
       var start = Date.now();
       let curr = null;
-      do{
+      do {
         curr = Date.now();
-      }while(curr - start < ms)
+      } while (curr - start < ms)
     }
     var intervalFinished = false;
-    function tickNums(){
+    function tickNums() {
       var nums = [31047, 12, 39, 12];
       var el = document.getElementsByClassName("tableFigNum")[0];
       tickUpElement(31047, el, 1000, 100);
-      while(!intervalFinished){
+      while (!intervalFinished) {
 
       }
       var el1 = document.getElementsByClassName("tableFigNum")[1];
       tickUpElement(12, el1, 1000, 1);
     }
-    function tickUpElement(target, element, duration,increment){
+    function tickUpElement(target, element, duration, increment) {
       current = 0;
       range = target;
       console.log(target);
       stepTime = Math.round(duration / range);
       var innerText = "";
-      var intervalFunction = setInterval(function() {
+      var intervalFunction = setInterval(function () {
         current += increment;
-        if(current.toString().length > 4) innerText = prettifyNum(current.toString());
+        if (current.toString().length > 4) innerText = prettifyNum(current.toString());
         else innerText = current;
-        if(current == target) clearInterval(intervalFunction);
-        if(increment != 1){
-          if(current > target - 100){
+        if (current == target) clearInterval(intervalFunction);
+        if (increment != 1) {
+          if (current > target - 100) {
             current = 31000;
-            last47 = setInterval(function(){
+            last47 = setInterval(function () {
               current++;
               innerText = prettifyNum(current.toString());
               element.innerText = innerText;
-              if(current == target) clearInterval(last47);
+              if (current == target) clearInterval(last47);
             }, 20)
             clearInterval(intervalFunction);
           }
@@ -472,11 +504,11 @@ well as the potential for agricultural applications elsewhere in the world.”</
       intervalFinished = true;
     }
 
-    function prettifyNum(text){
-      return text.substring(0,2) + "," + text.substring(2);
+    function prettifyNum(text) {
+      return text.substring(0, 2) + "," + text.substring(2);
     }
     numsUnticked = true;
-    var checkScroll = function() {
+    var checkScroll = function () {
       /*
       if(halfWay(3)){
         //console.log("halfway");
@@ -522,19 +554,19 @@ well as the potential for agricultural applications elsewhere in the world.”</
       // vh(300) - vh(400) white header
       //header is white by default
 
-      if(bgColour() == "white"){
+      if (bgColour() == "white") {
         blackHeader();
-      }else{
+      } else {
         whiteHeader();
       }
     };
-    function bgColour(){
-      if((window.scrollY > vh(95) && window.scrollY < vh(195)) || (window.scrollY > vh(295) && window.scrollY < vh(515))) {
+    function bgColour() {
+      if ((window.scrollY > vh(95) && window.scrollY < vh(195)) || (window.scrollY > vh(295) && window.scrollY < vh(515))) {
         return 'white';
-      }else return 'black';
+      } else return 'black';
 
     }
-    function whiteHeader(){
+    function whiteHeader() {
       logo = document.getElementsByClassName("headerImg")[0];
       contactBtn = document.getElementsByClassName("contactBtn")[0];
 
@@ -544,7 +576,7 @@ well as the potential for agricultural applications elsewhere in the world.”</
 
     }
 
-    function blackHeader(){
+    function blackHeader() {
       logo = document.getElementsByClassName("headerImg")[0];
       contactBtn = document.getElementsByClassName("contactBtn")[0];
 
@@ -553,7 +585,7 @@ well as the potential for agricultural applications elsewhere in the world.”</
       contactBtn.style.color = "black";
     }
 
-    var toggleHeader = function(direction, curScroll) {
+    var toggleHeader = function (direction, curScroll) {
       if (direction === 2 && curScroll > vh(10)) {
 
 
@@ -572,7 +604,7 @@ well as the potential for agricultural applications elsewhere in the world.”</
 
 
     awardCounter = 1; // this keeps record of which slide of the awards is being shown, it cannot be higher than 2 or lower than 0
-    function awardsArrowPress(side){
+    function awardsArrowPress(side) {
       // side is an int where 0 is left and 1 is right
 
       circles = document.getElementsByClassName("awardCircle");
@@ -588,16 +620,16 @@ well as the potential for agricultural applications elsewhere in the world.”</
       awards[awardCounter].classList.add("visible");
       circles[awardCounter].classList.add("selectedCircle");
     }
-    function incrementAwardCounter(side){
+    function incrementAwardCounter(side) {
       // side is an int where 0 is left and 1 is right
-      if(side == 0) awardCounter--;
+      if (side == 0) awardCounter--;
       else awardCounter++;
-      if(awardCounter < 0) awardCounter = 2;
-      else if(awardCounter > 2) awardCounter = 0;
+      if (awardCounter < 0) awardCounter = 2;
+      else if (awardCounter > 2) awardCounter = 0;
     }
 
     quoteCounter = 1; // this keeps record of which slide of the awards is being shown, it cannot be higher than 2 or lower than 0
-    function quotesArrowPress(side){
+    function quotesArrowPress(side) {
       // side is an int where 0 is left and 1 is right
 
       circles = document.getElementsByClassName("quoteCircle");
@@ -613,28 +645,26 @@ well as the potential for agricultural applications elsewhere in the world.”</
       quotes[quoteCounter].classList.add("visible");
       circles[quoteCounter].classList.add("selectedCircle");
     }
-    function incrementQuoteCounter(side){
+    function incrementQuoteCounter(side) {
       // side is an int where 0 is left and 1 is right
-      if(side == 0) quoteCounter--;
+      if (side == 0) quoteCounter--;
       else quoteCounter++;
-      if(quoteCounter < 0) quoteCounter = 2;
-      else if(quoteCounter > 2) quoteCounter = 0;
+      if (quoteCounter < 0) quoteCounter = 2;
+      else if (quoteCounter > 2) quoteCounter = 0;
     }
 
 
 
 
-    function collapse(count){
+    function collapse(count) {
       const btns = document.getElementsByClassName("collapsible");
-      const icons = document.getElementsByClassName("plusMinus");
       const contents = document.getElementsByClassName("content");
 
       // closing any previously opened collapsibles (there should only be one of these but just in case we use for loop, if there is onyl one theres little loading time increase)
-      for(i = 0; i < btns.length; i++){
-        if(i != count){
+      for (i = 0; i < btns.length; i++) {
+        if (i != count) {
           btn = btns[i];
-          if(btn.classList.contains("active")){ // you can only use .contains() with DOMTokenLists not normal arrays in JS
-            setIcon(false, icons[i]);
+          if (btn.classList.contains("active")) { // you can only use .contains() with DOMTokenLists not normal arrays in JS
             setContent(false, contents[i]);
             btn.classList.remove("active")
           }
@@ -642,31 +672,30 @@ well as the potential for agricultural applications elsewhere in the world.”</
       }
 
       // opening/closing the correct collapsible
-      const icon = icons[count];
       const content = contents[count];
       btn = btns[count]
       active = btn.classList.contains("active");
-      if(!active) btn.classList.add("active");
+      if (!active) btn.classList.add("active");
       else btn.classList.remove("active");
 
 
       // put !active because if active == True, then we want setIcon/setContent to do the opposite.
-      setIcon(!active, icon);
       setContent(!active, content);
     }
 
 
-    function setIcon(onOff, icon){
-      if(!onOff) icon.style.background = "url({{url_for('static', filename='img/plus.png')}})"; // if active currently
+    function setIcon(onOff, icon) {
+      if (!onOff) icon.style.background = "url({{url_for('static', filename='img/plus.png')}})"; // if active currently
       else icon.style.background = "url({{url_for('static', filename='img/minus.png')}})"; // if passive
       icon.style.backgroundPosition = "center";
       icon.style.backgroundSize = "cover";
     }
 
-    function setContent(onOff, content){
-      if(onOff) content.style.maxHeight = "66vh";
+    function setContent(onOff, content) {
+      if (onOff) content.style.maxHeight = "66vh";
       else content.style.maxHeight = null;
     }
-    </script>
-  </body>
+  </script>
+</body>
+
 </html>
