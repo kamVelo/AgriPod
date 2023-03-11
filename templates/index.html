@@ -20,13 +20,13 @@
 </head>
 
 <body>
-  <!-- page missing!-->
+  <!-- page missing! -->
   <header class="pageMissing">
     <img class="" src="{{url_for('static', filename='img/agripodLogoBlack.png')}}" alt="">
   </header>
   <p class="pageMissing">Unfortunately our mobile site is still under development. Please use a desktop to learn more
     about AgriPod. <br><br> For urgent requests, send an email to agripodinfo@gmail.com. </p>
-  <!-- desktop !-->
+  <!-- desktop ! -->
   <header class="dheader desktop">
     <img class="headerImg" src="{{url_for('static', filename='img/agripodLogoWhite.png')}}" alt="">
     <a href="mailto:agripodinfo@gmail.com" style="width:5vw;">
@@ -81,45 +81,21 @@
       onclick="awardsArrowPress(1)">
     <div class="awardsContainer halfPanel">
       <div class="award">
-        <div class="text floatLeft awardHalf">
-          <div class="innerContainer">
-            <h1 class="title">Runners Up</h1>
-            <p class="desc">Big Bang Senior Engineering Category</p>
-          </div>
-        </div>
-        <div class="logo floatRight awardHalf">
-          <div class="imgContainer">
-            <img src="{{url_for('static', filename='img/bigbang.jpg')}}" alt="">
-          </div>
-        </div>
+        <h1 class="title">Runners Up</h1>
+        <img src="{{url_for('static', filename='img/bigbang.jpg')}}" alt="">
+        <p class="desc">Big Bang Senior Engineering Category</p>
       </div>
-
       <div class="award visible desktop">
-        <div class="text floatLeft awardHalf">
-          <div class="innerContainer">
-            <h1 class="title">First Place</h1>
-            <p class="desc">Siemen's Digital Decarbonisation Award</p>
-          </div>
-        </div>
-        <div class="logo floatRight awardHalf">
-          <div class="imgContainer">
-            <img src="{{url_for('static', filename='img/siemens.jpg')}}" alt="">
-          </div>
-        </div>
+        <h1 class="title">First Place</h1>
+        <img src="{{url_for('static', filename='img/siemens.jpg')}}" alt="">
+        <p class="desc">Siemens' Digital Decarbonisation Award</p>
       </div>
       <div id="teentech" class="award">
-        <div class="text floatLeft awardHalf">
-          <div class="innerContainer">
-            <h1 class="title">Winners</h1>
-            <p class="desc">TeenTech Overall Best Innovation</p>
-          </div>
-        </div>
-        <div class="logo floatRight awardHalf">
-          <div class="imgContainer" id="teenTechImg">
-            <img src="{{url_for('static', filename='img/teentech.webp')}}" alt="">
-          </div>
-        </div>
+        <h1 class="title">Winners</h1>
+        <img src="{{url_for('static', filename='img/teentech.webp')}}" alt="">
+        <p class="desc">TeenTech Overall Best Innovation</p>
       </div>
+
       <div class="awardCircleContainer">
         <div class="awardCircle">
 
@@ -244,6 +220,8 @@
   <div class="finance panel desktop" id="finance">
     <div class="imgTitle">
       <h1>Finance</h1>
+      <!-- For a shadow on the image here, I would recommend using CSS box-shadow 
+      instead of baking it into the image. -->
       <img src="{{url_for('static', filename='img/indianLady.png')}}" alt="">
     </div>
     <div class="figures floatRight">
@@ -251,28 +229,22 @@
         <h1>£0.72 | ₹68</h1>
         <p>Cost per AgriPod / Month</p>
       </div>
-      <table class="grid">
-        <tr>
-          <td>
-            <h3 class="tableFig">₹<span class="tableFigNum">31,047</span>*</h3>
-            <p class="tableLabel">Farmer's profit increase / harvest</p>
-          </td>
-          <td>
-            <h3 class="tableFig"><span class="tableFigNum">12</span> pods</h3>
-            <p class="tableLabel">To cover a medium sized farm in India</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <h3 class="tableFig"><span class="tableFigNum">39.83</span>Kg</h3>
-            <p class="tableLabel">Carbon footprint for 50 pods</p>
-          </td>
-          <td>
-            <h3 class="tableFig"><span class="tableFigNum">12</span>%</h3>
-            <p class="tableLabel">Increase in Farmer's profit</p>
-          </td>
-        </tr>
-      </table>
+      <div class="fig">
+        <h3 class="tableFig">₹<span class="tableFigNum">31,047</span>*</h3>
+        <p class="tableLabel">Farmer's profit increase / harvest</p>
+      </div>
+      <div class="fig">
+        <h3 class="tableFig"><span class="tableFigNum">12</span> pods</h3>
+        <p class="tableLabel">To cover a medium sized farm in India</p>
+      </div>
+      <div class="fig">
+        <h3 class="tableFig"><span class="tableFigNum">39.83</span>Kg</h3>
+        <p class="tableLabel">Carbon footprint for 50 pods</p>
+      </div>
+      <div class="fig">
+        <h3 class="tableFig"><span class="tableFigNum">12</span>%</h3>
+        <p class="tableLabel">Increase in Farmer's profit</p>
+      </div>
       <p class="disclaimer">*Calculated at minimum government<br><span>fallback wheat prices.</span></p>
     </div>
   </div>

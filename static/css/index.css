@@ -5,7 +5,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;500;600&display=swap');
 
-
 /* GENERAL */
 * {
   padding: 0;
@@ -20,6 +19,7 @@ body {
 
 body {
   -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 .floatLeft {
@@ -55,11 +55,12 @@ body {
   position: fixed;
   width: 100%;
   text-align: center;
-  /*background-color:lightgreen;*/
+  /*background-color: lightgreen;*/
   background-color: rgba(0, 0, 0, 0.0);
   height: 10vh;
   z-index: 10;
   transition: all .3s ease;
+  display: block;
 }
 
 .dheader.hide {
@@ -94,6 +95,7 @@ body {
   width: 100vw;
   height: 10vh;
   position: fixed;
+  display: none;
 }
 
 .mheader img {
@@ -101,9 +103,6 @@ body {
   margin-top: 1.5vh;
   margin-left: 1vw;
 }
-
-
-
 
 @media all and (max-width:480px) {
   .dheader {
@@ -115,31 +114,29 @@ body {
   }
 }
 
-@media all and (min-width:480px) {
-  .dheader {
-    display: block;
-  }
-
-  .mheader {
-    display: none;
-  }
-}
-
-
-/* TOP PANEL  desktop*/
+/* TOP PANEL desktop*/
 .start.desktop {
   position: relative;
   overflow: hidden;
+  display: grid;
+}
+
+.start.desktop * {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }
 
 .start.desktop #frontvid {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100vw;
   object-fit: cover;
+  /* Send video to background */
+  z-index: -1;
 }
-
 
 .start.desktop h1 {
   color: white;
@@ -148,7 +145,6 @@ body {
   padding-left: 3%;
   font-weight: bold;
   font-size: 10vmin;
-  position: absolute;
 }
 
 .start.desktop p {
@@ -158,7 +154,6 @@ body {
   padding-top: 5%;
   padding-left: 3%;
   font-size: 1.5vmax;
-  position: absolute;
   margin-top: 30vh;
 }
 
@@ -224,7 +219,12 @@ body {
   }
 }
 
+.pageMissing {
+  display: none;
+}
+
 header.pageMissing {
+  display: none;
   position: fixed;
   height: 10vh;
   top: 0;
@@ -246,13 +246,13 @@ p.pageMissing {
   font-weight: bold;
 }
 
-@media all and (min-width:480px) {
+@media all and (max-width:480px) {
   .start.desktop {
-    display: block;
+    display: none;
   }
 
   .pageMissing {
-    display: none;
+    display: block;
   }
 }
 
@@ -279,11 +279,9 @@ p.pageMissing {
 
 .award {
   box-sizing: border-box;
-  width: 90vw;
+  width: 100%;
   height: 35vh;
-  margin-left: 5vw;
   font-family: 'Crimson Pro';
-  padding-left: 5vw;
   display: none;
 
   /*animation fade*/
@@ -304,13 +302,6 @@ p.pageMissing {
 #teentech {
   padding-right: 5vw;
   padding-left: 0;
-}
-
-.award .awardHalf {
-  width: 50%;
-  height: 100%;
-  box-sizing: border-box;
-
 }
 
 .award .text .innerContainer {
@@ -350,13 +341,19 @@ p.pageMissing {
 }
 
 .award img {
-  margin-top: 3.25vh;
-  margin-left: 2vw;
-  height: 27vmin;
+  height: 50%;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  margin: auto;
 }
 
-.awardsContainer .awardCircleContainer {
-  margin-top: -4vh;
+.award.visible {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  justify-content: center;
+  align-items: center;
 }
 
 .awardsContainer .awardCircle {
@@ -613,45 +610,50 @@ p.pageMissing {
 
 }
 
-
-
 /* FINANCE*/
 
 .finance {
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
   height: 100vh;
   box-sizing: border-box;
-  border: 0px solid black;
-  padding-right: 2vw;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 100%;
 }
 
 .finance .imgTitle {
-  width: 40vw;
-  height: 80vh;
-  padding-left: 1.5vw;
+  display: grid;
+  grid-template-rows: auto auto;
   box-sizing: border-box;
-  display: inline-block;
 }
 
 .finance .imgTitle img {
-  width: 28vw;
-  margin-left: 5vw;
-  padding-top: 2vh;
+  max-height: 100%;
+  max-width: 100%;
+  margin: auto;
 }
 
 .finance .imgTitle h1 {
-  margin-left: 5vw;
-  padding-top: 1vh;
+  margin: 0 auto;
+
   font-family: 'Crimson Pro';
   font-weight: bold;
   font-size: 13vh;
 }
 
 .finance .figures {
-  padding-top: 4.5vh;
   text-align: center;
-  width: 55vw;
-  display: inline-block;
+  width: 100%;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 50% 50%;
+}
+
+.finance .figures .headline {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  margin: auto;
 }
 
 .finance .figures .headline h1 {
@@ -666,38 +668,29 @@ p.pageMissing {
   font-weight: 600;
 }
 
-.finance .figures .grid {}
-
-.finance .figures .grid td {
-  padding: 3vmax;
-
+.finance .figures .fig {
+  padding: auto;
 }
 
-.finance .figures .grid .tableFig {
+.finance .figures .fig .tableFig {
   font-size: 8vh;
   font-family: 'Noto Serif Display';
   font-weight: 400;
 }
 
-.finance .figures .grid .tableLabel {
+.finance .figures .fig .tableLabel {
   font-size: 2.8vh;
   font-family: 'Crimson Pro';
   font-weight: 400;
 }
 
 .finance .disclaimer {
-  float: right;
-
-  margin-right: 3vw;
+  grid-column-start: 2;
   font-size: 3vh;
   font-family: 'Crimson Pro';
   font-weight: 400;
+  text-align: right;
 }
-
-.finance .disclaimer span {
-  float: right;
-}
-
 
 @media (max-aspect-ratio:1.73) {
   .finance {
