@@ -285,7 +285,11 @@ def receiveSMS():
         else:
             index = int(random.random() * len(query_result))
             datum  = query_result[index]
-            moisture = (1-datum.moisture/4096)*100
+
+            moisture = round((1-datum.moisture/4096)*100,1)
+            humidity = round(datum.humidity,1)
+            temperature = round(datum.temperature,1)
+
             if  moisture > 50:
                 recommendation = "The soil is too wet to apply fertiliser now, it will runoff into local streams."
             elif datum.temperature < 22:
@@ -294,12 +298,12 @@ def receiveSMS():
                 recommendation = "Conditions are good to apply fertiliser now!"
 
 
-            message = f"Humidity: {datum.humidity}% \nSoil Temperature: {datum.temperature} Degrees Celsius\n Soil Moisture: {moisture}%\nRecommendation: {recommendation}"
+            message = f"Humidity: {humidity}% \nSoil Temperature: {temperature} Degrees Celsius\n Soil Moisture: {moisture}%\nRecommendation: {recommendation}"
             resp.message(message)
             return str(resp)
 
 
-    index = random.random() * len()
+
     datum = query_result[-1]  # gets latest record
     content = {
         "record id": datum.id,
