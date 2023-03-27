@@ -286,7 +286,7 @@ def receiveSMS():
             moisture = 0
             humidity = 0
             temperature = 0
-            while moisture < 30 or temperature < 12:
+            while moisture < 30.0 or temperature < 12.0:
                 index = int(random.random() * len(query_result))
                 datum = query_result[index]
 
