@@ -283,13 +283,16 @@ def receiveSMS():
         if "recommendation" not in varReq:
             varReq = varReq[:-1]
         else:
-            index = int(random.random() * len(query_result))
-            datum  = query_result[index]
+            moisture = 0
+            humidity = 0
+            temperature = 0
+            while moisture < 30 or temperature < 12:
+                index = int(random.random() * len(query_result))
+                datum = query_result[index]
 
-            moisture = round((1-datum.moisture/4096)*100,1)
-            humidity = round(datum.humidity,1)
-            temperature = round(datum.temperature,1)
-
+                moisture = round((1 - datum.moisture / 4096) * 100, 1)
+                humidity = round(datum.humidity, 1)
+                temperature = round(datum.temperature, 1)
             if  moisture > 50:
                 recommendation = "The soil is too wet to apply fertiliser now, it will runoff into local streams."
             elif datum.temperature < 22:
