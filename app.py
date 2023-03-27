@@ -7,6 +7,7 @@ import os
 import json
 import html
 from datetime import datetime
+import random
 app = Flask(__name__)
 app.debug = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
@@ -277,10 +278,29 @@ def receiveSMS():
     body = request.values.get("Body", None)
     body = body.lower().strip()
     varReq = body.split(" ")[-1]
-    if "?" in varReq:
-        varReq = varReq[:-1]
+    query_result = data.query.filter(data.uuid == 1).all()
+    if "?" in varReq :
+        if "recommendation" not in varReq:
+            varReq = varReq[:-1]
+        else:
+            index = int(random.random() * len(query_result))
+            datum  = query_result[index]
+            moisture = (1-datum.moisture/4096)*100
+            if  moisture > 50:
+                recommendation = "The soil is too wet to apply fertiliser now, it will runoff into local streams."
+            elif datum.temperature < 22:
+                recommendation = "The soil is too cold now, plants will not take up the fertiliser quickly and fertiliser will be wasted."
+            else:
+                recommendation = "Conditions are good to apply fertiliser now!"
 
-    datum = data.query.filter(data.uuid == 1).all()[-1]  # gets latest record
+
+            message = "Humidity: %s% \nSoil Temperature: %s Degrees Celsius\n Soil Moisture: %s%\nRecommendation: %s" % (str(datum.humidity), str(datum.temperature), str(moisture), recommendation)
+            resp.message(message)
+            return str(resp)
+
+
+    index = random.random() * len()
+    datum = query_result[-1]  # gets latest record
     content = {
         "record id": datum.id,
         "humidity": datum.humidity,
