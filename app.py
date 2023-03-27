@@ -292,7 +292,7 @@ def receiveSMS():
 
                 moisture = round((1 - datum.moisture / 4096) * 100, 1)
                 humidity = round(datum.humidity, 1)
-                temperature = round(datum.temperature, 1) - 10
+                temperature = round(datum.temperature-10, 1)
             if  ((moisture-50)/50) > 0.08:
                 recommendation = "The soil is too wet to apply fertiliser now."
             elif datum.temperature < 12:
