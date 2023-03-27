@@ -301,7 +301,7 @@ def receiveSMS():
                 recommendation = "Conditions are good to apply fertiliser now!"
 
 
-            message = f"-Humidity: {humidity}% \n\n-Soil Temperature: {temperature} Degrees Celsius\n\n-Soil Moisture: {moisture}%\n\n\nRecommendation: {recommendation}\n{(moisture-50)/50}"
+            message = f"-Humidity: {humidity}% \n\n-Soil Temperature: {temperature} Degrees Celsius\n\n-Soil Moisture: {moisture}%\n\nRecommendation: {recommendation}"
             resp.message(message)
             return str(resp)
 
