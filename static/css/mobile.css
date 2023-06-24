@@ -11,7 +11,7 @@
 	margin:0;
 }
 
-@media (min-aspect-ratio: 0.7){
+@media (min-aspect-ratio: 7/10){
 	body{
 		display:none;
 	}
@@ -124,7 +124,7 @@ header{
 /* design page buttons */
 
 /* Iphone 13/12 Pro aspect ratio is 0.46 */
-@media all and (max-aspect-ratio:0.5){
+@media all and (max-aspect-ratio:1/2){
 	#btnOne{
 		margin-left:25vw;
 		margin-top:36.5%;
@@ -147,7 +147,7 @@ header{
 
 
 /* Iphone SE aspct ratios */
-@media all and (min-aspect-ratio:0.5){
+@media all and (min-aspect-ratio:1/2){
 	#btnOne{
 		margin-left:27vw;
 		margin-top:30%;
@@ -223,14 +223,14 @@ header{
 	margin-top:5.5vh;
 }
 /* Iphone 12 Pro/13 has aspect ratio 0.46*/
-@media all and (max-aspect-ratio:0.5){
+@media all and (max-aspect-ratio:1/2){
 	.designElement .header .closeIcon{
 		width:8%;
 	}
 }
 
 /*Iphone SE*/
-@media all and (min-aspect-ratio:0.5){
+@media all and (min-aspect-ratio:1/2){
 	.designElement .header .title{
 		margin-left:16vw;
 	}
