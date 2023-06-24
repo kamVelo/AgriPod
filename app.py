@@ -130,8 +130,8 @@ class data(db.Model):
         self.humidity = humidity
         self.temperature = temperature
         self.time = time
-
-db.create_all()
+with app.app_context():
+    db.create_all()
 
 @app.route("/index/")
 @app.route("/")
@@ -166,7 +166,7 @@ def index():
     imgs = [html.unescape(img) for img in imgs]
 
     imgs = json.dumps(imgs)
-    return render_template("index.html", imgs=imgs)
+    return render_template("mobile.html", imgs=imgs)
 @app.errorhandler(403)
 def forbidden(e):
     return "Wrong Network Name/Password/ID", 403
@@ -329,4 +329,5 @@ def receiveSMS():
 
 
 if __name__ == '__main__':
+
     app.run(port=5000,debug=True)

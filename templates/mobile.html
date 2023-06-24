@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AgriPod</title>
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/mobile.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/normalize.css')}}">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='logo/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='logo/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='logo/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{url_for('static',filename='logo/site.webmanifest')}}">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+	<div class="section" id="one">
+		<header>
+			<img id="headerLogo" src="{{url_for('static', filename='img/agripodLogoBlack.png')}}">
+		</header>
+		<div id="welcomePage">
+			<h1 id="title">
+				Tackling Fertiliser <br> Misapplication.
+			</h1>
+			<p id="brief">
+				AgriPod advises farmers on the optimal times to apply fertiliser, based on real-time soil conditions.
+			</p>
+			<button id="regIntBtn">
+				Register Interest
+			</button>
+		</div>
+	</div>
+	<div class="section" id="three">
+		<h1 id="sectionTitle">Design</h1>
+		<div class="subcontainer">
+			<button type="button" name="button" class="designBtn" id="btnOne" onClick="designClick(1)"></button>
+			<button type="button" name="button" class="designBtn" id="btnTwo" onClick="designClick(2)"></button>
+			<button type="button" name="button" class="designBtn" id="btnThree" onClick="designClick(3)"></button>
+			<button type="button" name="button" class="designBtn" id="btnFour" onClick="designClick(4)"></button>
+		</div>
+		<div class="designElement hidden">
+			<div class="header">
+				<h1 class="title"> <span class="letter" style="text-decoration:none;">A.</span> <span class="word">Enclosure</span></h1>
+				<span onclick="closeSlide(1)"><img src="{{url_for('static', filename='img/x-icon.png')}}" alt="" class="closeIcon" ></span>
+			</div>
+			<div class="content">
+				<h1 class="subtitle">Waterproof, Weatherproof and Repairable</h1>
+				<p class="para">Made out of sustainable PLA, the plastic enclosure uses a double-screw mechanism to allow easy repair and maintainance.
+					<br><br>
+					Designed to withstand the range of conditions and temperatures the AgriPod will encounter, the enclosure uses two shells to ensure easy repairability in case of any damage.  </p>
+			</div>
+
+		</div>
+		<div class="designElement hidden">
+			<div class="header">
+				<h1 class="title"> <span class="letter" style="text-decoration:none;">B.</span> <span class="word">Electronics</span></h1>
+				<span onclick="closeSlide(2)"><img src="{{url_for('static', filename='img/x-icon.png')}}" alt="" class="closeIcon" ></span>
+			</div>
+			<div class="content">
+				<h1 class="subtitle">Accurate and Reliable</h1>
+				<p class="para">AgriPod uses custom PCBs, designed in house and manufactured by one of the world’s leading PCB manufacturers.<br><br>The board features easy troubleshooting in the field via UART and emergency charging via USB. All data is backed up onto an SD card in case of sudden power loss.<br><br>Combining multiple layers of battery safety in both hardware and software, AgriPod can adjust sampling and transmission frequency to maximise battery life.<br><br>The Agripod measures soil humidity, temperature, air humidity which we combine with weather data in our algorithm.  </p>
+			</div>
+
+		</div>
+		<div class="designElement hidden">
+			<div class="header">
+				<h1 class="title"> <span class="letter" style="text-decoration:none;">C.</span> <span class="word">Network</span></h1>
+				<span onclick="closeSlide(3)"><img src="{{url_for('static', filename='img/x-icon.png')}}" alt="" class="closeIcon" ></span>
+			</div>
+			<div class="content">
+				<h1 class="subtitle">Inter-device Communication</h1>
+				<p class="para">Each standard AgriPod is capable of Wi-Fi communication at a range of several 100 meters. The pods form a mesh network, forwarding data through each other. Ultimately, the data is funnelled to an AgriPod which has an LTE module and  is sent to our servers, hosted in the cloud.<br><br>  Each AgriPod recieves information from the server and looks at the data it has gathered, to decide on how often to sample and transmit data.</p>
+			</div>
+
+		</div>
+		<div class="designElement hidden">
+			<div class="header">
+				<h1 class="title"> <span class="letter" style="text-decoration:none;">D.</span> <span class="word">Algorithm</span></h1>
+				<span onclick="closeSlide(4)"><img src="{{url_for('static', filename='img/x-icon.png')}}" alt="" class="closeIcon" ></span>
+			</div>
+			<div class="content">
+				<h1 class="subtitle">Algorithm</h1>
+				<p class="para">
+					The algorithm has been developed in contact with professors and researchers from Oxford University, Bangor University and Durham University. 
+<br><br>Currently, the algorithm will map out and predict optimum fertiliser values, providing a recommended fertilising window (typically a few days) based on crop type. After gathering a large dataset comparative effects, we plan to train neural networks which can find patterns we have not yet considered.
+				</p>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="section" id="four">
+
+	</div>
+
+</body>
+	<script type="text/javascript">
+		function designClick(btnNum){
+			btnNum -= 1;
+			designElements = document.getElementsByClassName("designElement")
+			el = designElements[btnNum];
+			el.classList.remove("hidden");
+			el.classList.add("shown")
+		}
+		function closeSlide(slideNum){
+			slideNum -=1;
+			designElements = document.getElementsByClassName("designElement")
+			el = designElements[slideNum];
+			el.classList.add("hidden");
+			el.classList.remove("shown");
+		}
+	</script>
+</html>

@@ -1,0 +1,260 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;500;600&display=swap');
+
+
+*{
+	box-sizing:border-box;
+	margin:0;
+}
+
+@media (min-aspect-ratio: 0.7){
+	body{
+		display:none;
+	}
+}
+.section{
+	width:100vw;
+	height:100vh;
+}
+.hidden{
+	visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+.shown{
+	visibility: visible;
+	opacity: 1;
+}
+/*first page*/
+
+.section#one{
+	background: url('../img/mobile welcome.png');
+	background-size:cover;
+}
+
+
+header{
+	height:7.5vh;
+}
+#headerLogo{
+	height:5.5vh;
+
+	margin-top:2vh;
+	margin-left:3vw;
+}
+
+#welcomePage{
+	width:100vw;
+	height:89.5vh;
+}
+
+#welcomePage #title{
+	width:80vw;
+
+	margin-left: 8vw;
+	margin-top:3.5vh;
+
+	font-family:'Crimson Pro', serif;
+	font-size:36px;
+	font-weight:600;
+	line-height:40px;
+}
+
+#welcomePage #brief{
+	width:75vw;
+
+	margin-left:8vw;
+
+	font-family:'Crimson Pro', serif;
+
+}
+
+#welcomePage #regIntBtn{
+	width:60vw;
+	height:7vh;
+
+
+	border-radius:3.5vh;
+	border: 1px solid black;
+
+	background:none;
+
+	margin-left:20vw;
+	margin-top:5vh;
+
+	font-size:20px;
+	font-family: 'Crimson Pro', Serif;
+}
+
+/* Design page */
+.section#three{
+	background:black;
+
+}
+
+.section#three .subcontainer{
+	position:absolute;
+
+	width:80%;
+	height:80%;
+
+	margin-top:10%;
+	margin-left:10%;
+
+	background:url('../img/exploded.jpg');
+	background-size:cover;
+	background-position:center center;
+}
+
+.section#three .subcontainer .designBtn{
+	width:5vw;
+	height:5vw;
+
+	background:white;
+
+	border-radius:5vw;
+	border:none;
+	display:block;
+}
+
+/* design page buttons */
+
+/* Iphone 13/12 Pro aspect ratio is 0.46 */
+@media all and (max-aspect-ratio:0.5){
+	#btnOne{
+		margin-left:25vw;
+		margin-top:36.5%;
+	}
+
+	#btnTwo{
+		margin-left:50vw;
+		margin-top:25%;
+	}
+
+	#btnThree{
+		margin-left:22vw;
+		margin-top:30%;
+	}
+	#btnFour{
+		margin-left:40vw;
+		margin-top:60%;
+	}
+}
+
+
+/* Iphone SE aspct ratios */
+@media all and (min-aspect-ratio:0.5){
+	#btnOne{
+		margin-left:27vw;
+		margin-top:30%;
+	}
+
+	#btnTwo{
+		margin-left:50vw;
+		margin-top:20%;
+	}
+
+	#btnThree{
+		margin-left:22vw;
+		margin-top:24%;
+	}
+	#btnFour{
+		margin-left:40vw;
+		margin-top:35%;
+	}
+}
+
+#three #sectionTitle{
+	font-family: 'Crimson Pro', Serif;
+	font-weight:600;
+	color:white;
+
+	width:100vw;
+	text-align:center;
+	margin-left:-2vw;
+	margin-top:5vh;
+
+	position:absolute;
+	z-index:1;
+}
+
+.designElement{
+	position:absolute;
+	z-index:2;
+	width:100%;
+	height:100%;
+	background-color: rgb(0,0,0, 0.8)
+}
+
+.designElement .header{
+	height:10%;
+	width:100%;
+}
+
+.designElement .header .title{
+	font-family:'Crimson Pro', Serif;
+	font-size:30px;
+
+	color:white;
+	margin-left:8vw;
+	margin-top:5vh;
+	display:inline-block;
+}
+
+.designElement .header .title .letter{
+	font-weight:600;
+}
+.designElement .header .title .word{
+	font-weight:300;
+	text-decoration:underline;
+}
+.designElement .header a{
+	text-decoration:none;
+	color:white;
+}
+.designElement .header .closeIcon{
+	display:inline-block;
+	float:right;
+	margin-right:13%;
+	margin-top:5.5vh;
+}
+/* Iphone 12 Pro/13 has aspect ratio 0.46*/
+@media all and (max-aspect-ratio:0.5){
+	.designElement .header .closeIcon{
+		width:8%;
+	}
+}
+
+/*Iphone SE*/
+@media all and (min-aspect-ratio:0.5){
+	.designElement .header .title{
+		margin-left:16vw;
+	}
+	.designElement .header .closeIcon{
+		width:7%;
+		margin-top:5.5vh;
+		margin-right:15%;
+	}
+}
+.designElement .content{
+	color:white;
+	width:100vw;
+	height:90%;
+
+	padding-left:10vw;
+	padding-right:10vw;
+}
+.designElement .content .subtitle{
+	font-family:'Crimson Pro', serif;
+	font-weight:700;
+}
+
+.designElement .content .para{
+	font-family: 'Crimson Pro', serif;
+	font-size:20px;
+
+}

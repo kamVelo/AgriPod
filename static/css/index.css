@@ -111,8 +111,9 @@ body {
   position:absolute;
   top:0;
   left:0;
-  width:100vw;
+  /*width:100vw;*/
   object-fit:cover;
+  height:100%;
 }
 
 
@@ -136,9 +137,6 @@ body {
   margin-top:30vh;
 }
 @media (max-aspect-ratio:1.77){
-  .start.desktop #frontvid{
-      height:100%;
-  }
   .start.desktop p{
     font-size:1.75vmax;
   }
@@ -667,6 +665,11 @@ p.pageMissing{
   padding-top:7vh;
   box-sizing:border-box;
 }
+@media not all and (min-resolution:.001dpcm){ 
+  .quotesContainer{
+    padding-top: 3vh;
+  }
+}
 .quoteContainer{
   height:100%;
   width:40vw;
@@ -683,7 +686,7 @@ p.pageMissing{
   margin-left:20vw;
 }
 .quoteContainer .quote{
-  font-size:5vh;
+  font-size:3vw;
 }
 
 
