@@ -117,8 +117,11 @@ header{
 
 	background:white;
 
-	border-radius:50%;
+	border-radius:5vw;
 	border:none;
+
+	padding:0;
+
 	display:block;
 }
 
