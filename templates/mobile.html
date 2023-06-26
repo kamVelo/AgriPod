@@ -31,6 +31,80 @@
 			</button>
 		</div>
 	</div>
+	<div class="section" id="two">
+		<div class="third" id="awardContainer">
+			<button type="button" name="button" class="arrow left" onclick="changeSlide('award', -1)"></button>
+
+			<button type="button" name="button" class="arrow right" onclick="changeSlide('award', 1)"></button>
+			<div class="award shown">
+				<div class="titleContainer">
+					<p class="title">First Place</p>
+				</div>
+				<div class="imgContainer">
+					<img src="{{url_for('static', filename='img/siemens.jpg')}}" alt="" class="pic">
+				</div>
+				<h3>Siemens Digital Decarbonisation Award</h3>
+			</div>
+			<div class="award hidden" id="bigbang">
+				<div class="leftSection">
+					<h1 class="title">Runners Up</h1>
+					<h4 class="subtitle">Big Bang<br>Senior Engineering</h4>
+				</div>
+				<div class="rightSection">
+					<img src="{{url_for('static', filename='img/bigbang.jpg')}}" alt="">
+				</div>
+			</div>
+			<div class="award hidden" id="teentech">
+				<div class="titleContainer">
+					<p class="title">Winners</p>
+				</div>
+				<div class="imgContainer">
+					<img src="{{url_for('static', filename='img/teentech.webp')}}" alt="" class="pic">
+				</div>
+				<h3>TeenTech Overall Best Innovation</h3>
+			</div>
+		</div>
+
+		<div class="line"></div>
+		<div class="third">
+			<div class="problem">
+				<h1>The Problem</h1>
+				<div class="paraContainer">
+					<p>Farmers know roughly when to apply fertiliser, but lack the equipment to ascertain the exact conditions in their soil.</p>
+				</div>
+
+			</div>
+		</div>
+		<div class="blackBox">
+
+		</div>
+		<div class="line"></div>
+		<div class="third statContainer">
+			<button type="button" name="button" class="arrow left" onclick="changeSlide('stat', -1)"></button>
+
+			<button type="button" name="button" class="arrow right" onclick="changeSlide('stat', 1)"></button>
+			<div class="stat shown">
+				<p class="number">18%</p>
+				<p class="desc">Of global fertiliser <strong>pollution</strong> <br id="statBreak">due to India.</p>
+			</div>
+			<div class="stat hidden">
+				<p class="number">150M</p>
+				<p class="desc">Tonnes of fertiliser produced <strong>globally</strong>.</p>
+			</div>
+			<div class="stat hidden">
+				<p class="number">75M</p>
+				<p class="desc">Tonnes wasted due to <strong>inefficient</strong>	farming.</p>
+			</div>
+			<div class="stat hidden">
+				<p class="number">65%</p>
+				<p class="desc">Of fertiliser <strong>not absorbed</strong> by soil.</p>
+			</div>
+			<div class="stat hidden">
+				<p class="number">500M</p>
+				<p class="desc">Tonnes of CO2 emitted in Ammonia production annually.</p>
+			</div>
+		</div>
+	</div>
 	<div class="section" id="three">
 		<h1 id="sectionTitle">Design</h1>
 		<div class="subcontainer">
@@ -96,19 +170,56 @@
 
 </body>
 	<script type="text/javascript">
+
+		// functions to hide/show elements
+		function hide(el){
+			el.classList.remove("shown");
+			el.classList.add("hidden");
+		}
+		function show(el){
+			el.classList.add("shown");
+			el.classList.remove("hidden");
+		}
+		// keeps track of slide number for all 3 slideshows
+		var slideCounter = {
+			'award' : 0,
+			'stat': 0,
+			'member': 0
+		};
+
+		function changeSlide(className, direction){
+			// className is the class name of each slide
+			// direction is an int where -1 represents left and +1 represents right
+			currSlideNum = slideCounter[className];
+			nextSlideNum = currSlideNum + direction;
+			slides = document.getElementsByClassName(className);
+
+			if(nextSlideNum > slides.length - 1) nextSlideNum = 0;
+			else if(nextSlideNum < 0) nextSlideNum = slides.length-1;
+
+			currSlide = slides[currSlideNum];
+			nextSlide = slides[nextSlideNum];
+			hide(currSlide);
+			show(nextSlide);
+			slideCounter[className] = nextSlideNum;
+		}
+
+		// opens design text
 		function designClick(btnNum){
 			btnNum -= 1;
 			designElements = document.getElementsByClassName("designElement")
 			el = designElements[btnNum];
-			el.classList.remove("hidden");
-			el.classList.add("shown")
+			show(el);
 		}
+
+		// closes design text
 		function closeSlide(slideNum){
 			slideNum -=1;
 			designElements = document.getElementsByClassName("designElement")
 			el = designElements[slideNum];
-			el.classList.add("hidden");
-			el.classList.remove("shown");
+			hide(el);
 		}
+
+
 	</script>
 </html>

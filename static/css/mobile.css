@@ -21,13 +21,10 @@
 	height:100vh;
 }
 .hidden{
-	visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.5s linear;
+	display:none
 }
 .shown{
-	visibility: visible;
-	opacity: 1;
+	display:block;
 }
 /*first page*/
 
@@ -90,6 +87,254 @@ header{
 	font-family: 'Crimson Pro', Serif;
 	color:black;
 }
+
+/* fact section */
+#two{
+	height:60vh;
+	position:relative;
+}
+
+#two .third{
+	height:calc(20vh - 1px);
+	width:100vw;
+}
+#two .line{
+	height:1.5px;
+	width:80vw;
+	margin-left:10vw;
+	background-color:black;
+}
+
+.arrow{
+	position:absolute;
+	border:none;
+	padding:0;
+	/* margin-top set in next @media*/
+}
+
+.left{
+	left:0;
+	margin-left:3vw;
+	width:4.7692308vw;
+	height:10vw;
+	background:url('../img/leftArrowMobile.png');
+	background-size:cover;
+}
+.right{
+	right:0;
+	margin-right:3vw;
+	width:4.9606299vw;
+	height:10vw;
+	background:url('../img/rightArrowMobile.png');
+	background-size:contain;
+}
+
+#two .award{
+	width:calc(84vw);
+	height:100%;
+	margin-left:8vw;
+	padding-left:5vw;
+	padding-right:5vw;
+	padding-top:2vh;
+
+	animation-name:fade;
+	animation-duration:1s;
+}
+@keyframes fade{
+	from{
+		opacity:0.4;
+	}
+	to{
+		opacity:1;
+	}
+}
+
+@media all and (max-aspect-ratio:1/2){
+	#awardContainer{
+		height:17vh !important;
+	}
+	#two .arrow{
+		margin-top:calc(8.5vh - 2.5vw);
+	}
+}
+@media all and (min-aspect-ratio:1/2){
+	#awardContainer{
+		height:calc(20vh - 1px) !important;
+	}
+	#two .arrow{
+		margin-top:calc(10vh - 2.8vw);
+	}
+}
+
+.award .titleContainer{
+	font-family:'Crimson Pro', serif;
+	font-size:36px;
+	font-weight:400;
+	display:inline-block;
+	float:left;
+	width:60%;
+	height:5vh;
+	margin-left:5vw;
+	margin-top:3vh;
+}
+.award .imgContainer{
+	float:right;
+	width:20%;
+	display:inline-block;
+	margin-right:5vw;
+}
+.award .pic{
+	width:15vw;
+	height:15vw;
+	display:inline-block;
+	margin-top:2vh;
+
+}
+
+.award h3{
+	width:100%;
+	position:relative;
+	display:block;
+	font-size:16px;
+	margin-top:11vh;
+	font-weight:bold;
+	margin-left:5vw;
+}
+
+@media all and (min-aspect-ratio:1/2){
+	.award h3{
+		margin-top:13vh;
+	}
+}
+
+
+/*big bang award specific*/
+#bigbang{
+
+}
+#bigbang .leftSection{
+	width:50%;
+	float:left;
+	display:inline-block;
+	height:100%;
+	margin-left:5vw;
+}
+#bigbang .leftSection .title{
+	font-size:26px !important;
+	margin-bottom:2vh;
+	font-family:'Crimson Pro', serif;
+	font-weight:400 !important;
+}
+@media all and (max-aspect-ratio:1/2){
+	#bigbang .leftSection .title{
+		font-size:30px !important;
+	}
+}
+
+
+#bigbang .rightSection{
+	width:30%;
+	float:right;
+	margin-right:5vw;
+	display:inline-block;
+	overflow:hidden;
+	height:100%;
+}
+#bigbang .rightSection img{
+	width:100%
+}
+
+/* teentech specifically */
+#teentech .titleContainer{
+	width:50%;
+}
+
+#teentech .imgContainer{
+	width:40%;
+	margin-right:0;
+}
+#teentech .imgContainer img{
+	width:100%;
+}
+#teentech h3{
+	font-size:18px;
+}
+
+/* problem section */
+.blackBox{
+	width:15vw;
+	height:1vh;
+	background:black;
+	margin-left:10vw;
+}
+
+.problem{
+	width:100vw;
+	height:95%;
+	font-family:'Crimson Pro', serif;
+}
+.problem h1{
+	width:100vw;
+	text-align:center;
+}
+.problem .paraContainer{
+	width:70vw;
+	margin-left:15vw;
+}
+.problem p{
+	width:100%;
+	text-align:center;
+	font-size:1.1em;
+}
+
+@media all and (min-aspect-ratio:1/2){
+	.problem p{
+		font-size:0.95em;
+	}
+}
+
+.stat{
+	width:80vw;
+	height:100%;
+	margin-left:10vw;
+	padding-top:7%;
+}
+
+.stat .number, .stat .desc{
+	width:100%;
+	text-align: center;
+}
+
+.stat .number{
+	font-family:'Noto Serif Display', Serif;
+	font-size:40px;
+}
+
+.stat .desc{
+	margin-top:3%;
+	font-family:'Crimson Pro', Serif;
+	font-size:1.2em;
+}
+
+@media all and (min-aspect-ratio:1/2){
+	.stat .number{
+		font-size:34px;
+	}
+
+	.stat .desc{
+		margin-top:2%;
+		font-size:1em;
+	}
+	#statBreak{
+		display:none;
+	}
+	.statContainer .arrow{
+		margin-top:calc(10vh - 8vw) !important;
+	}
+}
+
+
+
 
 /* Design page */
 .section#three{

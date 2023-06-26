@@ -269,7 +269,7 @@ p.pageMissing{
   font-size:4.5vmin;
   font-weight:700;
 }
-@media (max-aspect-ratio:1.7){
+@media (max-aspect-ratio:17/10){
   .award h1{
     font-size: 11vmin;
   }
@@ -665,7 +665,7 @@ p.pageMissing{
   padding-top:7vh;
   box-sizing:border-box;
 }
-@media not all and (min-resolution:.001dpcm){ 
+@media not all and (min-resolution:.001dpcm){
   .quotesContainer{
     padding-top: 3vh;
   }
