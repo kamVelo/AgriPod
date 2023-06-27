@@ -136,6 +136,9 @@ with app.app_context():
 @app.route("/index/")
 @app.route("/")
 def index():
+    return render_template("index.html")
+@app.route("/desktop/")
+def desktop():
     """
     current test run data:
     fName = Simul
@@ -166,7 +169,22 @@ def index():
     imgs = [html.unescape(img) for img in imgs]
 
     imgs = json.dumps(imgs)
-    return render_template("mobile.html", imgs=imgs)
+    return render_template("desktop.html", imgs=imgs)
+
+@app.route("/mobile/", methods=["GET", "POST"])
+def mobile():
+    if request.method=="GET":
+        return render_template("mobile.html")
+    else:
+        name = request.form["name"]
+        email = request.form["email"]
+        f = open("interestLog.txt", "a")
+        f.write(f"{name}\n{email}\n")
+        f.close()
+
+        return render_template("mobile.html")
+
+
 @app.errorhandler(403)
 def forbidden(e):
     return "Wrong Network Name/Password/ID", 403

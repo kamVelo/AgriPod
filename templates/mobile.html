@@ -9,10 +9,11 @@
 	<link rel="stylesheet" href="{{url_for('static', filename='css/normalize.css')}}">
 
 	<link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='logo/apple-touch-icon.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='logo/favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='logo/favicon-16x16.png')}}">
-    <link rel="manifest" href="{{url_for('static',filename='logo/site.webmanifest')}}">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='logo/favicon-32x32.png')}}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='logo/favicon-16x16.png')}}">
+  <link rel="manifest" href="{{url_for('static',filename='logo/site.webmanifest')}}">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
 	<div class="section" id="one">
@@ -26,9 +27,20 @@
 			<p id="brief">
 				AgriPod advises farmers on the optimal times to apply fertiliser, based on real-time soil conditions.
 			</p>
-			<button id="regIntBtn">
+			<button id="regIntBtn" onclick="showEmailBox()">
 				Register Interest
 			</button>
+
+			<div class="emailBox hidden" data-aos="fade-up">
+				<form class="" method="post">
+					<label for="name">Please Enter Your Full Name:</label>
+					<input type="text" name="name" value="">
+					<label for="email">Please Enter Your Email:</label>
+					<input type="email" name="email" value="">
+					<input type="submit" name="submit" value="Submit">
+				</form>
+			</div>
+
 		</div>
 	</div>
 	<div class="section" id="two">
@@ -108,10 +120,10 @@
 	<div class="section" id="three">
 		<h1 id="sectionTitle">Design</h1>
 		<div class="subcontainer">
-			<button type="button" name="button" class="designBtn" id="btnOne" onClick="designClick(1)"></button>
-			<button type="button" name="button" class="designBtn" id="btnTwo" onClick="designClick(2)"></button>
-			<button type="button" name="button" class="designBtn" id="btnThree" onClick="designClick(3)"></button>
-			<button type="button" name="button" class="designBtn" id="btnFour" onClick="designClick(4)"></button>
+			<button type="button" name="button" class="designBtn" id="btnOne" onClick="designClick(1)" data-aos="fade-up" data-aos-duration="1000"></button>
+			<button type="button" name="button" class="designBtn" id="btnTwo" onClick="designClick(2)" data-aos="fade-up"></button>
+			<button type="button" name="button" class="designBtn" id="btnThree" onClick="designClick(3)" data-aos="fade-up"></button>
+			<button type="button" name="button" class="designBtn" id="btnFour" onClick="designClick(4)" data-aos="fade-up"></button>
 		</div>
 		<div class="designElement hidden">
 			<div class="header">
@@ -245,6 +257,25 @@
 	</div>
 
 
+	<div class="footer section">
+		<div class="logoContainer">
+			<img src="{{url_for('static', filename='img/agripodLogoWhite.png')}}" alt="">
+		</div>
+		<div class="taglineContainer">
+			<p>Tackling fertiliser misapplication across the world.</p>
+		</div>
+
+		<div class="socialMediaContainer">
+			<a href="https://www.linkedin.com/company/agripod">
+				<img src="{{url_for('static', filename='img/linkedinWhite.webp')}}" alt="">
+			</a>
+			<a href="https://www.instagram.com/agripodofficial/">
+				<img src="{{url_for('static', filename='img/igWhite.webp')}}" alt="">
+			</a>
+		</div>
+	</div>
+
+
 </body>
 	<script type="text/javascript">
 
@@ -296,7 +327,10 @@
 			el = designElements[slideNum];
 			hide(el);
 		}
-
-
+		function showEmailBox(){
+			el = document.getElementsByClassName("emailBox")[0];
+			show(el);
+		}
+		AOS.init();
 	</script>
 </html>
