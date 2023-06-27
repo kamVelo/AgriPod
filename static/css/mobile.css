@@ -759,7 +759,12 @@ header{
 .footer{
 	background-color:black;
 	color:white;
-	height:30vh;
+	height:20vh;
+}
+@media all and (min-aspect-ratio:1/2){
+	.footer{
+		height:30vh;
+	}
 }
 .footer .logoContainer{
 	width:33vw;
