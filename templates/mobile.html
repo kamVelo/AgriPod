@@ -133,7 +133,7 @@
 			</div>
 			<div class="content">
 				<h1 class="subtitle">Accurate and Reliable</h1>
-				<p class="para">AgriPod uses custom PCBs, designed in house and manufactured by one of the world’s leading PCB manufacturers.<br><br>The board features easy troubleshooting in the field via UART and emergency charging via USB. All data is backed up onto an SD card in case of sudden power loss.<br><br>Combining multiple layers of battery safety in both hardware and software, AgriPod can adjust sampling and transmission frequency to maximise battery life.<br><br>The Agripod measures soil humidity, temperature, air humidity which we combine with weather data in our algorithm.  </p>
+				<p class="para">AgriPod uses custom PCBs, designed in house and manufactured by one of the world’s leading PCB manufacturers.<br><br>The board features easy troubleshooting in the field via UART and emergency charging via USB. All data is backed up onto an SD card in case of sudden power loss.<br><br>Combining multiple layers of battery safety in both hardware and software, AgriPod can adjust sampling and transmission frequency to maximise battery life.<br><br>The Agripod measures soil moisture, temperature, and air humidity which we combine with weather data in our algorithm.  </p>
 			</div>
 
 		</div>
@@ -157,16 +157,93 @@
 				<h1 class="subtitle">Algorithm</h1>
 				<p class="para">
 					The algorithm has been developed in contact with professors and researchers from Oxford University, Bangor University and Durham University. 
-<br><br>Currently, the algorithm will map out and predict optimum fertiliser values, providing a recommended fertilising window (typically a few days) based on crop type. After gathering a large dataset comparative effects, we plan to train neural networks which can find patterns we have not yet considered.
+<br><br>Currently, the algorithm will map out and predict optimum fertiliser values, providing a recommended fertilising window (typically a few days) based on crop type. After gathering a large dataset, we plan to train neural networks which can find patterns we have not yet considered.
 				</p>
 			</div>
 
 		</div>
 	</div>
 
-	<div class="section" id="four">
+	<div class="section" id="finance">
+		<div class="header">
+			<p>Finance</p>
+		</div>
+		<div class="priceContainer">
+			<div class="pounds">
+				<p>£0.72</p>
+			</div>
+			<div class="line">
 
+			</div>
+			<div class="rupees">
+				<p>₹68</p>
+			</div>
+		</div>
+		<p class="priceDesc">Cost per AgriPod / Month</p>
+
+		<div class="impactMetrics">
+			<div class="metric left">
+				<p class="number">₹31,047*</p>
+				<p class="desc">Profit increase to the farmer per harvest</p>
+			</div>
+			<div class="metric right">
+				<p class="number">12 pods</p>
+				<p class="desc">To cover a medium sized farm in India</p>
+			</div>
+			<div class="metric left">
+				<p class="number">39.83kg</p>
+				<p class="desc">Carbon footprint for 50 pods</p>
+			</div>
+			<div class="metric right">
+				<p class="number">12%*</p>
+				<p class="desc">Increase in farmer's income</p>
+			</div>
+		</div>
+
+		<p class="disclaimer">*Calculated at <strong>minimum</strong> government <br> <span>fallback wheat prices</span></p>
 	</div>
+
+	<div class="section" id="team">
+		<div class="header">
+			<p>Our Team</p>
+		</div>
+		<div class="blackBox">
+
+		</div>
+		<div class="line">
+
+		</div>
+		<div class="membersContainer">
+			<button type="button" name="button" class="arrow left" onclick="changeSlide('member', -1)"></button>
+
+			<button type="button" name="button" class="arrow right" onclick="changeSlide('member', 1)"></button>
+			<div class="member shown">
+				<p class="title">Software Developer</p>
+				<img src="{{url_for('static', filename='img/aliCropped.png')}}" alt="Ali Kamel Picture" class="pfp">
+				<p class="name">Ali Kamel</p>
+				<a href="https://linkedin.com/in/aykamel">
+					<img src="{{url_for('static', filename='img/linkedin.webp')}}" alt="">
+				</a>
+			</div>
+			<div class="member hidden">
+				<p class="title">Hardware Engineer</p>
+				<img src="{{url_for('static', filename='img/lucasCropped.png')}}" alt="Lucas Hoffmann Picture" class="pfp">
+				<p class="name">Lucas Hoffmann</p>
+				<a href="https://linkedin.com/in/lhffmann">
+					<img src="{{url_for('static', filename='img/linkedin.webp')}}" alt="">
+				</a>
+			</div>
+			<div class="member hidden">
+				<p class="title">Finance</p>
+				<img src="{{url_for('static', filename='img/adi.png')}}" alt="Aditya Mathur Picture" class="pfp">
+				<p class="name">Aditya Mathur</p>
+				<a href="https://linkedin.com/in/adi-mathur">
+					<img src="{{url_for('static', filename='img/linkedin.webp')}}" alt="">
+				</a>
+			</div>
+		</div>
+	</div>
+
 
 </body>
 	<script type="text/javascript">

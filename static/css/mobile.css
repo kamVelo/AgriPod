@@ -112,17 +112,17 @@ header{
 	/* margin-top set in next @media*/
 }
 
-.left{
+.arrow.left{
 	left:0;
-	margin-left:3vw;
+	margin-left:5vw;
 	width:4.7692308vw;
 	height:10vw;
 	background:url('../img/leftArrowMobile.png');
 	background-size:cover;
 }
-.right{
+.arrow.right{
 	right:0;
-	margin-right:3vw;
+	margin-right:5vw;
 	width:4.9606299vw;
 	height:10vw;
 	background:url('../img/rightArrowMobile.png');
@@ -199,6 +199,7 @@ header{
 	margin-top:11vh;
 	font-weight:bold;
 	margin-left:5vw;
+	font-family:'Crimson Pro', Serif;
 }
 
 @media all and (min-aspect-ratio:1/2){
@@ -506,4 +507,223 @@ header{
 	font-family: 'Crimson Pro', serif;
 	font-size:20px;
 
+}
+
+
+/* Finance */
+#finance {
+	height:90vh;
+}
+#finance .header{
+	width:100vw;
+	height:10vh;
+}
+#finance .header p{
+	width:100%;
+	text-align:center;
+	margin-top:6vh;
+	font-size:40px;
+	font-family:'Crimson Pro', serif;
+	font-weight:bold;
+}
+
+#finance .priceContainer{
+	width:58vw;
+	height:28vh;
+	margin-left:21vw;
+}
+
+#finance .pounds, .rupees{
+	font-family:'Noto Serif Display';
+	font-size:90px;
+	text-align:center;
+}
+
+@media all and (min-aspect-ratio:1/2){
+	#finance .priceContainer{
+		height:25vh;
+	}
+	#finance .pounds, .rupees{
+		font-size:68px;
+	}
+}
+
+
+
+#finance .priceContainer .line{
+	width:40%;
+	height:2px;
+	background:black;
+	margin-left:30%;
+	margin-top:1vh;
+	margin-bottom:0.9vh;
+}
+
+#finance .priceDesc{
+	width:100vw;
+	text-align:center;
+	font-family:'Crimson Pro', Serif;
+	font-weight:600;
+	font-size:1.2em;
+	margin-top:2vh;
+	height:3vh;
+}
+
+@media all and (min-aspect-ratio:1/2){
+	#finance .priceDesc{
+		font-size:1em;
+		margin-top:3vh;
+	}
+}
+
+#finance .impactMetrics{
+	width:100vw;
+	height:45vh;
+	padding-left:7vw;
+	padding-right:7vw;
+	padding-top:5vh;
+}
+
+#finance .impactMetrics .metric{
+	width:40vw;
+	height:20vh;
+	display:inline-block;
+}
+.metric.left{
+	float:left;
+	margin-right:3vw;
+}
+.metric.right{
+	float:right;
+}
+
+.metric .number{
+	font-family:'Noto Serif Display', Serif;
+	font-size:32px;
+	width:100%;
+	text-align:center;
+	margin-bottom:3vh;
+}
+.metric .desc{
+	width:100%;
+	text-align:center;
+	font-family:'Crimson Pro', Serif;
+	font-size:1.2em;
+}
+
+@media all and (min-aspect-ratio:1/2){
+	#finance .impactMetrics{
+		height:60vh;
+	}
+	#finance .impactMetrics .metric{
+		height:25vh;
+	}
+}
+
+#finance .disclaimer{
+	float:right;
+	margin-right:3vw;
+	font-family:'Crimson Pro';
+	color:grey;
+	font-size:0.8em;
+	margin-top:-3vh;
+	z-index:1;
+}
+@media all and (min-aspect-ratio:1/2){
+	#finance .disclaimer{
+		font-size:0.7em;
+		width:48vw;
+		margin-top:-10vh;
+	}
+}
+
+.disclaimer span{
+	float:right;
+}
+
+/* our team section */
+
+#team{
+	height:55vh;
+
+}
+
+#team .header{
+	width:100%;
+	text-align:center;
+	margin-top:2vh;
+	margin-bottom:2vh;
+}
+
+@media all and (min-aspect-ratio:1/2){
+	#finance{
+		height:100vh;
+	}
+	#team .header{
+		margin-top:1vh;
+	}
+}
+#team .header p{
+	font-family:'Crimson Pro', Serif;
+	font-weight:bold;
+	font-size:40px;
+}
+
+
+#team .line{
+	width:80vw;
+	height:1.5px;
+	margin-left:10vw;
+	background:black;
+}
+#team .blackBox{
+	width:18vw;
+}
+
+#team .membersContainer{
+	width:100vw;
+	margin-top:5vh;
+}
+
+.membersContainer .arrow{
+	margin-top:calc(19vh - 8vw) !important;
+}
+
+@media all and (min-aspect-ratio:1/2){
+	.membersContainer .arrow{
+		margin-top:calc(19vh - 3.5vw) !important;
+	}
+}
+#team .member{
+	width:80vw;
+	margin-left:10vw;
+}
+
+.member .title{
+	font-size:28px;
+	font-weight:400;
+	font-family:'Crimson Pro', Serif;
+	width:100%;
+	text-align:center;
+}
+
+.member .pfp{
+	margin-left:25%;
+	margin-top:2vh;
+	width:50%
+}
+
+.member .name{
+	width:100%;
+	text-align:center;
+	font-family:'Crimson Pro', Serif;
+	font-size:2.2em;
+	font-weight:bold;
+}
+.member a{
+	margin-left:37.5vw;
+}
+.member a, a img{
+	width:5vw;
+	margin-top:1.8vh;
 }
